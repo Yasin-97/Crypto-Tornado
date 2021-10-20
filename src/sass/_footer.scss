@@ -1,0 +1,21 @@
+.footer {
+    background-color: $bgSecondary;
+    color: $text-secondary;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+
+    h4{
+        color: $text-secondary;
+        font-weight: 600;
+        text-align: center;
+    }
+    a{
+        color: $text-primary;
+        transition: color .3s ease-in-out;
+        &:hover{
+            color: $text-tertiary !important;
+        }
+    }
+}

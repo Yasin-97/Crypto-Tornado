@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$text-primary:#d8c690;
+$text-secondary:#aaa;
+$text-tertiary:#be9e4e;
+$bgPrimary:#fff;
+$bgSecondary: #1f1f1f;
+$pink: #0071bd;
+$light-blue: #e6f7ff;
+$border: #d9d9d9;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+a:hover{
+    color: $pink !important;
+}
+
+.app{
+    display: flex;
+    overflow: hidden;
+}
+
+h4{
+
+}
+
+
+
+
