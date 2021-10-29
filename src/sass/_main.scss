@@ -3,25 +3,28 @@
     width: 100%;
 }
 
-.routes{
-    padding: 20px;
+.heading{
+    font-weight: 600;
+    color: $color-dark;
 }
 
+.stats-container{
+    width: 100%;
+    .stat{
+        margin: .5rem;
+        display: inline-block;
+        width: 40%;
+        p{
+            font-size: 11px;
+            color: lighten($color:$color-dark, $amount: 40);
+            font-weight: 600;
+            letter-spacing: .2px;
 
-@media screen and (max-width:1300px){
-    .main{
-        margin-left: 50px;
+            // color: red;
+        }
+        b{
+            margin-left: .2rem;
+        }
     }
 }
 
-@media screen and (max-width:1170px){
-    .main{
-        margin-left: 50px;
-    }
-}
-
-@media screen and (max-width:1000px){
-    .main{
-        margin-left: 75px;
-    }
-}
