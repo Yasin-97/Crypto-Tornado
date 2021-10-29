@@ -16,6 +16,10 @@ const Homepage = () => {
     <div className='stat'><p>Total 24h Volume</p><b>{millify(globalStats.total24hVolume)}</b></div>
     <div className='stat'><p>Total Markets</p><b>{millify(globalStats.totalMarkets)}</b></div>
 </div>
+<div>
+<h2 className='heading'>Global Crypto Stats</h2>
+<h4><Link>Show More</Link></h4>
+</div>
   </>;
 };
 
