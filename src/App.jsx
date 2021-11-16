@@ -13,6 +13,7 @@ function App() {
       <div className="navbar">
         <Navbar />
       </div>
+      <div style={{width: '100%'}}>
       <div className="main">
           <div className="routes">
             <Switch>
@@ -33,6 +34,7 @@ function App() {
               </Route>
             </Switch>
           </div>
+      </div>
         <div className="footer">
           <h4>
             Cryptornado
@@ -46,7 +48,7 @@ function App() {
             <Link to="/news">News</Link>
           </div>
         </div>
-      </div>
+        </div>
     </div>
   );
 }
