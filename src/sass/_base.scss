@@ -9,10 +9,31 @@ $text-tertiary:#be9e4e;//light
 // $text-tertiary-dark
 $color-light: #cfcfcf;
 $color-dark: #1f1f1f;
-
+$color-light-yellow:#ffc30b;
+// $color-light-yellow:#FAD961;
+// $color-dark-yellow:#F76B1C;
+$color-dark-yellow:#daa520;
 $bgPrimary:#fff;
 $bg-secondary: $color-dark;//light
 // $bg-secondary-dark
+
+$navbar-height:60px;
+$sideNavbar-minWidth:240px;
+
+
+@mixin container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+@mixin flex-around {
+    display: flex;
+justify-content: space-around;
+}
 
 * {
     margin: 0;
@@ -21,14 +42,7 @@ $bg-secondary: $color-dark;//light
     font-family: 'Roboto', sans-serif !important;
 }
 
-.app{
-    display: flex;
-    overflow: hidden;
-}
 
-h4{
-
-}
 
 
 

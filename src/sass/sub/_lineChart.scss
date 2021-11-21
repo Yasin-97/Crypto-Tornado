@@ -1,0 +1,27 @@
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+
+  .chart-title {
+    color: darken($text-tertiary, 5%);
+  }
+
+  .price-container {
+    display: flex;
+
+    .price-change {
+      margin-right: 0.7rem;
+      color: darken($color-light, 15%) !important;
+
+      b {
+        color: darken($color-light, 10%);
+      }
+    }
+    .current-price {
+      color: darken($color-light, 15%) !important;
+      b {
+        color: darken($color-light, 10%);
+      }
+    }
+  }
+}

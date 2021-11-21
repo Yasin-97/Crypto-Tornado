@@ -1,0 +1,71 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead th {
+    position: sticky;
+    top: 60px;
+    background: $bg-secondary;
+    padding: 1.3rem;
+    color: $color-light;
+    font-weight: bold;
+    text-align: left;
+    @media only screen and (min-width: 768px) {
+      top: 0;
+    }
+  }
+  tbody {
+    tr {
+      background: lighten($color: $bg-secondary, $amount: 12);
+
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+
+      &:nth-of-type(4n + 1) {
+        background: lighten($color: $bg-secondary, $amount: 10);
+      }
+
+      &:hover {
+        background: lighten($color: $bg-secondary, $amount: 15);
+      }
+    }
+
+    td {
+      color: darken($color: $color-light, $amount: 20);
+      padding: 1.1rem;
+      text-align: left;
+    }
+    td.nameCell{
+      display: flex;
+      img{
+        width: 20px;
+        margin: 0 5px;
+      }
+    }
+
+    .descCell-container {
+      max-height: 0px;
+      padding: 0;
+    }
+
+    .descCell {
+      max-width: 100%;
+      height: 0;
+      padding: 0 0.5rem;
+      overflow: hidden;
+      cursor: initial;
+      background: lighten($color: $bg-secondary, $amount: 5);
+      transition: height 0.2s ease-in-out;
+    }
+
+    h3,
+    h2 {
+      padding-left: 0.5rem;
+      color: $color-light;
+    }
+
+    p {
+      color: darken($color: $color-light, $amount: 20);
+    }
+  }
+}

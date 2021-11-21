@@ -1,15 +1,22 @@
 import React, { useState ,useEffect} from "react";
-import { Link } from "react-router-dom";
-import CryptoCard from './CryptoCard'
+import {CryptoCard,usePagination,ErrorMessage} from '../../components'
 
-import { useGetCryptosQuery } from "../services/cryptoApi";
-import Loading from './Loading'
+import { useGetCryptosQuery } from "../../services/cryptoApi";
+import Loading from '../sub/Loading'
 
 const Cryptocurrencies = ({number}) => {
     const numberOfCryptos=number?number:100
   const { data: cryptosList, isFetching } = useGetCryptosQuery(numberOfCryptos);
-  const [cryptos,setCryptos]=useState([])
+  const [searchedCryptos,setSearchedCryptos]=useState([])
   const [searchText,setSearchText]=useState('')
+  const {setInputData,currentPageData,paginate}=usePagination()
+
+  const cryptos=searchText!==''?searchedCryptos:currentPageData
+
+
+  useEffect(()=>{
+    setInputData(cryptosList?.data?.coins)
+  },[cryptosList])
 
 useEffect(()=>{
 const filteredData=cryptosList?.data?.coins.filter(coin=>{
@@ -18,31 +25,30 @@ const filteredData=cryptosList?.data?.coins.filter(coin=>{
     return coin.name.match(regex)|| coin.symbol.match(regex)
 
 })
-setCryptos(filteredData)
+
+setSearchedCryptos(filteredData)
+
 }
 ,[cryptosList,searchText])
 
 if(isFetching) return <Loading />
-
-
+// if(searchedCryptos?.length===0) return <ErrorMessage>Sorry! No match coin found!</ErrorMessage>
 
   return (
       <>
       <section className="coins-container">
          {!number&&<div className="search-coins">
-         {/* <h3>Search :</h3> */}
               <input type="text" placeholder='Search' onChange={(e)=>setSearchText(e.target.value)}/>
           </div>}
+{searchedCryptos?.length===0&&<ErrorMessage>sorry! no match coin found!</ErrorMessage>}
           <div className='coins'>
-{cryptos?.length===0&&<h2>sorry nothing found for it</h2>}
           {cryptos?.length!==0&&
               cryptos?.map(crypto=>(
-                  //<div className="crypto-card"> 
-                      <CryptoCard {...crypto}/>
-                  //</div>
+                      <CryptoCard key={crypto.id} {...crypto}/>
               ))
           }
           </div>
+      {numberOfCryptos!==10&&searchText===''&&paginate}
       </section>
       </>
   )

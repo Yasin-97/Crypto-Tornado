@@ -2,7 +2,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import {
   Navbar,
   Exchanges,
-  Homepage,
+  Home,
   Cryptocurrencies,
   News,
   CryptoDetails,
@@ -14,11 +14,11 @@ function App() {
         <Navbar />
       </div>
       <div style={{width: '100%'}}>
-      <div className="main">
+      <div className="main-section">
           <div className="routes">
             <Switch>
               <Route exact path="/">
-                <Homepage />
+                <Home />
               </Route>
               <Route exact path="/exchanges">
                 <Exchanges />

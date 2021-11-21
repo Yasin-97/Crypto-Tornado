@@ -1,9 +1,14 @@
 .footer {
+    min-height: 130px;
     background-color: $bg-secondary;
     display: flex;
     flex-direction: column;
     padding: 20px;
     align-items: center;
+
+    @media only screen and (min-width: 768px) {
+      margin-left: $sideNavbar-minWidth;
+    }
 
     h4{
         color: $text-secondary;

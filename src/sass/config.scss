@@ -1,6 +1,16 @@
-@import './base';
-@import  './app';
-@import './navbar';
-@import './main';
-@import './footer'
+@import "./base";
 
+@import "./main/app";
+@import "./main/home";
+@import "./main/cryptoCurrencies";
+@import "./main/news";
+@import "./main/cryptoDetails";
+@import "./main//exchanges";
+
+@import "./sub/navbar";
+@import "./sub/mainSection";
+@import "./sub/footer";
+@import "./sub/cryptoCard";
+@import "./sub/newsCard";
+@import "./sub/lineChart";
+@import "./sub/pagination";

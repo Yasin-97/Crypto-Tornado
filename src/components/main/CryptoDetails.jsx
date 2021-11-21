@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import millify from "millify";
-import LineChart from './LineChart'
+import LineChart from '../sub/LineChart'
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -13,8 +13,8 @@ import {
   NumberOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
-import { useGetCryptoDetailsQuery,useGetCryptoHistoryQuery } from "../services/cryptoApi";
-import Loading from  './Loading'
+import { useGetCryptoDetailsQuery,useGetCryptoHistoryQuery } from "../../services/cryptoApi";
+import Loading from  '../sub/Loading'
 const CryptoDetails = () => {
     const { coinId } = useParams();
     const [timeperiod, setTimeperiod] = useState("30d");
@@ -59,7 +59,6 @@ const CryptoDetails = () => {
   </div>
   <div className="cryptoDetails-info">
     <select
-    // defaultValue='30d'
     onChange={(value)=>setTimeperiod(value.target.value)}
     placeholder='Select TimePriod'
     >
@@ -73,7 +72,7 @@ const CryptoDetails = () => {
     <p>An overview showing the statistics of {cryptoName}, such as the base and quote currency, the rank, and trading volume.</p>
     <div className="stats-list">
     {stats?.map(({ icon, title, value }) => (
-       <div className="single-stat"><div className="stat-info"><i>{icon}</i> <p>{title}</p></div><b>{value}</b></div>
+       <div className="single-stat"><div className="single-stat-info"><i>{icon}</i> <p>{title}</p></div><b>{value}</b></div>
     ))}
    </div>
   </div>
@@ -82,7 +81,7 @@ const CryptoDetails = () => {
     <p>An overview showing the statistics of {cryptoName}, such as the base and quote currency, the rank, and trading volume.</p>
     <div className="stats-list">
     {genericStats?.map(({ icon, title, value }) => (
-      <div className="single-stat"><div className="stat-info"><i>{icon}</i> <p>{title}</p></div><b>{value}</b></div>
+      <div className="single-stat"><div className="single-stat-info"><i>{icon}</i> <p>{title}</p></div><b>{value}</b></div>
     ))}
    </div>
   </div>

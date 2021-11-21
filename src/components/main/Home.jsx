@@ -1,9 +1,9 @@
 import React from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
-import {useGetCryptosQuery} from '../services/cryptoApi'
-import {Cryptocurrencies,News} from '../components'
-import Loading from './Loading'
+import {useGetCryptosQuery} from '../../services/cryptoApi'
+import {Cryptocurrencies,News,ErrorMessage} from '../../components'
+import Loading from '../sub/Loading'
 
 const Homepage = () => {
   const showingCryptos=10
@@ -11,8 +11,8 @@ const Homepage = () => {
     const {data,isFetching}=useGetCryptosQuery(showingCryptos)
     const globalStats=data?.data?.stats;
     if(isFetching)  return <Loading />
-    if(!globalStats)  return 'you may have no internet conection!'
-  return<main>
+    if(!globalStats)  return <ErrorMessage>You may have no internet connection! check it and refresh.</ErrorMessage>
+  return<main className='home'>
 <h2 className='heading'>Global Crypto Stats</h2>
 <div className='stats-container'>
     <div className='stat'><p>Total Cryptocurrencies</p><b>{globalStats.total}</b></div>
