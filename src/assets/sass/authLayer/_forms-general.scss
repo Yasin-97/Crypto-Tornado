@@ -1,0 +1,198 @@
+.form__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 850px;
+    overflow: hidden;
+    background-color: linear-gradient(#1e272f,#1e1e24);
+    // width: 100%;
+    // height: 100%;
+    // overflow-y: scroll;
+    // padding-right: 20px; 
+    // box-sizing: content-box;
+  
+  
+    &::after {
+      content: "";
+      position: absolute;
+      background: linear-gradient(0deg, #0098f0 0%, #00f2c3 100%);
+      top: -290%;
+      left: -190%;
+      width: 2000px;
+      height: 2000px;
+      border-radius: 50%;
+      transition: all 0.8s ease-in-out;
+      z-index: 0;
+    }
+  }
+  
+  .otherAction {
+    position: absolute;
+    display: flex;
+    padding: 0.5rem;
+    width: 90%;
+    max-width: 25rem;
+    top: -50%;
+    left: -50%;
+    z-index: 2;
+    transition: all 1s ease-in-out;
+    &__desc {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    &__title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $form__light__color;
+    }
+    &__text {
+      font-size: $form__font__size1;
+      line-height: 1.5rem;
+      color: $form__light__color;
+      margin-left: 0.4rem;
+    }
+    &__btn {
+      @include form__btn__secondary;
+      align-self: flex-end;
+      text-decoration: none;
+    }
+  
+    &__img__container {
+      display: none;
+      transition: all 1s ease-in-out;
+    }
+    &__img {
+      width: 100%;
+    }
+  }
+  
+  .form {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    align-self: center;
+    top: 100%;
+    right: -100%;
+    width: 95%;
+    max-width: 24rem;
+    padding: 1rem;
+    transition: all 1s ease-in-out;
+    border-radius: 0.3rem;
+    z-index: 3;
+  
+    &__title {
+      color: $form__light__color;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    &__alert__danger{
+      width: 100%;
+      border: $form__danger__color solid 1px;
+      padding: 0.5rem 0.75rem;
+      color: $form__danger__color;
+      border-radius: .3rem;
+      background: lighten($color:$form__danger__color,$amount: 30%) ;
+    }
+    &__alert__success{
+      width: 100%;
+      border: $form__success__color solid 1px;
+      padding: 0.99rem 0.75rem;
+      color:$form__success__color;
+      border-radius: .3rem;
+      background: lighten($color:$form__success__color,$amount: 60%) ;
+    }
+    &__input__group {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+    &__input__wrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgb(49, 49, 49);
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.2rem;
+    }
+    &__input__label {
+      color: darken($color: $form__light__color, $amount: 35%);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    &__input__icon{
+        
+      color: darken($color: $form__light__color, $amount: 50%);
+    }
+    &__input {
+      width: 80%;
+      color: darken($color: $form__light__color, $amount: 20%);
+      background-color: transparent;
+      border: none;
+      outline: none;
+  
+      &::placeholder {
+        color: darken($color: $form__light__color, $amount: 60%);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+    }
+    &__btn {
+      @include form__btn__primary;
+      margin-top: 0.8rem;
+    }
+    
+    &__cancel__update,&__forgot__password{
+      width: 100%;
+      text-align: center;
+      margin-top: .8rem;
+    }
+    &__other__option{
+       height:4rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+      margin-top:1.5rem;
+      .link{
+        color:$form__secondary__color;
+        font-weight: 600;
+        &:hover{
+  color: darken($color: $form__secondary__color, $amount: 5);
+        }
+      }
+      p{
+        font-weight: 600;
+        color: darken($color: $form__light__color, $amount: 35%);
+      }
+    }
+  }
+  
+  .animate {
+    .form__container::after {
+      top: -110rem;
+      left: -60rem;
+    }
+  
+    .form {
+      top: calc(100% - 34rem);
+      right: auto;
+    }
+    .form__icon{
+      font-size:20px;
+      color:whiteSmoke;
+    }
+    .otherAction {
+      top: 1rem;
+      left: 0;
+    }
+  }

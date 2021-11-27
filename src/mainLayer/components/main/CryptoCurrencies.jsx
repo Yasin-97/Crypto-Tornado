@@ -1,7 +1,7 @@
 import React, { useState ,useEffect} from "react";
 import {CryptoCard,usePagination,ErrorMessage} from '../../components'
 
-import { useGetCryptosQuery } from "../../services/cryptoApi";
+import { useGetCryptosQuery } from "../../../assets/services/cryptoApi";
 import Loading from '../sub/Loading'
 
 const Cryptocurrencies = ({number}) => {
@@ -32,6 +32,8 @@ setSearchedCryptos(filteredData)
 ,[cryptosList,searchText])
 
 if(isFetching) return <Loading />
+if(!cryptosList?.data)  return <ErrorMessage>You may have no internet connection! check it and refresh.</ErrorMessage>
+
 // if(searchedCryptos?.length===0) return <ErrorMessage>Sorry! No match coin found!</ErrorMessage>
 
   return (

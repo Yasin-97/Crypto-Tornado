@@ -1,0 +1,76 @@
+$form__light__color: whitesmoke;
+$form__dark__color: #1d1d1d;
+$form__gray__color: rgb(68, 68, 68);
+$form__primary__color: #00f2c3;
+$form__secondary__color: #0098f0;
+
+$form__success__color:#008a00 ;
+$form__danger__color : #a64452;
+
+$form__btn__color: #00f2c3;
+
+$form__short__transition: all 0.15s ease-in-out;
+
+
+$form__font__size1: 0.9rem;
+$form__font__size2: 1.1rem;
+$form__font__size3: 1.3rem;
+$form__font__size4: 1.6rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin form__btn {
+  color: $form__light__color;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.6rem 2.5rem;
+  margin-top: auto;
+  margin-left: 0.5rem;
+  transition: $form__short__transition;
+  border: none;
+
+  @media screen and(min-width:768px) {
+    font-size: $form__font__size1;
+    padding: 0.8rem 3rem;
+  }
+}
+
+@mixin form__btn__primary {
+  @include form__btn();
+  background-color:darken($color: $form__btn__color, $amount: 8%);
+
+  &:hover {
+    background-color: darken($color: $form__btn__color, $amount: 12%);
+  }
+}
+
+@mixin form__btn__secondary {
+  @include form__btn();
+  background-color: transparent;
+  border: 2px $form__light__color solid;
+
+  &:hover {
+    color: $form__dark__color;
+    background-color: $form__light__color;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: darken($color: $form__light__color, $amount: 20%);
+  -webkit-box-shadow: 0 0 0px 1000px #1e1e2f inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

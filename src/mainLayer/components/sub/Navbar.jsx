@@ -1,12 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   HomeOutlined,
   MoneyCollectOutlined,
   BulbOutlined,
   FundOutlined,
+  EyeOutlined
 } from "@ant-design/icons";
-import icon from "../../assets/imgs/Cryptornado.png";
+import icon from "../../../assets/imgs/Cryptornado.png";
 const Navbar = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,8 +30,11 @@ const Navbar = () => {
           <div></div>
         </div>
         <nav className={`navbar ${showMenu}`}>
+        <Link to="/whatchlist" onClick={closeMenu} className="navbar-item">
+            <HomeOutlined /> Whatchlist
+          </Link>
           <Link to="/" onClick={closeMenu} className="navbar-item">
-            <HomeOutlined /> Home
+            <EyeOutlined /> Glance
           </Link>
           <Link
             to="/cryptocurrencies"

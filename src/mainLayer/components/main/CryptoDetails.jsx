@@ -13,7 +13,7 @@ import {
   NumberOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
-import { useGetCryptoDetailsQuery,useGetCryptoHistoryQuery } from "../../services/cryptoApi";
+import { useGetCryptoDetailsQuery,useGetCryptoHistoryQuery } from "../../../assets/services/cryptoApi";
 import Loading from  '../sub/Loading'
 const CryptoDetails = () => {
     const { coinId } = useParams();
@@ -21,7 +21,12 @@ const CryptoDetails = () => {
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod });
     const cryptoDetails = data?.data?.coin;
-
+    useEffect(() => {
+      const logger=()=>{
+        console.log('hey man this is runnging from app js')
+      }
+      return logger
+    }, [])
     let stats;
     let genericStats;
     const cryptoName=cryptoDetails?.name

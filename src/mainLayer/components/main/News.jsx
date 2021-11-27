@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import NewsCard from "../sub/NewsCard";
 
-import { useGetCryptoNewsQuery } from "../../services/cryptoNewsApi";
-import { useGetCryptosQuery } from "../../services/cryptoApi";
+import { useGetCryptoNewsQuery } from "../../../assets/services/cryptoNewsApi";
+import { useGetCryptosQuery } from "../../../assets/services/cryptoApi";
 import Loading from "../sub/Loading";
+import ErrorMessage from '../sub/ErrorMessage'
 
 const News = ({ number }) => {
   const numberOfCryptos = number ? number : 12;
 
   const [newsCategory, setNewsCategory] = useState("cryptoCurrency");
-  const { data: cryptos, isFetching } = useGetCryptosQuery(10);
+  const { data: cryptos, isFetching:cryptosFetching } = useGetCryptosQuery(10);
 
-  const { data: cryptoNews } = useGetCryptoNewsQuery({
+  const { data: cryptoNews,isFetching:cryptoNewsFetching } = useGetCryptoNewsQuery({
     newsCategory,
     count: numberOfCryptos,
   });
-  if (!cryptoNews?.value) return <Loading />;
+  if(cryptoNewsFetching||cryptosFetching)  return <Loading />
+    if(!cryptoNews?.value||!cryptos?.data)  return <ErrorMessage>You may have no internet connection! check it and refresh.</ErrorMessage>
+  
   return (
     <section className="news-wrapper">
       {!number && (

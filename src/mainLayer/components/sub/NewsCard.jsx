@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import dmemoImg from "../../assets/imgs/demo.jpg";
+import dmemoImg from "../../../assets/imgs/demo.jpg";
 
 export default function NewsCard({
   name,

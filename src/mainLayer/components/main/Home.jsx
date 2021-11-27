@@ -1,7 +1,7 @@
 import React from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
-import {useGetCryptosQuery} from '../../services/cryptoApi'
+import {useGetCryptosQuery} from '../../../assets/services/cryptoApi'
 import {Cryptocurrencies,News,ErrorMessage} from '../../components'
 import Loading from '../sub/Loading'
 
