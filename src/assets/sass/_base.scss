@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import '../../node_modules/codyhouse-framework/main/assets/css/base/mixins';
+
+
+:root {
+  @include defineColorHSL(--text-primary,45, 48%, 71%);
+  @include defineColorHSL(--text-secondary, 0, 0%, 67%);
+  @include defineColorHSL(--text-tertiary, 43, 46%, 53%);
+  @include defineColorHSL(--color-light, 0, 0%, 81%);
+  @include defineColorHSL(--bgPrimary, 0, 0%, 100%);
+  
+}
+.dark{
+  @include defineColorHSL(--color-dark, 0, 0%, 12%);
+@include defineColorHSL(--bg-secondary, 0, 0%, 12%);
+  @include defineColorHSL(--color-light-yellow, 45, 100%, 52%);
+  @include defineColorHSL(--color-dark-yellow, 43, 74%, 49%);
+}
+.light{
+    @include defineColorHSL(--color-dark, 234, 40%, 10%);
+  @include defineColorHSL(--bg-secondary, 234, 40%, 10%);
+    @include defineColorHSL(--color-light-yellow, 43, 100%, 65%);
+    @include defineColorHSL(--color-dark-yellow, 329, 56%, 92%);
+
+}
+
+
+$navbar-height: 60px;
+$sideNavbar-minWidth: 240px;
+
+
+@mixin container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif !important;
+}

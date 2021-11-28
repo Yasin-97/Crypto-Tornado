@@ -1,0 +1,23 @@
+@import "./base";
+
+
+//mainLayer
+@import "./mainLayer/main/app";
+@import "./mainLayer/main/home";
+@import "./mainLayer/main/cryptoCurrencies";
+@import "./mainLayer/main/news";
+@import "./mainLayer/main/cryptoDetails";
+@import "./mainLayer/main//exchanges";
+
+@import "./mainLayer/sub/navbar";
+@import "./mainLayer/sub/mainSection";
+@import "./mainLayer/sub/footer";
+@import "./mainLayer/sub/cryptoCard";
+@import "./mainLayer/sub/newsCard";
+@import "./mainLayer/sub/lineChart";
+@import "./mainLayer/sub/pagination";
+
+//authLayer
+@import "./authLayer/forms-base";
+@import "./authLayer/forms-general";
+@import "./authLayer/form-media"

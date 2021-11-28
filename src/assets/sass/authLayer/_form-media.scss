@@ -1,0 +1,136 @@
+@media screen and( min-width:576px) {
+    .otherAction {
+      display: flex;
+      justify-content: space-between;
+      max-width: 90%;
+  
+      &__desc {
+        width: 60%;
+      }
+  
+      &__img__container {
+        display: block;
+        margin: 0.5rem;
+        width: 11rem;
+        height: 11rem;
+      }
+    }
+  
+    .animate {
+      .form__container::after {
+        top: -105rem;
+        left: -60rem;
+      }
+      .form {
+        top: calc(100% - 30rem);
+        right: auto;
+      }
+      .otherAction {
+        top: 1rem;
+        left: auto;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .form {
+      &__title {
+        font-size: $form__font__size4;
+        font-weight: 600;
+      }
+    }
+    .otherAction {
+      &__title {
+        font-size: $form__font__size3;
+      }
+      &__text {
+        font-size: 1rem;
+      }
+    }
+  
+    .animate {
+      .form__container::after {
+        top: -110rem;
+        left: -50rem;
+      }
+      .otherAction {
+        max-width: 40rem;
+        top: 1rem;
+        left: 10%;
+        &__img__container {
+          margin: 0.5rem;
+          width: 13rem;
+        }
+      }
+  
+      .form {
+        top: calc(100% - 32rem);
+        right: auto;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .animate {
+      .form__container::after {
+        top: -105rem;
+        left: -50rem;
+      }
+      .otherAction {
+        max-width: 45rem;
+        top: 1rem;
+        left: 10%;
+        &__img__container {
+          width: 15rem;
+        }
+      }
+      .form {
+        top: 42%;
+        right: 25%;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .otherAction {
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      width: 100%;
+      &__desc {
+        max-width: 25rem;
+      }
+      &__img__container {
+        margin: 0.5rem;
+        width: 18rem;
+      }
+    }
+    .form {
+      width: 30rem;
+      max-width: 30rem;
+      &__input__group {
+        align-self: center;
+        max-width: 24rem;
+      }
+    }
+  
+    .animate {
+      .form__container::after {
+        top: -95rem;
+        left: -50rem;
+      }
+      .otherAction {
+        max-width: 55rem;
+        top: 1rem;
+        left: 10%;
+        &__img__container {
+          width: 19rem;
+        }
+      }
+  
+      .form {
+        top: 38%;
+        right: 18%;
+      }
+    }
+  }

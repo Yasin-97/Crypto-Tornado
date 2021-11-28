@@ -1,5 +1,5 @@
 import React from 'react'
-import loadingSpinner from '../images/loading.svg'
+import loadingSpinner from '../../../assets/imgs/loading.svg'
 
 export default function Loading() {
     return (

@@ -1,0 +1,21 @@
+.main-section {
+  margin-top: $navbar-height;
+  margin-left: 0;
+  width: 100%;
+  min-height: calc(100vh - 190px);
+  background: lightness(var(--bg-secondary), 1.5);
+  transition: all .3s ease-in-out;
+  @media only screen and (min-width: 768px) {
+    min-height: calc(100vh - 130px);
+
+    margin-top: 0;
+    margin-left: $sideNavbar-minWidth;
+    width: calc(100vw - #{$sideNavbar-minWidth});
+  }
+  .routes {
+    padding: 1rem;
+    @media only screen and (max-width: 576px) {
+      padding: 0;
+    }
+  }
+}
