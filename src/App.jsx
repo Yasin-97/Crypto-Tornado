@@ -1,24 +1,41 @@
+import React,{useEffect,useState} from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import {
   Navbar,
   Exchanges,
-  Homepage,
+  Home,
   Cryptocurrencies,
   News,
   CryptoDetails,
-} from "./components";
+} from "./mainLayer/components";
+import SignUp from './authLayer/components/SignUp'
+import { useDispatch } from 'react-redux';
+import {authActions} from './authLayer/authSlice'
 function App() {
+  const dispatch = useDispatch();
+
+// useEffect(() => {
+//   dispatch(authActions.signup({email:"ypppopppplppso@example.org",password:"3300220110"}));
+// }, [])
+const [user,setUser]=useState()
+console.log('user is here',user);
   return (
     <div className="app">
       <div className="navbar">
         <Navbar />
       </div>
       <div style={{width: '100%'}}>
-      <div className="main">
+      <div className="main-section">
           <div className="routes">
+            {/* <button onClick={()=> dispatch(authActions.getCurrentUser(setUser))}>current user</button>
+            <button onClick={()=> dispatch(authActions.login({email:"ypppopppplppso@example.org",password:"3300220110"}))}>login user</button>
+            <button onClick={()=> dispatch(authActions.logout())}>bye now</button> */}
             <Switch>
               <Route exact path="/">
-                <Homepage />
+                <Home />
+              </Route>
+              <Route exact path="/signup">
+                <SignUp />
               </Route>
               <Route exact path="/exchanges">
                 <Exchanges />

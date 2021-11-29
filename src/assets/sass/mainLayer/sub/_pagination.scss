@@ -1,0 +1,28 @@
+   
+.pagination {
+    margin: 15px auto;
+    display: flex;
+    list-style: none;
+    outline: none;
+  }
+  .pagination > .active > a{
+    background-color: transparentize($color: $text-tertiary, $amount: .99)  ;
+    color: $color-dark-yellow;
+    font-weight: bold;
+  }
+  .pagination > li > a{
+    background-color: transparentize($color: $text-tertiary, $amount: .9)  ;
+    border-radius: .25rem;
+    padding: 5px 10px;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+    background-color: transparentize($color: $text-tertiary, $amount: .7);
+    outline: none ;
+  }
+  .pagination > li > a, .pagination > li > span{
+    color: $text-primary
+  }
+ 

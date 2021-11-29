@@ -1,0 +1,45 @@
+.news-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .news-category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem !important;
+
+    select {
+      appearance: none;
+      border: none;
+      outline: none;
+      font: inherit;
+      width: 20em;
+      height: 3em;
+      padding: 0 4em 0 1em;
+
+      margin-left: 1rem !important;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: $color-light !important;
+      background: $bg-secondary;
+      border-radius: 0.25em;
+      cursor: pointer;
+      option {
+        color: inherit;
+        background-color: inherit;
+      }
+      /* Remove focus outline */
+      &:focus {
+        outline: none;
+      }
+      &::-ms-expand {
+        //to Remove IE arrow
+        display: none;
+      }
+    }
+  }
+
+  .news-container {
+    @include container;
+  }
+}

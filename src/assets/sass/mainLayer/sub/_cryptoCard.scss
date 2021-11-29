@@ -1,0 +1,130 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 320px;
+  margin-bottom: 1rem;
+
+  .card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    width: 280px;
+    height: 390px;
+    background: linear-gradient(
+      to bottom,
+      $color-dark-yellow,
+      $color-light-yellow
+    );
+    border-radius: 20px;
+    border-bottom-left-radius: 160px;
+    border-bottom-right-radius: 160px;
+    box-shadow: 0 5px 0 lighten($bg-secondary, 25%),
+      inset 0 -15px 0 rgba(darken($bg-secondary, 10%), 0.25),
+      0 10px 0 rgba(darken($bg-secondary, 10%), 0.15);
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.005);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: -140px;
+      left: -40px;
+      width: 100%;
+      height: 120%;
+      background: linear-gradient(90deg, transparent, rgba($bgPrimary, 0.2));
+      transform: rotate(35deg);
+      pointer-events: none;
+      filter: blur(5px);
+    }
+
+    @media (min-width: 1200px) {
+      width: 300px;
+    }
+
+    .card-icon-container {
+      position: relative;
+      width: 120px;
+      height: 100px;
+      background: lighten($bg-secondary, 6%);
+      border-bottom-left-radius: 100px;
+      border-bottom-right-radius: 100px;
+      box-shadow: 0 10px 0 lighten($bg-secondary,15%),
+        inset 0 -5px 0 lighten($bg-secondary, 29%),
+        0 5px 0 lighten($bg-secondary, 35%);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50px;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border-top-right-radius: 50px;
+        box-shadow: 15px -15px 0 15px lighten($bg-secondary, 6%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -50px;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border-top-left-radius: 50px;
+        box-shadow: -15px -15px 0 15px lighten($bg-secondary, 6%);
+      }
+      .card-icon {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        margin-top: 10px;
+        z-index: 10000;
+        border-radius: 1rem ;
+      }
+    }
+
+    .card-content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      position: absolute;
+      width: 100%;
+      padding: 2rem;
+      padding-top: 120px;
+
+      .card-detail {
+        align-self: flex-start;
+        margin-top: 1rem;
+      }
+
+      h2 {
+        font-weight: bold;
+      }
+
+      p {
+        color: $color-dark;
+        font-size: 15px;
+      }
+      b {
+        letter-spacing: 1px;
+      }
+
+      .bullish {
+        color: green;
+      }
+      .burish {
+        color: rgb(221, 0, 0);
+      }
+    }
+  }
+}

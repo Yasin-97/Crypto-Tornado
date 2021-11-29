@@ -1,0 +1,45 @@
+.home {
+    
+  .heading {
+    font-weight: 600;
+    color: $color-light;
+    font-size: 17px;
+
+    @media only screen and (min-width: 576px) {
+      font-size: initial;
+    }
+  }
+
+  .stats-container {
+    width: 100%;
+    .stat {
+      margin: 0.5rem;
+      display: inline-block;
+      width: 40%;
+
+      p {
+        font-size: 11px;
+        color: darken($color: $color-light, $amount: 35);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+      b {
+        color: darken($color: $color-light, $amount: 20);
+        margin-left: 0.2rem;
+      }
+    }
+  }
+
+  .heading-container {
+    display: flex;
+    padding: 0.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+
+    .show-more {
+      font-weight: bold;
+    }
+  }
+}
