@@ -3,14 +3,14 @@
   margin-left: 0;
   width: 100%;
   min-height: calc(100vh - 190px);
-  background: lighten($bg-secondary, 6%);
-
+  background: lightness(var(--bg-secondary), 1.5);
+  transition: all .3s ease-in-out;
   @media only screen and (min-width: 768px) {
     min-height: calc(100vh - 130px);
 
     margin-top: 0;
     margin-left: $sideNavbar-minWidth;
-    width: calc(100vw - #{$sideNavbar-minWidth});
+    width: calc(100vw - #{$sideNavbar-minWidth} - 1.1rem);
   }
   .routes {
     padding: 1rem;

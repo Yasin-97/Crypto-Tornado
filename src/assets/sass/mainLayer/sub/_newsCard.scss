@@ -11,16 +11,16 @@
     height: 400px;
     background: linear-gradient(
       to bottom,
-      $color-dark-yellow,
-      $color-light-yellow
+      var(--color-dark-yellow),
+      var(--color-light-yellow)
     );
     border-radius: 20px;
     border-bottom-left-radius: 160px;
     border-bottom-right-radius: 160px;
-    box-shadow: 0 5px 0 lighten($bg-secondary, 25%),
-      inset 0 -15px 0 rgba(darken($bg-secondary, 10%), 0.25),
-      0 10px 0 rgba(darken($bg-secondary, 10%), 0.15);
-    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 5px 0 lightness(var(--bg-secondary), 3.1),
+    inset 0 -15px 0 alpha(var(--bg-secondary), 0.25),
+    0 10px 0 alpha(var(--bg-secondary), 0.15);
+    transition: all 0.3s ease-in-out,transform 0.2s ease-in-out;
 
     &:hover {
       transform: scale(1.005);
@@ -45,21 +45,22 @@
         border-top-right-radius: 1rem;
         padding-bottom: 2px;
         object-fit: contain;
-        background: $bg-secondary;
+        background: var(--bg-secondary);
+        transition: all 0.3s ease-in-out;
       }
 
       h2 {
         font-size: 18px;
         position: absolute;
-        color: lighten($color: $color-light, $amount: 30) ;
+        color: lightness(var(--color-light), 2.1) ;
         bottom: -7px;
         padding: 10px;
-        background: linear-gradient(transparent, $bg-secondary);
+        background: linear-gradient(transparent, var(--bg-secondary));
       }
     }
     .news-card-content {
       padding: 0.8rem;
-      color: $color-dark;
+      color: var(--color-dark);
 
       .news-card-detail {
         display: flex;
@@ -80,7 +81,7 @@
         }
 
         p {
-          color: lighten($color: $color-dark, $amount: 15);
+          color: lightness(var(--color-dark), 2.5);
           font-size: 13px;
         }
       }

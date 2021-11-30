@@ -10,7 +10,7 @@ import {LockOutlined,UserOutlined,BankTwoTone, LockFilled} from "@ant-design/ico
 export default function SignUp() {
     const dispatch = useDispatch();
   //refs
-  const sectionRef = useRef();
+  // const sectionRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -24,9 +24,9 @@ const [loading,setLoading]=useState(false)
 const history=useHistory()
 
 //side effect
-  useEffect(() => {
-    sectionRef.current.className += " animate";
-  }, []);
+  // useEffect(() => {
+  //   sectionRef.current.className += " animate";
+  // }, []);
   
   //functions
   async function handleSubmit(e){
@@ -50,9 +50,7 @@ setLoading(false)
 
 
   return (
-    <section ref={sectionRef}>
-      {/* <div className="form__container"> */}
-        
+<section className='form__wrapper'>
         <form className="form" onSubmit={handleSubmit} >
           <h3 className="form__title">SIGN UP</h3>
           <div className="form__input__group">
@@ -101,7 +99,6 @@ setLoading(false)
           </div>
           <button className="form__btn">LET'S GO</button>
         </form>
-      {/* </div> */}
-    </section>
+        </section>
   );
 }

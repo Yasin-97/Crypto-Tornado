@@ -1,14 +1,17 @@
+
+
 .nav {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $bg-secondary;
+  background-color:var(--bg-secondary);
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: $navbar-height;
   width: 100%;
   z-index: 10000;
+  transition: background-color .3s ease-in-out;
 
   @media only screen and (min-width: 768px) {
     align-items: flex-start;
@@ -44,7 +47,7 @@
     .text-logo {
       display: inline-block;
       font-weight: bold;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
 
       @media only screen and (min-width: 768px) {
         display: none;
@@ -80,7 +83,7 @@
     div,
     div:after,
     div:before {
-      background-color: $color-light;
+      background-color: var(--color-light);
       border-radius: 2px;
       width: 1.7rem;
       height: 0.2rem;
@@ -125,7 +128,8 @@
     width: 200px;
     height: 100vh;
     animation: navClose 0.3s ease-in-out forwards;
-    background-color: $bg-secondary;
+    background-color: var(--bg-secondary);
+    transition: background-color .3s ease-in-out;
 
     @media only screen and (min-width: 768px) {
       position: initial;
@@ -136,14 +140,14 @@
 
     &-item {
       padding: 0.7rem 1rem;
-      color: $text-secondary;
+      color: var(--text-secondary);
       font-weight: 600;
       font-size: 0.9rem;
       transition: all 0.1s ease-in-out;
 
       &:hover {
-        color: $text-primary !important;
-        background: lighten($color: $bg-secondary, $amount: 5);
+        color: var(--text-primary) !important;
+        background: lightness(var(--bg-secondary), 1.4);
       }
     }
   }

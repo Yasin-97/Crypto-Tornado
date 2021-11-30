@@ -6,12 +6,12 @@
     outline: none;
   }
   .pagination > .active > a{
-    background-color: transparentize($color: $text-tertiary, $amount: .99)  ;
-    color: $color-dark-yellow;
+    background-color: alpha(var(--text-tertiary), .5);
+    color: var(--color-dark-yellow);
     font-weight: bold;
   }
   .pagination > li > a{
-    background-color: transparentize($color: $text-tertiary, $amount: .9)  ;
+    background-color: alpha(var(--text-tertiary), .15);
     border-radius: .25rem;
     padding: 5px 10px;
     margin: 0 2px;
@@ -19,10 +19,10 @@
     cursor: pointer;
   }
   .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: transparentize($color: $text-tertiary, $amount: .7);
+    background-color: alpha(var(--text-tertiary), .5);
     outline: none ;
   }
   .pagination > li > a, .pagination > li > span{
-    color: $text-primary
+    color: var(--text-primary)
   }
  

@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   width: 320px;
   margin-bottom: 1rem;
+  transition: all .3s ease-in-out;
 
   .card {
     position: relative;
@@ -16,16 +17,16 @@
     height: 390px;
     background: linear-gradient(
       to bottom,
-      $color-dark-yellow,
-      $color-light-yellow
+      var(--color-dark-yellow),
+      var(--color-light-yellow)
     );
     border-radius: 20px;
     border-bottom-left-radius: 160px;
     border-bottom-right-radius: 160px;
-    box-shadow: 0 5px 0 lighten($bg-secondary, 25%),
-      inset 0 -15px 0 rgba(darken($bg-secondary, 10%), 0.25),
-      0 10px 0 rgba(darken($bg-secondary, 10%), 0.15);
-    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 5px 0 lightness(var(--bg-secondary), 3.1),
+      inset 0 -15px 0 alpha(var(--bg-secondary), 0.25),
+      0 10px 0 alpha(var(--bg-secondary), 0.15);
+      transition: all .3s ease-in-out, transform 0.2s ease-in-out;
     &:hover {
       transform: scale(1.005);
     }
@@ -36,7 +37,7 @@
       left: -40px;
       width: 100%;
       height: 120%;
-      background: linear-gradient(90deg, transparent, rgba($bgPrimary, 0.2));
+      background: linear-gradient(90deg, transparent, alpha(var(--bgPrimary), 0.2));
       transform: rotate(35deg);
       pointer-events: none;
       filter: blur(5px);
@@ -50,15 +51,16 @@
       position: relative;
       width: 120px;
       height: 100px;
-      background: lighten($bg-secondary, 6%);
+      background: lightness(var(--bg-secondary), 1.5);
       border-bottom-left-radius: 100px;
       border-bottom-right-radius: 100px;
-      box-shadow: 0 10px 0 lighten($bg-secondary,15%),
-        inset 0 -5px 0 lighten($bg-secondary, 29%),
-        0 5px 0 lighten($bg-secondary, 35%);
+      box-shadow: 0 10px 0 lightness(var(--bg-secondary), 2.3),
+        inset 0 -5px 0 lightness(var(--bg-secondary), 3),
+        0 5px 0 lightness(var(--bg-secondary), 3);
       z-index: 1000;
       display: flex;
       justify-content: center;
+      transition:all .3s ease-in-out;
 
       &::before {
         content: "";
@@ -69,7 +71,8 @@
         height: 50px;
         background: transparent;
         border-top-right-radius: 50px;
-        box-shadow: 15px -15px 0 15px lighten($bg-secondary, 6%);
+        box-shadow: 15px -15px 0 15px lightness(var(--bg-secondary), 1.5);
+        transition: box-shadow .3s ease-in-out;
       }
       &::after {
         content: "";
@@ -80,7 +83,8 @@
         height: 50px;
         background: transparent;
         border-top-left-radius: 50px;
-        box-shadow: -15px -15px 0 15px lighten($bg-secondary, 6%);
+        box-shadow: -15px -15px 0 15px lightness(var(--bg-secondary), 1.5);
+        transition: box-shadow .3s ease-in-out;
       }
       .card-icon {
         position: relative;
@@ -112,7 +116,7 @@
       }
 
       p {
-        color: $color-dark;
+        color: var(--color-dark);
         font-size: 15px;
       }
       b {

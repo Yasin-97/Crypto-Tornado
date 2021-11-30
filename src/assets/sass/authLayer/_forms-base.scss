@@ -17,11 +17,11 @@ $form__font__size2: 1.1rem;
 $form__font__size3: 1.3rem;
 $form__font__size4: 1.6rem;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
 
 @mixin form__btn {
   color: $form__light__color;
@@ -31,8 +31,9 @@ $form__font__size4: 1.6rem;
   padding: 0.6rem 2.5rem;
   margin-top: auto;
   margin-left: 0.5rem;
+  cursor: pointer;
   transition: $form__short__transition;
-  border: none;
+  border: 2px solid ;
 
   @media screen and(min-width:768px) {
     font-size: $form__font__size1;

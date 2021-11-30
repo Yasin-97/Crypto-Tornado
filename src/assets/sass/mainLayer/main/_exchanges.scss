@@ -5,33 +5,37 @@ table {
   thead th {
     position: sticky;
     top: 60px;
-    background: $bg-secondary;
+    background: var(--bg-secondary);
     padding: 1.3rem;
-    color: $color-light;
+    color: var(--color-light);
     font-weight: bold;
     text-align: left;
+    transition: all .3s ease-in-out;
     @media only screen and (min-width: 768px) {
       top: 0;
     }
   }
   tbody {
+    transition: all .3s ease-in-out;
     tr {
-      background: lighten($color: $bg-secondary, $amount: 12);
+      background: lightness(var(--bg-secondary),2);
 
       cursor: pointer;
+      transition: background .3s ease-in-out;
       transition: all 0.1s ease-in-out;
 
       &:nth-of-type(4n + 1) {
-        background: lighten($color: $bg-secondary, $amount: 10);
+        background: lightness(var(--bg-secondary),1.82);
+       
       }
 
       &:hover {
-        background: lighten($color: $bg-secondary, $amount: 15);
+        background: lightness(var(--bg-secondary),2.3);
       }
     }
 
     td {
-      color: darken($color: $color-light, $amount: 20);
+      color: lightness(var(--color-light),.75);
       padding: 1.1rem;
       text-align: left;
     }
@@ -46,6 +50,7 @@ table {
     .descCell-container {
       max-height: 0px;
       padding: 0;
+      transition: all .3s ease-in-out;
     }
 
     .descCell {
@@ -54,18 +59,18 @@ table {
       padding: 0 0.5rem;
       overflow: hidden;
       cursor: initial;
-      background: lighten($color: $bg-secondary, $amount: 5);
-      transition: height 0.2s ease-in-out;
+      background-color: lightness(var(--bg-secondary),1.4);
+      transition: background-color .3s ease-in-out, height 0.2s ease-in-out;
     }
 
     h3,
     h2 {
       padding-left: 0.5rem;
-      color: $color-light;
+      color: var(--color-light);
     }
 
     p {
-      color: darken($color: $color-light, $amount: 20);
+      color: lightness(var(--color-light),.75);
     }
   }
 }

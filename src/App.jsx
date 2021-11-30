@@ -12,17 +12,15 @@ import SignUp from './authLayer/components/SignUp'
 import { useDispatch } from 'react-redux';
 import {authActions} from './authLayer/authSlice'
 function App() {
-  const dispatch = useDispatch();
-
-// useEffect(() => {
-//   dispatch(authActions.signup({email:"ypppopppplppso@example.org",password:"3300220110"}));
-// }, [])
-const [user,setUser]=useState()
-console.log('user is here',user);
+  const [theme,setTheme]=useState(false)
+  const currentTheme=(theme)=>setTheme(theme)
+  
+  const isDark=theme?'dark':'light'
   return (
-    <div className="app">
+    <div className={`app ${isDark}`}>
+     
       <div className="navbar">
-        <Navbar />
+        <Navbar setTheme={currentTheme} />
       </div>
       <div style={{width: '100%'}}>
       <div className="main-section">

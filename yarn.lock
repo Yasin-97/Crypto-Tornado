@@ -3886,6 +3886,11 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
+codyhouse-framework@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/codyhouse-framework/-/codyhouse-framework-3.0.3.tgz#95d32a0421d43799d837d756df4cdd5bb44beb4d"
+  integrity sha512-FrTcz1TmSgaByiuKE3j9WY4mCPTSXdO1NAEw+0iLl90LcV8MibywZwSjUmv32RcFmBiZwvJ+UMKFfUnGOLZdcg==
+
 collect-v8-coverage@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/collect-v8-coverage/-/collect-v8-coverage-1.0.1.tgz"

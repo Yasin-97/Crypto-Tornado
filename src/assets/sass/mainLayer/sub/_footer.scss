@@ -1,25 +1,26 @@
 .footer {
     min-height: 130px;
-    background-color: $bg-secondary;
+    background-color: var(--bg-secondary);
     display: flex;
     flex-direction: column;
     padding: 20px;
     align-items: center;
+    transition: background-color .3s ease-in-out;
 
     @media only screen and (min-width: 768px) {
       margin-left: $sideNavbar-minWidth;
     }
 
     h4{
-        color: $text-secondary;
+        color: var(--text-secondary);
         font-weight: 600;
         text-align: center;
     }
     a{
-        color: $text-primary;
+        color: var(--text-primary);
         transition: color .3s ease-in-out;
         &:hover{
-            color: $text-tertiary !important;
+            color: var(--text-tertiary) !important;
         }
     }
 }

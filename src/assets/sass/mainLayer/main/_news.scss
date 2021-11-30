@@ -20,8 +20,8 @@
       margin-left: 1rem !important;
       font-weight: 600;
       letter-spacing: 0.5px;
-      color: $color-light !important;
-      background: $bg-secondary;
+      color: var(--color-light) !important;
+      background: var(--bg-secondary);
       border-radius: 0.25em;
       cursor: pointer;
       option {

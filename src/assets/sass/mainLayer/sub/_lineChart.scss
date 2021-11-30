@@ -3,7 +3,7 @@
   justify-content: space-between;
 
   .chart-title {
-    color: darken($text-tertiary, 5%);
+    color: lightness(var(--text-tertiary), .9);
   }
 
   .price-container {
@@ -11,16 +11,16 @@
 
     .price-change {
       margin-right: 0.7rem;
-      color: darken($color-light, 15%) !important;
+      color: lightness(var(--color-light), .8) !important;
 
       b {
-        color: darken($color-light, 10%);
+        color: lightness(var(--color-light), .95) !important;
       }
     }
     .current-price {
-      color: darken($color-light, 15%) !important;
+      color: lightness(var(--color-light), .8) !important;
       b {
-        color: darken($color-light, 10%);
+        color: lightness(var(--color-light), .95) !important;
       }
     }
   }

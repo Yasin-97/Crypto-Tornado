@@ -7,8 +7,9 @@ import {
   FundOutlined,
   EyeOutlined
 } from "@ant-design/icons";
+import {BtnToggle} from '../../components'
 import icon from "../../../assets/imgs/Cryptornado.png";
-const Navbar = () => {
+const Navbar = ({setTheme}) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const hamburgerMenu = isMenuOpen ? "hamburger open" : "hamburger";
@@ -30,6 +31,7 @@ const Navbar = () => {
           <div></div>
         </div>
         <nav className={`navbar ${showMenu}`}>
+        <BtnToggle setTheme={setTheme}/>
         <Link to="/whatchlist" onClick={closeMenu} className="navbar-item">
             <HomeOutlined /> Whatchlist
           </Link>
