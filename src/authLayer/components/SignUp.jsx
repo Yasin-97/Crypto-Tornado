@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 import {useDispatch} from 'react-redux'
-import {signup} from '../../authLayer/authSlice'
+import {signup} from '../../store/slices/authSlice'
 import {useHistory}from 'react-router-dom'
 import {UserOutlined,LoadingOutlined, LockFilled} from "@ant-design/icons";
 

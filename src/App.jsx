@@ -12,8 +12,8 @@ import {
 import SignUp from './authLayer/components/SignUp'
 import SignIn from './authLayer/components/SignIn'
 import { useDispatch } from 'react-redux';
-import {authActions} from './authLayer/authSlice'
-import {auth} from './authLayer/firebase'
+import {authActions} from './store/slices/authSlice'
+import {auth} from './store/firebase'
 import { setUseProxies } from "immer";
 
 

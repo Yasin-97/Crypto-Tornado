@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import { auth,updateProfile } from './firebase'
+import { auth,updateProfile} from '../firebase'
 
 const initialAuthState={
     currentUser:null
@@ -45,6 +45,8 @@ export const signout=()=>{
 
   }
 }
+
+
 
 export const authActions=authSlice.actions
 
