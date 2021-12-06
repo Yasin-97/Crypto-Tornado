@@ -1,21 +1,21 @@
-$form__light__color: whitesmoke;
-$form__dark__color: #1d1d1d;
-$form__gray__color: rgb(68, 68, 68);
-$form__primary__color: #00f2c3;
-$form__secondary__color: #0098f0;
+// $form__light__color: whitesmoke;
+// $form__dark__color: #1d1d1d;
+// $form__gray__color: rgb(68, 68, 68);
+// $form__primary__color: #00f2c3;
+// $form__secondary__color: #0098f0;
 
-$form__success__color:#008a00 ;
-$form__danger__color : #a64452;
+// $form__success__color:#008a00 ;
+// $form__danger__color : #a64452;
 
-$form__btn__color: #00f2c3;
+// $form__btn__color: #00f2c3;
 
-$form__short__transition: all 0.15s ease-in-out;
+// $form__short__transition: all 0.15s ease-in-out;
 
 
-$form__font__size1: 0.9rem;
-$form__font__size2: 1.1rem;
-$form__font__size3: 1.3rem;
-$form__font__size4: 1.6rem;
+// $form__font__size1: 0.9rem;
+// $form__font__size2: 1.1rem;
+// $form__font__size3: 1.3rem;
+// $form__font__size4: 1.6rem;
 
 // * {
 //   margin: 0;
@@ -23,41 +23,28 @@ $form__font__size4: 1.6rem;
 //   box-sizing: border-box;
 // }
 
-@mixin form__btn {
-  color: $form__light__color;
-  border-radius: 0.3rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.6rem 2.5rem;
-  margin-top: auto;
-  margin-left: 0.5rem;
-  cursor: pointer;
-  transition: $form__short__transition;
-  border: 2px solid ;
 
-  @media screen and(min-width:768px) {
-    font-size: $form__font__size1;
-    padding: 0.8rem 3rem;
-  }
-}
 
 @mixin form__btn__primary {
   @include form__btn();
-  background-color:darken($color: $form__btn__color, $amount: 8%);
-
+  // background-color:var(--text-tertiary);
+border: 2px solid var(--text-primary);
+transition: all .15s ease-in-out;
   &:hover {
-    background-color: darken($color: $form__btn__color, $amount: 12%);
+    font-size: 0.85rem;
+    color: var(--color-dark);
+    background-color: var(--text-primary);
   }
 }
 
 @mixin form__btn__secondary {
   @include form__btn();
   background-color: transparent;
-  border: 2px $form__light__color solid;
+  border: 2px var(--color-light) solid;
 
   &:hover {
-    color: $form__dark__color;
-    background-color: $form__light__color;
+    color: var(--color-dark);
+    background-color: var(--color-light);
   }
 }
 
@@ -69,9 +56,12 @@ textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
+select:-webkit-autofill:focus
+ {
+  background: transparent;
+  background-color: transparent;
   border: none;
-  -webkit-text-fill-color: darken($color: $form__light__color, $amount: 20%);
-  -webkit-box-shadow: 0 0 0px 1000px #1e1e2f inset;
+  -webkit-text-fill-color: var(--color-light);
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-light) inset;
   transition: background-color 5000s ease-in-out 0s;
 }

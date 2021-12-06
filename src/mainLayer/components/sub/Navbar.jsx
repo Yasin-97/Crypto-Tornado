@@ -12,6 +12,7 @@ import icon from "../../../assets/imgs/Cryptornado.png";
 const Navbar = ({setTheme}) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setuser] = useState(false);
   const hamburgerMenu = isMenuOpen ? "hamburger open" : "hamburger";
   const showMenu = isMenuOpen ? " navbar-open" : "";
 
@@ -32,8 +33,8 @@ const Navbar = ({setTheme}) => {
         </div>
         <nav className={`navbar ${showMenu}`}>
         <BtnToggle setTheme={setTheme}/>
-        <Link to="/whatchlist" onClick={closeMenu} className="navbar-item">
-            <HomeOutlined /> Whatchlist
+        <Link to="/watchlist" onClick={closeMenu} className="navbar-item">
+            <HomeOutlined /> Watchlist
           </Link>
           <Link to="/" onClick={closeMenu} className="navbar-item">
             <EyeOutlined /> Glance
@@ -48,9 +49,12 @@ const Navbar = ({setTheme}) => {
           <Link to="/exchanges" onClick={closeMenu} className="navbar-item">
             <MoneyCollectOutlined /> Exchanges
           </Link>
-          <Link to="/news" onClick={closeMenu} className="navbar-item">
+          <Link to="/news" onClick={closeMenu} className="navbar-item" style={{marginBottom:'2rem'}}>
             <BulbOutlined /> News
           </Link>
+        {!user&&<><Link to='/signup' className='nav-btn-primary' onClick={closeMenu}>Sign Up</Link>
+        <Link to='/signin' className='nav-btn-secondary' onClick={closeMenu}>Log In</Link></>}
+        {user&&<Link to='/' className='nav-btn-tertiary' onClick={closeMenu}>Log Out</Link>}
         </nav>
       </div>
     </>

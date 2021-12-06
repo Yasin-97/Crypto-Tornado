@@ -10,7 +10,7 @@ export default function CryptoCard({id,iconUrl,rank,name,price,marketCap,change}
             <div className="card">
                 
                 <div className="card-icon-container">
-                <img className='card-icon' alt="Qries" src={iconUrl} />
+                <img className='card-icon' alt={name} src={iconUrl} />
                 </div>
                 <div className="card-content">
                     <h2>{rank}. {name}</h2>

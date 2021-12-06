@@ -1,52 +1,61 @@
-import React, { useEffect, useRef,useState } from "react";
-// import "../assets/css/forms-main.min.css";
-// import SignUpSVG from "../assets/img/register.svg";
-// import PersonIcon from '@material-ui/icons/Person';
-// import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import React, { useState,useEffect } from "react";
+import { useFormik } from "formik";
+import * as Yup from 'yup'
 import {useDispatch} from 'react-redux'
-import {authActions} from '../authSlice'
-import {Link,useHistory}from 'react-router-dom'
-import {LockOutlined,UserOutlined,BankTwoTone, LockFilled} from "@ant-design/icons";
-export default function SignUp() {
-    const dispatch = useDispatch();
-  //refs
-  // const sectionRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+import {signup} from '../../authLayer/authSlice'
+import {useHistory}from 'react-router-dom'
+import {UserOutlined,LoadingOutlined, LockFilled} from "@ant-design/icons";
 
-//states
-const [error,setError]=useState('')
+export default function SignUp() {
+
+  //state Management
+  const dispatch=useDispatch()
+
+  //states
+const [error,setError]=useState(null)
 const [loading,setLoading]=useState(false)
 
-//hooks
-// const {signup,currentUser}=useAuth()
+//routing
 const history=useHistory()
 
-//side effect
-  // useEffect(() => {
-  //   sectionRef.current.className += " animate";
-  // }, []);
-  
-  //functions
-  async function handleSubmit(e){
-e.preventDefault();
-
-if(passwordRef.current.value !== passwordConfirmRef.current.value){
-  return setError('passwords do not match')
-}
-
-try{
-  setError('')
+//formik
+  const {values,handleChange,handleSubmit,handleBlur,touched,errors}=useFormik({
+initialValues:{
+  name:'',
+  email:'',
+  password:'',
+  confirmPassword:''
+},
+validationSchema:Yup.object().shape({
+  name:Yup.string().required('Email is required').min(5,'set a name between 5 to 20 chars')
+  .max(20,'set a name between 5 to 20 chars'),
+  email:Yup.string().required('Email is required'),
+  password: Yup.string().min(5,'set a password between 5 to 16 chars')
+  .max(16,'set a password between 5 to 16 chars')
+  .required('Password is a required'),
+  confirmPassword: Yup.string().min(5,'set a password between 5 to 16 chars')
+  .max(16,'set a password between 5 to 16 chars')
+  .required('Password confirmation is a required')
+}),
+onSubmit:async({email,password,name,confirmPassword},fn)=>{
+  console.log('onsubmit');
   setLoading(true)
-  await dispatch(authActions.signup(emailRef.current.value, passwordRef.current.value));
-  history.push("/admin/dashboard")
-}catch(error){
-  setError(error.message)
-}
+  setError(null)
+  if(password!==confirmPassword) {
+     setError("Password confirmation does'nt match password!")
+     setLoading(false)
+     return
+    }
+   try{
+    await dispatch(signup(email,password,name))
+     fn.resetForm()
+     history.push('/')
+   }catch(err){
+     setError(err.message||'Opps..! Failed to authenticate you')
+   }
 setLoading(false)
-  }
-
+}
+  })
 
 
   return (
@@ -58,47 +67,73 @@ setLoading(false)
             {error}</b>}
           </div>
           <div className="form__input__group">
-            <label className="form__input__label">Email</label>
+            <label className="form__input__label">Name</label>
             <div className="form__input__wrapper">
-              <UserOutlined className='form__icon' />
+              <UserOutlined className='form__input__icon' />
               <input
-                type="email"
-                ref={emailRef}
+             name='name'
+                type="text"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 className="form__input"
-                placeholder="Enter your email"
-                autoComplete="false"
+                placeholder="Enter your Name"
               />
             </div>
+            {touched.name&&errors.name?<p className='form__alert__danger'>{errors.name}</p>:null}
           </div>
-
+          <div className="form__input__group">
+            <label className="form__input__label">Email</label>
+            <div className="form__input__wrapper">
+              <UserOutlined className='form__input__icon' />
+              <input
+             name='email'
+                type="email"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className="form__input"
+                placeholder="Enter your email"
+              />
+            </div>
+            {touched.email&&errors.email?<p className='form__alert__danger'>{errors.email}</p>:null}
+          </div>
           <div className="form__input__group">
             <label className="form__input__label">Password</label>
             <div className="form__input__wrapper">
-              <LockFilled className='form__icon' />
+              <LockFilled className='form__input__icon' />
               <input
                 type="password"
-                ref={passwordRef}
+                name='password'
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 className="form__input"
                 placeholder="Enter your password"
-                autoComplete="false"
               />
             </div>
+            {touched.password&&errors.password&&<p className='form__alert__danger'>{errors.password}</p>}
           </div>
           <div className="form__input__group">
-            <label className="form__input__label">Password Confirmation</label>
+            <label className="form__input__label">Confirm Password</label>
             <div className="form__input__wrapper">
-              <LockFilled className='form__icon' />
+              <LockFilled className='form__input__icon' />
               <input
                 type="password"
-                ref={passwordConfirmRef}
+                name='confirmPassword'
+                value={values.confirmPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 className="form__input"
-                placeholder="Enter your password"
-                autoComplete="false"
+                placeholder="Confirm your password"
               />
             </div>
+            {touched.confirmPassword&&errors.confirmPassword&&<p className='form__alert__danger'>{errors.confirmPassword}</p>}
           </div>
-          <button className="form__btn">LET'S GO</button>
+          {loading?<LoadingOutlined className="form__spinner" />:<button type='submit' className="form__btn" >LET'S GO</button>}
         </form>
         </section>
   );
 }
+
+

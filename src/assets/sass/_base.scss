@@ -40,6 +40,23 @@ $sideNavbar-minWidth: 240px;
   justify-content: space-around;
 }
 
+@mixin form__btn {
+  text-align: center;
+  color:var(--color-light);
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.6rem 3rem;
+  cursor: pointer;
+  border: 2px solid ;
+  background: transparent;
+
+  @media screen and(min-width:768px) {
+    font-size: .85rem;
+    // padding: 0.8rem 3rem;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

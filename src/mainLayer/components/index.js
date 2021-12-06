@@ -1,4 +1,5 @@
 
+export {default as WatchList} from './main/WatchList'
 export {default as Cryptocurrencies} from './main/CryptoCurrencies'
 export {default as CryptoDetails} from './main/CryptoDetails'
 export {default as Exchanges} from './main/Exchanges'
@@ -14,3 +15,4 @@ export {default as ExchangeDesc} from './sub/ExchangeDesc'
 export {default as ErrorMessage} from './sub/ErrorMessage'
 export {default as usePagination} from './sub/usePagination'
 export {default as BtnToggle} from './sub/BtnToggle'
+export {default as NotFound} from './sub/NotFound'

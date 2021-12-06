@@ -10,7 +10,7 @@
 
     margin-top: 0;
     margin-left: $sideNavbar-minWidth;
-    width: calc(100vw - #{$sideNavbar-minWidth} - 1.1rem);
+    width: calc(100vw - #{$sideNavbar-minWidth});
   }
   .routes {
     padding: 1rem;

@@ -35,14 +35,10 @@
   @media screen and (min-width: 768px) {
     .form {
       &__title {
-        font-size: $form__font__size4;
         font-weight: 600;
       }
     }
     .otherAction {
-      &__title {
-        font-size: $form__font__size3;
-      }
       &__text {
         font-size: 1rem;
       }

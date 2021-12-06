@@ -4,13 +4,14 @@ export default function BtnToggle({ setTheme }) {
   const [isDark, setIsDark] = useState(false);
   setTheme(isDark);
   return (
-    <label class="switch">
+    <label className="switch">
       <input
         type="checkbox"
         onClick={() => setIsDark((prevTheme) => !prevTheme)}
         id="toggleBtn"
       />
-      <span class="slider round"></span>
+      <span className="slider round"></span>
     </label>
+
   );
 }

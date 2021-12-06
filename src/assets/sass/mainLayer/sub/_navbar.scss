@@ -132,6 +132,7 @@
     transition: background-color .3s ease-in-out;
 
     @media only screen and (min-width: 768px) {
+      width: 100%;
       position: initial;
       right: initial;
       top: initial;
@@ -149,6 +150,52 @@
         color: var(--text-primary) !important;
         background: lightness(var(--bg-secondary), 1.4);
       }
+    }
+  }
+
+  &-btn{
+    @include form__btn();
+  }
+  &-btn-primary{
+    @include form__btn();
+    align-self: center;
+    width: 80%;
+    font-size: 0.85rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    background: var(--text-tertiary);
+    margin: .5rem 0;
+    border-color: transparent;
+    transition: all .2s ease-in-out;
+    &:hover{
+      color: var(--color-dark);
+      background: var(--text-primary)
+    }
+  }
+  &-btn-secondary{
+    @include form__btn();
+    align-self: center;
+    width: 80%;
+    border-color: var(--text-primary);
+    margin: .5rem 0;
+    transition: all .2s ease-in-out;
+    &:hover{
+      color: var(--color-dark);
+      background: var(--text-primary)
+    }
+  }
+
+  &-btn-tertiary{
+    @include form__btn();
+    align-self: center;
+    width: 80%;
+    background:lightness(var(--text-secondary),.5);
+    border-color: transparent;
+    margin: .5rem 0;
+    transition: all .2s ease-in-out;
+    &:hover{
+      color: var(--color-light);
+    background:lightness(var(--text-secondary),.65);
     }
   }
 

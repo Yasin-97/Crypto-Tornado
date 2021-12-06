@@ -26,10 +26,12 @@
     box-shadow: 0 5px 0 lightness(var(--bg-secondary), 3.1),
       inset 0 -15px 0 alpha(var(--bg-secondary), 0.25),
       0 10px 0 alpha(var(--bg-secondary), 0.15);
-      transition: all .3s ease-in-out, transform 0.2s ease-in-out;
-    &:hover {
-      transform: scale(1.005);
-    }
+      transition: all .1s ease-in-out, transform 0.2s ease-in-out;
+
+      @media (min-width: 1200px) {
+        width: 300px;
+      }
+
     &::before {
       content: "";
       position: absolute;
@@ -43,9 +45,6 @@
       filter: blur(5px);
     }
 
-    @media (min-width: 1200px) {
-      width: 300px;
-    }
 
     .card-icon-container {
       position: relative;
