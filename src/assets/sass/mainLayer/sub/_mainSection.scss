@@ -1,4 +1,6 @@
 .main-section {
+  display: flex;
+  flex-direction: column;
   margin-top: $navbar-height;
   margin-left: 0;
   width: 100%;
@@ -10,12 +12,12 @@
 
     margin-top: 0;
     margin-left: $sideNavbar-minWidth;
-    width: calc(100vw - #{$sideNavbar-minWidth});
+    width: calc(100% - #{$sideNavbar-minWidth});
   }
   .routes {
     padding: 1rem;
     @media only screen and (max-width: 576px) {
-      padding: 0;
+      padding: .6rem;
     }
   }
 }

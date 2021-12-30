@@ -2,7 +2,8 @@ import React, { useState,useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 import {useDispatch} from 'react-redux'
-import {signup} from '../../store/slices/authSlice'
+import { useSelector } from "react-redux";
+import {signup,signout} from '../../store/slices/authSlice'
 import {useHistory}from 'react-router-dom'
 import {UserOutlined,LoadingOutlined, LockFilled} from "@ant-design/icons";
 
@@ -10,6 +11,7 @@ export default function SignUp() {
 
   //state Management
   const dispatch=useDispatch()
+  const currentUser=useSelector(state=>state.authApi.currentUser?.userId)
 
   //states
 const [error,setError]=useState(null)
@@ -38,20 +40,19 @@ validationSchema:Yup.object().shape({
   .required('Password confirmation is a required')
 }),
 onSubmit:async({email,password,name,confirmPassword},fn)=>{
-  console.log('onsubmit');
   setLoading(true)
   setError(null)
   if(password!==confirmPassword) {
-     setError("Password confirmation does'nt match password!")
+     setError("Password confirmation doesn't match password!")
      setLoading(false)
      return
     }
    try{
-    await dispatch(signup(email,password,name))
+    await dispatch(signup({email,password,displayName:name})).unwrap()
      fn.resetForm()
      history.push('/')
    }catch(err){
-     setError(err.message||'Opps..! Failed to authenticate you')
+     setError(err.message||'Opps..! Failed to authenticate you.')
    }
 setLoading(false)
 }
@@ -61,7 +62,7 @@ setLoading(false)
   return (
 <section className='form__wrapper'>
         <form className="form" onSubmit={handleSubmit} >
-          <h3 className="form__title">SIGN UP</h3>
+          <h3 className="form__title">SaIGN UP</h3>
           <div className="form__input__group">
           {error&& <b className="form__alert__danger">
             {error}</b>}

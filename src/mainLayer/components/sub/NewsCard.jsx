@@ -25,7 +25,7 @@ export default function NewsCard({
           </div>
           <div className="news-card-content">
             <p>
-              {description.length > 100
+              {description.length > 140
                 ? `${description.substring(0, 140)}...`
                 : description}
             </p>

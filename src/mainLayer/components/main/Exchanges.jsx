@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import {FrownOutlined} from '@ant-design/icons'
+
 import { useGetExchangesQuery } from "../../../assets/services/cryptoApi";
 import {ExchangeDesc,Loading,ErrorMessage} from '../../components'
 
@@ -11,10 +13,10 @@ const Exchanges = () => {
 
 
   if (isFetching) return <Loading />;
-if(!data?.data.exchanges)  return <ErrorMessage>You may have no internet connection! check it and refresh.</ErrorMessage>
+if(!data?.data.exchanges)  return <ErrorMessage> You may have bad internet connection! check it and refresh.</ErrorMessage>
  
   return (
-    <table>
+    <table className='exchange-table'>
       <thead>
         <tr>
           <th>Exchanges</th>

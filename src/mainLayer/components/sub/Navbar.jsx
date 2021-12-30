@@ -1,22 +1,40 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Link,useHistory } from "react-router-dom";
 import {
   HomeOutlined,
   MoneyCollectOutlined,
   BulbOutlined,
   FundOutlined,
-  EyeOutlined
+  EyeOutlined,
+  LoadingOutlined
 } from "@ant-design/icons";
+import {signout} from '../../../store/slices/authSlice'
 import {BtnToggle} from '../../components'
 import icon from "../../../assets/imgs/Cryptornado.png";
-const Navbar = ({setTheme}) => {
 
+
+const Navbar = ({setTheme,isUserResolved}) => {
+  
+  //state management
+  const currentUser=useSelector(state=>state.authApi.currentUser)
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setuser] = useState(false);
   const hamburgerMenu = isMenuOpen ? "hamburger open" : "hamburger";
   const showMenu = isMenuOpen ? " navbar-open" : "";
 
+
+  const dispatch=useDispatch()
+  const history=useHistory()
   const closeMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const onSignout=async()=>{
+   await dispatch(signout())
+    history.push('/')
+    closeMenu()
+  }
+
   return (
     <>
       <div className="nav">
@@ -52,9 +70,9 @@ const Navbar = ({setTheme}) => {
           <Link to="/news" onClick={closeMenu} className="navbar-item" style={{marginBottom:'2rem'}}>
             <BulbOutlined /> News
           </Link>
-        {!user&&<><Link to='/signup' className='nav-btn-primary' onClick={closeMenu}>Sign Up</Link>
+        {!currentUser&&isUserResolved&&<><Link to='/signup' className='nav-btn-primary' onClick={closeMenu}>Sign Up</Link>
         <Link to='/signin' className='nav-btn-secondary' onClick={closeMenu}>Log In</Link></>}
-        {user&&<Link to='/' className='nav-btn-tertiary' onClick={closeMenu}>Log Out</Link>}
+        {currentUser&&isUserResolved&&<Link to='/' className='nav-btn-tertiary' onClick={onSignout}>Log Out</Link>}
         </nav>
       </div>
     </>

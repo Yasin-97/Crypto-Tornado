@@ -1,27 +1,114 @@
-import React from 'react'
+import React, { useState,useEffect } from "react";
+
+import { useHistory } from "react-router-dom";
 import millify from "millify";
-import {Link} from 'react-router-dom'
+import { StarOutlined, StarFilled, LoadingOutlined } from "@ant-design/icons";
+import { Modal } from "../../components";
+import useSetFavoriteItem from "./useSetFavoriteItem";
+
+export default function CryptoCard({
+  uuid,
+  id,
+  iconUrl,
+  rank,
+  name,
+  price,
+  marketCap,
+  change,
+  isFav
+}) {
+
+  const {isLoading,isFavCrypto,isUserExist,isFavCryptosFetched,adder,remover}=useSetFavoriteItem(isFav,uuid,name)
 
 
-export default function CryptoCard({id,iconUrl,rank,name,price,marketCap,change}) {
-    return (
-        <div className='card-container'>
-             <Link to={`/cryptodetails/${id}`}>
-            <div className="card">
-                
-                <div className="card-icon-container">
-                <img className='card-icon' alt={name} src={iconUrl} />
-                </div>
-                <div className="card-content">
-                    <h2>{rank}. {name}</h2>
-                    <div className="card-detail">
-                    <p>Price: <b>{millify(price,{precision:2})}</b></p>
-                    <p>Market Cap: <b>{millify(marketCap)}</b></p>
-                    <p>Daily change: <b className={`${change>0?'bullish':'burish'}`}>{millify(change)}%</b></p>
-                    </div>
-                </div>
-            </div>
-            </Link>
+
+//use states
+  const [modal, setModal] = useState(false);
+
+
+
+//functions
+  const toggleModal = () => {
+    setModal((prev) => !prev);
+  };
+  const history = useHistory();
+  const promptCryptoDetail = () => {
+    history.push(`/cryptodetails/${id}`);
+  };
+
+  const promptSingin = () => {
+    history.push("/signin");
+  };
+
+  const addToFavorites = async () => {
+    if (isUserExist) {
+    
+      adder()
+    } else {
+      toggleModal();
+    }
+  };
+
+  const removeFromFavorites = async () => {
+    remover()
+  };
+console.log('log triple',isFavCryptosFetched,isFavCrypto ,isLoading);
+
+  return (
+    <div className="card-container">
+      <Modal
+        show={modal}
+        close={toggleModal}
+        action={promptSingin}
+        actionText={"LOG IN"}
+      >
+        To add crypto to watchlist you need to login first!
+      </Modal>
+
+      <div className="card">
+        <div className="card-icon-container" onClick={promptCryptoDetail}>
+          <img className="card-icon" alt={name} src={iconUrl} />
         </div>
-    )
+        <div className="card-content">
+          <div className="card-content-head">
+            <h2 onClick={promptCryptoDetail}>
+              {rank}. {name}
+            </h2>
+
+            {isLoading&&<LoadingOutlined className="card-star-icon"/>}
+
+            {isFavCryptosFetched&&!isFavCrypto && !isLoading &&(
+              <StarOutlined
+                onClick={addToFavorites}
+                className="card-star-icon"
+              />
+            )}
+            
+            {isFavCryptosFetched&&isFavCrypto && !isLoading&& (
+              <StarFilled
+                onClick={removeFromFavorites}
+                className="card-star-icon"
+              />
+            )}
+            
+          </div>
+
+          <div className="card-content-detail" onClick={promptCryptoDetail}>
+            <p>
+              Price: <b>{millify(price, { precision: 2 })}</b>
+            </p>
+            <p>
+              Market Cap: <b>{millify(marketCap)}</b>
+            </p>
+            <p>
+              Daily change:{" "}
+              <b className={`${change > 0 ? "bullish" : "bearish"}`}>
+                {millify(change)}%
+              </b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

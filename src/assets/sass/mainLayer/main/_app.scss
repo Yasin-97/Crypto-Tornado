@@ -13,9 +13,47 @@
     display: flex;
     justify-content: center;
     padding:.7rem;
-    margin-top: 1rem;
+    padding-top: 1rem;
     h2{
       color: var(--color-light);
+      font-size: 1.1em;
+      @media only screen and (min-width: 768px) {
+        font-size: 1.5em;
+      }
+    }
+
+    svg{
+      color:var(--color-light);
+      font-size:1.8rem;
+      margin-right:.3rem
+    }
+  }
+
+  .avatar{
+    color:var(--color-light);
+    display:flex;
+    align-self:flex-end;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    svg{
+      margin: 0 5px;
+      border-radius: 50%;
+      color: var(--color-blue);
+      padding-top: .1rem;
+      border: 2px solid var(--color-blue);
+      font-size: 1.4rem;
+      @media only screen and (min-width: 768px) {
+        font-size: 1.7rem;
+      }
+    }
+    p{
+      font-weight: 100;
+      padding-top: 0;
+      margin-bottom: 0;
+      @media only screen and (min-width: 768px) {
+        padding-top: .15rem;
+        font-weight: bold;
+      }
     }
   }
 
@@ -49,5 +87,11 @@
         background: var(--text-primary)
       }
     }
+  }
+  .bullish {
+    color: rgb(20, 202, 20);
+  }
+  .bearish {
+    color: rgb(221, 0, 0);
   }
 }

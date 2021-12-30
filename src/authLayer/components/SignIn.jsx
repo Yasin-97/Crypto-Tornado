@@ -34,14 +34,13 @@ onSubmit:async({email,password},fn)=>{
   setLoading(true)
   setError(null)
    try{
-  await dispatch(signin(email,password))
-  setLoading(false)
-     fn.resetForm()
-     history.push('/')
-   }catch(err){
-    setLoading(false)
-     setError(err.message||'Opps..! Failed to authenticate you')
-   }
+     await dispatch(signin({email,password})).unwrap()
+  fn.resetForm()
+  history.push('/')
+}catch(err){
+  setError(err.message||'Opps..! Failed to authenticate you.')
+}
+setLoading(false)
 
 }
   })

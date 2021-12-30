@@ -4,7 +4,6 @@ import { useSelector } from "react-redux"
 
 export default function PrivateRoute({ component: Component, ...rest }) {
    const currentUser = useSelector(state => state.authApi.currentUser)
-   console.log('currentUser in private route',currentUser);
   return (
     <Route
       {...rest}

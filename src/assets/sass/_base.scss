@@ -6,14 +6,15 @@
   @include defineColorHSL(--text-secondary, 0, 0%, 67%);
   @include defineColorHSL(--text-tertiary, 43, 46%, 53%);
   @include defineColorHSL(--color-light, 0, 0%, 81%);
+  @include defineColorHSL(--color-blue, 203, 99%, 61%);
   @include defineColorHSL(--bgPrimary, 0, 0%, 100%);
   
 }
 .dark{
   @include defineColorHSL(--color-dark, 0, 0%, 12%);
 @include defineColorHSL(--bg-secondary, 0, 0%, 12%);
-  @include defineColorHSL(--color-light-yellow, 45, 100%, 52%);
-  @include defineColorHSL(--color-dark-yellow, 43, 74%, 49%);
+  @include defineColorHSL(--color-light-yellow,42, 100%, 70%);
+  @include defineColorHSL(--color-dark-yellow, 42, 98%, 53%);
 }
 .light{
     @include defineColorHSL(--color-dark, 234, 40%, 10%);
@@ -22,6 +23,8 @@
     @include defineColorHSL(--color-dark-yellow, 329, 56%, 92%);
 
 }
+
+
 
 $navbar-height: 60px;
 $sideNavbar-minWidth: 240px;

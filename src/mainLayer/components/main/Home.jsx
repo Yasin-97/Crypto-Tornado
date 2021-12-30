@@ -1,4 +1,5 @@
 import React from "react";
+import {FrownOutlined} from '@ant-design/icons'
 import millify from "millify";
 import { Link } from "react-router-dom";
 import {useGetCryptosQuery} from '../../../assets/services/cryptoApi'
@@ -11,7 +12,7 @@ const Homepage = () => {
     const {data,isFetching}=useGetCryptosQuery(showingCryptos)
     const globalStats=data?.data?.stats;
     if(isFetching)  return <Loading />
-    if(!globalStats)  return <ErrorMessage>You may have no internet connection! check it and refresh.</ErrorMessage>
+    if(!globalStats)  return <ErrorMessage> You may have bad internet connection! check it and refresh.</ErrorMessage>
   return<main className='home'>
 <h2 className='heading'>Global Crypto Stats</h2>
 <div className='stats-container'>

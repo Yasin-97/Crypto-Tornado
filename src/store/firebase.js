@@ -1,7 +1,7 @@
 
 import firebase from "firebase/compat/app"
 import { updateProfile } from "firebase/auth";
-import { getFirestore,doc, getDoc} from "firebase/firestore";
+import { getFirestore,doc,setDoc,collection, query, where,onSnapshot } from "firebase/firestore";
 import 'firebase/compat/auth'
 
 const app = firebase.initializeApp({
@@ -14,7 +14,7 @@ const app = firebase.initializeApp({
   appId: process.env.REACT_APP_FIREBASE_APP_ID
 })
 
-export const auth = app.auth()
 export const db = getFirestore();
-export {updateProfile,doc, getDoc}
+export {updateProfile,doc,setDoc,collection, query, where,onSnapshot}
+
 export default app

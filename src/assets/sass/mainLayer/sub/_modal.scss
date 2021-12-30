@@ -1,0 +1,87 @@
+:root{@include defineColorHSL(--bg-secondary, 0, 0%, 12%)}
+.modalContainer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // background-color:alpha(var(--bg-secondary),.6) ;
+    z-index: 20000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .modal {
+      width: 30vw;
+      height: auto;
+      padding: 2rem;
+      border-radius: .99rem;
+  
+      background-color: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  
+      &-header {
+        position: relative;
+        // border-bottom: 1px solid #dddddd;
+        &-title {
+          text-align: center;
+        }
+  
+        .close {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background: transparent;
+  
+          img {
+            width: 1rem;
+            height: auto;
+            transition: all 0.3s;
+          }
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+  
+      &-content {
+        // border-bottom: 1px solid #dddddd;
+        padding: 2rem 0;
+      }
+  
+      &-footer {
+        padding: 2rem 0;
+        padding-bottom: 0;
+  
+        button {
+          float: right;
+          padding: 0.5rem 1.5rem;
+          border: none;
+          transition: all .15s ease-in-out;
+          cursor: pointer;
+  
+          border-radius: .2rem;
+        }
+        .modal-close {
+          background-color: transparent;
+          font-weight: 600;
+  
+          &:hover {
+            background-color: rgb(163, 163, 163);
+          }
+        }
+        .action {
+          margin-right: 1rem;
+          background-color: hsl(0, 0%, 15%);
+          color: #fff;
+  
+          &:hover {
+            background-color: hsl(0, 0%, 5%);
+          }
+        }
+      }
+    }
+  }

@@ -10,6 +10,19 @@
     @media only screen and (min-width: 768px) {
       margin-left: $sideNavbar-minWidth;
     }
+    &-links{
+        display: flex;
+        width:100%;
+        justify-content: center;
+        
+          a{
+            margin: 0 .5rem;
+
+            @media only screen and (min-width: 576px) {
+            margin: 0 1rem;
+              }
+          }
+    }
 
     h4{
         color: var(--text-secondary);

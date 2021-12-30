@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {FrownOutlined} from '@ant-design/icons'
 import NewsCard from "../sub/NewsCard";
 
 import { useGetCryptoNewsQuery } from "../../../assets/services/cryptoNewsApi";
@@ -16,8 +17,8 @@ const News = ({ number }) => {
     newsCategory,
     count: numberOfCryptos,
   });
-  if(cryptoNewsFetching||cryptosFetching)  return <Loading />
-    if(!cryptoNews?.value||!cryptos?.data)  return <ErrorMessage>You may have no internet connection! check it and refresh.</ErrorMessage>
+   if(cryptoNewsFetching||cryptosFetching)  return <Loading />
+     if(!cryptoNews?.value||!cryptos?.data) return <ErrorMessage> You may have bad internet connection! check it and refresh.</ErrorMessage>
   
   return (
     <section className="news-wrapper">

@@ -171,6 +171,9 @@
       color: var(--color-dark);
       background: var(--text-primary)
     }
+    @media only screen and (min-width: 768px) {
+      width: 65%;
+    }
   }
   &-btn-secondary{
     @include form__btn();
@@ -182,6 +185,9 @@
     &:hover{
       color: var(--color-dark);
       background: var(--text-primary)
+    }
+    @media only screen and (min-width: 768px) {
+      width: 65%;
     }
   }
 
@@ -196,6 +202,9 @@
     &:hover{
       color: var(--color-light);
     background:lightness(var(--text-secondary),.65);
+    }
+    @media only screen and (min-width: 768px) {
+      width: 65%;
     }
   }
 
