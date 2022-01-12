@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
-export default function BtnToggle({ setTheme }) {
+export default function ThemeToggle({ setTheme }) {
+
   const [isDark, setIsDark] = useState(false);
-  setTheme(isDark);
+
+  useEffect(() => {
+    setTheme(isDark);
+  }, [isDark])
+
+
   return (
     <label className="switch">
       <input

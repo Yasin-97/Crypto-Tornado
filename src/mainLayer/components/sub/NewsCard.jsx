@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import dmemoImg from "../../../assets/imgs/demo.jpg";
 
@@ -11,9 +10,10 @@ export default function NewsCard({
   provider,
   datePublished,
 }) {
+  
   return (
     <div className="news-card-container">
-      <a href={url} target='_blank' rel="noreferrer">
+      <a href={url} target="_blank" rel="noreferrer">
         <div className="news-card">
           <div className="news-card-img-container">
             <img
@@ -41,7 +41,7 @@ export default function NewsCard({
             </div>
           </div>
         </div>
-        </a>
+      </a>
     </div>
   );
 }

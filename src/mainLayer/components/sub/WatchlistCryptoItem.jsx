@@ -1,7 +1,7 @@
 import React from "react";
 import millify from "millify";
 import { StarFilled, LoadingOutlined } from "@ant-design/icons";
-import useSetFavoriteItem from "./useSetFavoriteItem";
+import {useSetFavoriteItem} from "../../index";
 
 export default function WatchlistCryptoItem({
   isFav,
@@ -14,8 +14,8 @@ export default function WatchlistCryptoItem({
   marketCap,
   circulatingSupply,
 }) {
+  //custom hook
   const { isLoading, remover } = useSetFavoriteItem(isFav, uuid, name);
-  console.log("isLoading", isLoading);
 
   const removeFromFavorites = async () => {
     remover();
@@ -48,7 +48,6 @@ export default function WatchlistCryptoItem({
         <td>{millify(marketCap)}</td>
         <td>{circulatingSupply ? millify(circulatingSupply) : "No Info"}</td>
       </tr>
-      
     </>
   );
 }

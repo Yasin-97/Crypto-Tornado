@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 
 import { useHistory } from "react-router-dom";
 import millify from "millify";
 import { StarOutlined, StarFilled, LoadingOutlined } from "@ant-design/icons";
-import { Modal } from "../../components";
-import useSetFavoriteItem from "./useSetFavoriteItem";
+import { Modal } from "../../index";
+import useSetFavoriteItem from "../../custom hook/useSetFavoriteItem";
 
 export default function CryptoCard({
   uuid,
@@ -15,23 +15,28 @@ export default function CryptoCard({
   price,
   marketCap,
   change,
-  isFav
+  isFav,
 }) {
+  //routing
+  const history = useHistory();
 
-  const {isLoading,isFavCrypto,isUserExist,isFavCryptosFetched,adder,remover}=useSetFavoriteItem(isFav,uuid,name)
+  //custom hook
+  const {
+    isLoading,
+    isFavCrypto,
+    isUserExist,
+    isFavCryptosFetched,
+    adder,
+    remover,
+  } = useSetFavoriteItem(isFav, uuid, name);
 
-
-
-//use states
+  // state
   const [modal, setModal] = useState(false);
 
-
-
-//functions
+  //functions
   const toggleModal = () => {
     setModal((prev) => !prev);
   };
-  const history = useHistory();
   const promptCryptoDetail = () => {
     history.push(`/cryptodetails/${id}`);
   };
@@ -42,17 +47,15 @@ export default function CryptoCard({
 
   const addToFavorites = async () => {
     if (isUserExist) {
-    
-      adder()
+      adder();
     } else {
       toggleModal();
     }
   };
 
   const removeFromFavorites = async () => {
-    remover()
+    remover();
   };
-console.log('log triple',isFavCryptosFetched,isFavCrypto ,isLoading);
 
   return (
     <div className="card-container">
@@ -75,27 +78,26 @@ console.log('log triple',isFavCryptosFetched,isFavCrypto ,isLoading);
               {rank}. {name}
             </h2>
 
-            {isLoading&&<LoadingOutlined className="card-star-icon"/>}
+            {isLoading && <LoadingOutlined className="card-star-icon" />}
 
-            {isFavCryptosFetched&&!isFavCrypto && !isLoading &&(
+            {isFavCryptosFetched && !isFavCrypto && !isLoading && (
               <StarOutlined
                 onClick={addToFavorites}
                 className="card-star-icon"
               />
             )}
-            
-            {isFavCryptosFetched&&isFavCrypto && !isLoading&& (
+
+            {isFavCryptosFetched && isFavCrypto && !isLoading && (
               <StarFilled
                 onClick={removeFromFavorites}
                 className="card-star-icon"
               />
             )}
-            
           </div>
 
           <div className="card-content-detail" onClick={promptCryptoDetail}>
             <p>
-              Price: <b>{millify(price, { precision: 2 })}</b>
+              Price: <b>{millify(price, { precision: 4 })}</b>
             </p>
             <p>
               Market Cap: <b>{millify(marketCap)}</b>

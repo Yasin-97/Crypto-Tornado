@@ -1,6 +1,6 @@
 
 import firebase from "firebase/compat/app"
-import { updateProfile } from "firebase/auth";
+import { updateProfile,getAuth,onAuthStateChanged } from "firebase/auth";
 import { getFirestore,doc,setDoc,collection, query, where,onSnapshot } from "firebase/firestore";
 import 'firebase/compat/auth'
 
@@ -15,6 +15,6 @@ const app = firebase.initializeApp({
 })
 
 export const db = getFirestore();
-export {updateProfile,doc,setDoc,collection, query, where,onSnapshot}
+export {updateProfile,getAuth,onAuthStateChanged,doc,setDoc,collection, query, where,onSnapshot}
 
 export default app

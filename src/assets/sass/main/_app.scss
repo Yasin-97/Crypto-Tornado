@@ -18,14 +18,23 @@
       color: var(--color-light);
       font-size: 1.1em;
       @media only screen and (min-width: 768px) {
-        font-size: 1.5em;
+        font-size: 1.3em;
       }
     }
 
     svg{
       color:var(--color-light);
-      font-size:1.8rem;
+      font-size:1.6rem;
       margin-right:.3rem
+    }
+    .refetch{
+      margin-left: .8rem;
+      font-size: .8rem;
+      color: #1890ff;
+cursor: pointer;
+      @media only screen and (min-width: 768px) {
+        font-size: .9em;
+      }
     }
   }
 

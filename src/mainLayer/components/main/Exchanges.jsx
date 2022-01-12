@@ -1,22 +1,34 @@
 import React, { useState, useEffect } from "react";
-import {FrownOutlined} from '@ant-design/icons'
 
-import { useGetExchangesQuery } from "../../../assets/services/cryptoApi";
-import {ExchangeDesc,Loading,ErrorMessage} from '../../components'
-
+import { useGetExchangesQuery } from "../../../store/apis/cryptoApi";
+import { ExchangeDesc, Loading, ErrorMessage } from "../../index";
 
 const Exchanges = () => {
-  const { data, isFetching } = useGetExchangesQuery();
+  //api call
+  const {
+    data: exchangesData,
+    isFetching: isExchangesDataFetching,
+    refetch: refetchExchangesData,
+  } = useGetExchangesQuery();
+
+  //states
   const [exchanges, setExchagnes] = useState([]);
- 
-  useEffect(() => setExchagnes(data?.data.exchanges), [data]);
 
+  //side effects
+  useEffect(() => setExchagnes(exchangesData?.data.exchanges), [exchangesData]);
 
-  if (isFetching) return <Loading />;
-if(!data?.data.exchanges)  return <ErrorMessage> You may have bad internet connection! check it and refresh.</ErrorMessage>
- 
+  //conditional rendering
+  if (isExchangesDataFetching) return <Loading />;
+  if (!exchangesData?.data.exchanges)
+    return (
+      <ErrorMessage refetchAction={refetchExchangesData}>
+        {" "}
+        Failed to get exchanges! try to refetch.
+      </ErrorMessage>
+    );
+
   return (
-    <table className='exchange-table'>
+    <table className="exchange-table">
       <thead>
         <tr>
           <th>Exchanges</th>
@@ -25,11 +37,10 @@ if(!data?.data.exchanges)  return <ErrorMessage> You may have bad internet conne
           <th>Change</th>
         </tr>
       </thead>
-      <tbody >
+      <tbody>
         {exchanges?.map((exchange) => (
-            <ExchangeDesc key={exchange.id} {...exchange} />
-          )
-        )}
+          <ExchangeDesc key={exchange.id} {...exchange} />
+        ))}
       </tbody>
     </table>
   );

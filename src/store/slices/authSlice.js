@@ -1,53 +1,51 @@
-import {createSlice} from '@reduxjs/toolkit'
-import { auth,updateProfile} from '../firebase'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from 'axios'
+import firebaseApp from "../../firebase";
 
-const initialAuthState={
-    currentUser:null
-}
-console.log('from auth slice');
-const authSlice=createSlice({
-    name:'authentication',
-    initialState:initialAuthState,
-    reducers:{
-         setUser(state, action) {
-           const {email,displayName}=action.payload
-           state.currentUser={email,displayName}
-          },
-          removeUser(state, action) {
-            state.currentUser=null
-          }
-    }
+const initialAuthState = {
+  currentUser: null,
+};
+const authSlice = createSlice({
+  name: "authentication",
+  initialState: initialAuthState,
+  reducers: {
+    setUser(state, action) {
+      const { userId, email, displayName } = action.payload;
+      state.currentUser = { userId, email, displayName };
+    },
+    removeUser(state, action) {
+      state.currentUser = null;
+    },
+  },
+});
 
-})
-
-export const signup=(email,password,displayName)=>{
-  return async (dispatch)=>{
-      const authenticate=await auth.createUserWithEmailAndPassword(email,password)
-    if(authenticate) updateProfile(auth.currentUser,{displayName})
-    if(authenticate) dispatch(authSlice.actions.setUser({email,displayName}))
-
+export const signup = createAsyncThunk(
+  "auth/signup",
+  async (data, thunkAPI) => {
+    const { email, password, displayName } = data;
+    await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+    const createUser=await axios.post('http://localhost:3001/api/user-auth',{ email, password, displayName })
   }
-}
+);
 
-export const signin=(email,password)=>{
-  return async (dispatch)=>{
-      const authenticate=await auth.signInWithEmailAndPassword(email,password)
-    if(authenticate) console.log(authenticate);
-    if(authenticate) dispatch(authSlice.actions.setUser({email}))
-
+export const signin = createAsyncThunk(
+  "atuh/signin",
+  async (data, thunkAPI) => {
+    const { email, password } = data;
+    await firebaseApp.auth().signInWithEmailAndPassword(email, password);
+    const {displayName,uid:userId}=await firebaseApp.auth().currentUser.multiFactor.user
+    thunkAPI.dispatch(authSlice.actions.setUser({ userId,email,displayName }));
   }
-}
+);
 
-export const signout=()=>{
-  return async (dispatch)=>{
-      const remove=await auth.signOut()
-    if(remove) dispatch(authSlice.actions.removeUser())
-
+export const signout = createAsyncThunk(
+  "auth/signout",
+  async (data, thunkAPI) => {
+    await firebaseApp.auth().signOut();
+    thunkAPI.dispatch(authSlice.actions.removeUser());
   }
-}
+);
 
+export const authActions = authSlice.actions;
 
-
-export const authActions=authSlice.actions
-
-export default authSlice
+export default authSlice;

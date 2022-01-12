@@ -1,26 +1,27 @@
 @import "./base";
 
+@import "./navbar";
+@import "./mainSection";
+@import "./footer";
 
-//mainLayer
-@import "./mainLayer/main/app";
-@import "./mainLayer/main/home";
-@import "./mainLayer/main/cryptoCurrencies";
-@import "./mainLayer/main/news";
-@import "./mainLayer/main/cryptoDetails";
-@import "./mainLayer/main/exchanges";
-@import "./mainLayer/main/watchlist";
+//main
+@import "./main/app";
+@import "./main/home";
+@import "./main/cryptoCurrencies";
+@import "./main/news";
+@import "./main/cryptoDetails";
+@import "./main/exchanges";
+@import "./main/watchlist";
 
-@import "./mainLayer/sub/navbar";
-@import "./mainLayer/sub/mainSection";
-@import "./mainLayer/sub/footer";
-@import "./mainLayer/sub/cryptoCard";
-@import "./mainLayer/sub/newsCard";
-@import "./mainLayer/sub/lineChart";
-@import "./mainLayer/sub/pagination";
-@import "./mainLayer/sub/btnToggle";
-@import "./mainLayer/sub/modal";
+//sub
+@import "./sub/cryptoCard";
+@import "./sub/newsCard";
+@import "./sub/lineChart";
+@import "./sub/pagination";
+@import "./sub/btnToggle";
+@import "./sub/modal";
 
-//authLayer
-@import "./authLayer/forms-base";
-@import "./authLayer/forms-general";
-@import "./authLayer/form-media"
+//auth
+@import "./auth/forms-media";
+@import "./auth/forms-base";
+@import "./auth/forms-general"
