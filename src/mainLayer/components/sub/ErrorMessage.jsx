@@ -7,9 +7,9 @@ export default function ErrorMessage({ children, refetchAction }) {
       <FrownOutlined />{" "}
       <h2>
         {children}
-        <span onClick={() => refetchAction()} className="refetch">
+        {refetchAction&&<span onClick={() => refetchAction()} className="refetch">
           Retry
-        </span>
+        </span>}
       </h2>
     </div>
   );

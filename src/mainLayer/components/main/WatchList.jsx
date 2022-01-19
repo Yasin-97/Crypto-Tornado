@@ -28,7 +28,7 @@ export default function WatchList() {
     });
     setUserWatchlist(filteredData);
   }, [cryptosList, favCryptos]);
-
+console.log('this',cryptosList?.data?.coins);
   //conditional rendering
   if (isCryptosListFetching) return <Loading />;
   if (!cryptosList?.data)
@@ -38,7 +38,8 @@ export default function WatchList() {
         Failed to get Cryptocurrencies! try to refetch.
       </ErrorMessage>
     );
-  if (!userWatchlist && userWatchlist?.length === 0)
+
+  if (!userWatchlist || userWatchlist?.length === 0)
     return (
       <h2
         style={{
@@ -63,7 +64,7 @@ export default function WatchList() {
             <th>Price</th>
             <th>24h %</th>
             <th>Market Cap</th>
-            <th>Circulating Supply</th>
+            <th>24h Volume</th>
           </tr>
         </thead>
         <tbody>
@@ -72,7 +73,7 @@ export default function WatchList() {
               (favCrypto) => favCrypto?.name === crypto.name
             );
             return isFav ? (
-              <WatchlistCryptoItem key={crypto.id} isFav={isFav} {...crypto} />
+              <WatchlistCryptoItem key={crypto.id} isFav={isFav} {...crypto} dailyVolume={crypto['24hVolume']} />
             ) : null;
           })}
         </tbody>

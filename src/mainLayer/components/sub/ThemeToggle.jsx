@@ -13,8 +13,10 @@ export default function ThemeToggle({ setTheme }) {
     <label className="switch">
       <input
         type="checkbox"
+        defaultValue={false}
         onClick={() => setIsDark((prevTheme) => !prevTheme)}
         id="toggleBtn"
+        role='toggle-btn'
       />
       <span className="slider round"></span>
     </label>

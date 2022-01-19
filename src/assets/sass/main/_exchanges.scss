@@ -21,7 +21,6 @@
     tr {
       background: lightness(var(--bg-secondary),2);
 
-      cursor: pointer;
       transition: background .3s ease-in-out;
       transition: all 0.1s ease-in-out;
 
@@ -46,6 +45,10 @@
         width: 20px;
         margin: 0 5px;
       }
+    }
+
+    td.more-info-cell{
+      cursor: pointer;
     }
 
     .descCell-container {

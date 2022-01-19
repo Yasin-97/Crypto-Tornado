@@ -55,6 +55,7 @@ export default function useSetFavoriteItem(isFav, uuid, name) {
       setError(err);
     }
   };
+  console.log('log tripple',isFavCryptosFetched,isFavCrypto,isLoading);
 
   return {
     isLoading,

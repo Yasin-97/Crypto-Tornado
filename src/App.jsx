@@ -10,7 +10,7 @@ import {
   watchlistActions,
 } from "./store/slices/watchlistSlice";
 import {useGetCryptosQuery} from './store/apis/cryptoApi'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
   const [userResolved, setUserResolved] = useState(false);
 
   useEffect(() => {
-    
+
     let unsubscribe;
     try {
       if (cryptosList?.data) { // to chech if internet connection is well

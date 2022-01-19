@@ -12,7 +12,7 @@ export default function WatchlistCryptoItem({
   price,
   change,
   marketCap,
-  circulatingSupply,
+  dailyVolume
 }) {
   //custom hook
   const { isLoading, remover } = useSetFavoriteItem(isFav, uuid, name);
@@ -41,12 +41,12 @@ export default function WatchlistCryptoItem({
         <td className="nameCell">
           <img src={iconUrl} alt="" /> {name}
         </td>
-        <td>{millify(price)}</td>
+        <td>{millify(price ,{ precision: 4 })}</td>
         <td className={`${change > 0 ? "bullish" : "bearish"}`}>
           {millify(change)}%
         </td>
         <td>{millify(marketCap)}</td>
-        <td>{circulatingSupply ? millify(circulatingSupply) : "No Info"}</td>
+        <td>{dailyVolume? millify(dailyVolume) : "No Info"}</td>
       </tr>
     </>
   );
