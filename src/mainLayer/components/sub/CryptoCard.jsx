@@ -17,7 +17,6 @@ export default function CryptoCard({
   change,
   isFav,
 }) {
-
   //routing
   const history = useHistory();
 
@@ -39,12 +38,13 @@ export default function CryptoCard({
     setModal((prev) => !prev);
   };
   const promptCryptoDetail = () => {
-    history.push(`/cryptodetails/${uuid}`);
+    history.push(`/cryptodetails/${id}`);
   };
 
   const promptSingin = () => {
     history.push("/signin");
   };
+
   const addToFavorites = async () => {
     if (isUserExist) {
       adder();

@@ -52,7 +52,7 @@ const News = ({ number }) => {
           >
             <option value="cryptocurrency">Cryptocurrency</option>
             {cryptos?.data?.coins.map((crypto) => (
-              <option value={`${crypto.name}`}>{crypto.name}</option>
+              <option value={crypto.name}>{crypto.name}</option>
             ))}
           </select>
         </div>

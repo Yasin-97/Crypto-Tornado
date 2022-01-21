@@ -11,6 +11,7 @@ export default configureStore({
         watchlistApi:watchlistReducer.reducer,
         [cryptoApi.reducerPath]:cryptoApi.reducer,
         [cryptoNewsApi.reducerPath]:cryptoNewsApi.reducer,
+
     },
     // middleware: getDefaultMiddleware({
     //     serializableCheck: false

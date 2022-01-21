@@ -66,7 +66,7 @@ const Cryptocurrencies = ({ number }) => {
           </div>
         )}
         {searchedCryptos?.length === 0 && (
-          <ErrorMessage>No match coin found!</ErrorMessage>
+          <ErrorMessage>Sorry! no match coin found!</ErrorMessage>
         )}
         <div className="coins">
           {cryptos?.length !== 0 &&
@@ -74,7 +74,8 @@ const Cryptocurrencies = ({ number }) => {
               const isFav = favCryptos?.find(
                 (favCrypto) => favCrypto.name === crypto.name
               );
-              return <CryptoCard key={crypto.uuid} isFav={isFav} {...crypto} />;
+
+              return <CryptoCard key={crypto.id} isFav={isFav} {...crypto} />;
             })}
         </div>
         {numberOfCryptos !== 10 && searchText === "" && paginate}

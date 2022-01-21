@@ -11,16 +11,15 @@ const Exchanges = () => {
     refetch: refetchExchangesData,
   } = useGetExchangesQuery();
 
-
   //states
   const [exchanges, setExchagnes] = useState([]);
 
   //side effects
-  useEffect(() => setExchagnes(exchangesData), [exchangesData]);
+  useEffect(() => setExchagnes(exchangesData?.data.exchanges), [exchangesData]);
 
   //conditional rendering
   if (isExchangesDataFetching) return <Loading />;
-  if (!exchangesData)
+  if (!exchangesData?.data.exchanges)
     return (
       <ErrorMessage refetchAction={refetchExchangesData}>
         {" "}
@@ -33,10 +32,9 @@ const Exchanges = () => {
       <thead>
         <tr>
           <th>Exchanges</th>
-          <th>24h BTC Traded</th>
-          <th>Established Year</th>
-          <th>Website</th>
-          <th></th>
+          <th>24h Trade Volume</th>
+          <th>Markets</th>
+          <th>Change</th>
         </tr>
       </thead>
       <tbody>
