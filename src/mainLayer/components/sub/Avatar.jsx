@@ -8,12 +8,12 @@ export default function Avatar() {
   );
   
   const user = displayName || email;
-  const user2 = () => (user.length > 15 ? `${user.substring(0, 15)}...` : user);
+  const displayUser = () => (user.length > 15 ? `${user.substring(0, 15)}...` : user);
 
   return (
     <div className="avatar">
       <UserOutlined />
-      <p>{user2()}</p>
+      <p role='avatar-name'>{displayUser()}</p>
     </div>
   );
 }
