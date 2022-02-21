@@ -14,5 +14,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </Router>,
-  document.getElementById("root")
+  document.getElementById("root")|| document.createElement('div') // for testing purposes
 );

@@ -4,10 +4,11 @@ import ReactPaginate from "react-paginate";
 export default function usePagination() {
   const [inputData, setInputData] = useState([]);
   const [currentPageData, setCurrentPageData] = useState([]);
-  const [offset, setOffset] = useState(0);
   const [perPage, setPerPage] = useState(20);
   const [currentPage, setCurrentPage] = useState(0);
+  const [offset, setOffset] = useState(0);
   const [pageCount, setPageCount] = useState();
+
   const receiveData = () => {
     const slice = inputData?.slice(offset, offset + perPage);
     setCurrentPageData(slice);
@@ -20,17 +21,19 @@ export default function usePagination() {
     setCurrentPage(selectedPage);
     setOffset(offset);
 
-    // receiveData()
+    window.scroll({ top: 0 })
   };
+  
   useEffect(() => {
     receiveData();
   }, [inputData, offset]);
+  
   return {
     setInputData,
     currentPageData,
 
     paginate: (
-      <ReactPaginate
+      <ReactPaginate role='pagination-component'
         pageCount={pageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={3}

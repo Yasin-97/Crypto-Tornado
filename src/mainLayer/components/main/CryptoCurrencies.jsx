@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { useSelector } from "react-redux";
 import {
   CryptoCard,
@@ -15,6 +15,8 @@ const Cryptocurrencies = ({ number }) => {
     data: cryptosList,
     isFetching: isCryptosListFetching,
     refetch: refetchCryptosList,
+    isError:isCryptosListError,
+    error:cryptosListError
   } = useGetCryptosQuery(numberOfCryptos);
 
   // redux store data
@@ -45,7 +47,7 @@ const Cryptocurrencies = ({ number }) => {
 
   //conditional rendering
   if (isCryptosListFetching) return <Loading />;
-  else if (!cryptosList?.data)
+  else if (isCryptosListError||cryptosListError)
     return (
       <ErrorMessage refetchAction={refetchCryptosList}>
         {" "}
@@ -56,10 +58,11 @@ const Cryptocurrencies = ({ number }) => {
   return (
     <>
       <section className="coins-container">
-        {!number && (
+        {numberOfCryptos>10 && (
           <div className="search-coins">
             <input
               type="text"
+              role='crypto-searchbar'
               placeholder="Search"
               onChange={(e) => setSearchText(e.target.value)}
             />
@@ -77,7 +80,7 @@ const Cryptocurrencies = ({ number }) => {
               return <CryptoCard key={crypto.uuid} isFav={isFav} {...crypto} />;
             })}
         </div>
-        {numberOfCryptos !== 10 && searchText === "" && paginate}
+        {numberOfCryptos > 10 && searchText === "" && paginate}
       </section>
     </>
   );

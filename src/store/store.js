@@ -2,8 +2,8 @@ import {configureStore,getDefaultMiddleware,applyMiddleware } from '@reduxjs/too
 import thunk from "redux-thunk" 
 import authReducer from '../store/slices/authSlice'
 import watchlistReducer from '../store/slices/watchlistSlice'
-import {cryptoApi} from './apis/cryptoApi'
-import {cryptoNewsApi} from './apis/cryptoNewsApi'
+import cryptoApi from './apis/cryptoApi'
+import cryptoNewsApi from './apis/cryptoNewsApi'
 
 export default configureStore({
     reducer:{
@@ -11,8 +11,5 @@ export default configureStore({
         watchlistApi:watchlistReducer.reducer,
         [cryptoApi.reducerPath]:cryptoApi.reducer,
         [cryptoNewsApi.reducerPath]:cryptoNewsApi.reducer,
-    },
-    // middleware: getDefaultMiddleware({
-    //     serializableCheck: false
-    //   }),
+    }
 }, applyMiddleware(thunk))

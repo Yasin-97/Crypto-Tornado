@@ -9,7 +9,7 @@ const cryptoNewsHeaders = {
 
 const baseUrl = "http://localhost:3001/api/news";
 
-const createRequest = (url) => ({ url, headers: cryptoNewsHeaders });
+const createRequest = (url) => ({ url });
 
 export const cryptoNewsApi = createApi({
   reducerPath: "cryptoNewsApi",
@@ -25,3 +25,5 @@ export const cryptoNewsApi = createApi({
 });
 
 export const { useGetCryptoNewsQuery } = cryptoNewsApi;
+
+export default cryptoNewsApi

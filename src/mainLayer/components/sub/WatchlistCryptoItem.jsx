@@ -15,7 +15,7 @@ export default function WatchlistCryptoItem({
   dailyVolume
 }) {
   //custom hook
-  const { isLoading, remover } = useSetFavoriteItem(isFav, uuid, name);
+  const { isLoading, remover } = useSetFavoriteItem({isFav, uuid, name});
 
   const removeFromFavorites = async () => {
     remover();

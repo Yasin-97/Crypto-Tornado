@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useGetExchangesQuery } from "../../../store/apis/cryptoApi";
-import { ExchangeDesc, Loading, ErrorMessage } from "../../index";
+import { Exchange, Loading, ErrorMessage } from "../../index";
 
 const Exchanges = () => {
   //api call
@@ -41,7 +41,7 @@ const Exchanges = () => {
       </thead>
       <tbody>
         {exchanges?.map((exchange) => (
-          <ExchangeDesc key={exchange.id} {...exchange} />
+          <Exchange key={exchange.id} {...exchange} />
         ))}
       </tbody>
     </table>
