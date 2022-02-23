@@ -56,7 +56,7 @@ console.log(document.getElementById('meme'));
           >
             <option id='meme' value="cryptocurrency">Cryptocurrency</option>
             {cryptos?.data?.coins.map((crypto) => (
-              <option value={`${crypto.name}`}>{crypto.name}</option>
+              <option value={crypto.name}>{crypto.name}</option>
             ))}
           </select>
         </div>

@@ -1,4 +1,4 @@
-import {configureStore,getDefaultMiddleware,applyMiddleware } from '@reduxjs/toolkit'
+import {configureStore,applyMiddleware } from '@reduxjs/toolkit'
 import thunk from "redux-thunk" 
 import authReducer from '../store/slices/authSlice'
 import watchlistReducer from '../store/slices/watchlistSlice'

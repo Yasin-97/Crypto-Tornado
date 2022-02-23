@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
-import firebaseApp from "../../firebase";
+import firebaseApp, { db, setDoc, doc,collection,query, where,onSnapshot   } from "../../firebase";
 
 
 const createConfig = async (params) => {
@@ -24,12 +24,19 @@ export const getUserWatchlist=createAsyncThunk(
   "watchlist/getUserWatchlist",
   async(data,thunkAPI)=>{
     const {userId}=data
-    thunkAPI.dispatch(watchlistSlice.actions.setIsFavCryptosFetched({isFavCryptosFetched:false}))
+    // const queryCollection = query(collection(db, "users"), where("__name__", "==",userId)); //just testing back end app
     const header = await createConfig({userId});
     axios.get(`http://localhost:3001/api/user-watchlist`,header)
     .then(res=>thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:res.data.favCryptos})))
     .then(()=>thunkAPI.dispatch(watchlistSlice.actions.setIsFavCryptosFetched({isFavCryptosFetched:true})))
     .catch(err=>console.error(err))
+    // thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:doc.data().favCryptos}))
+  //  onSnapshot(queryCollection, (querySnapshot)=>{
+  //    querySnapshot.forEach((doc)=>{
+  //      thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:doc.data().favCryptos}));
+  //    })
+  //  })
+
   }
 )
 
@@ -41,9 +48,14 @@ export const addToUserWatchlist = createAsyncThunk(
     const prevFavCryptos=thunkAPI.getState().watchlistApi.favCryptos
     
     thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:[...prevFavCryptos,newFavCrypto]}));
+    const newFavCryptoList=[...prevFavCryptos,newFavCrypto] //testing
+    // return setDoc(doc(db, "users", userId), {
+    //   favCryptos:newFavCryptoList //[...prevFavCryptos,newFavCrypto]
+    // }); // just testing back end app
     const header = await createConfig();
     await axios.post('http://localhost:3001/api/user-watchlist',{userId,favCryptos:[...prevFavCryptos,newFavCrypto]},header)
     .catch(err=>console.error(err))
+    // getUserWatchlist({userId})
   }
 );
 
@@ -56,9 +68,13 @@ export const removeFromUserWatchlist = createAsyncThunk(
     const filteredCryptos=favCryptos.filter(item=>item.coinId!==removeCryptoId)
    
     thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:filteredCryptos}));
+    // return setDoc(doc(db, "users", userId), {
+    //   favCryptos:filteredCryptos
+    // }); //just testing back end app
     const header = await createConfig();
    await axios.post('http://localhost:3001/api/user-watchlist',{userId,favCryptos:filteredCryptos},header)
    .catch(err=>console.error(err))
+  //  getUserWatchlist({userId})
   }
 );
 
@@ -66,7 +82,7 @@ export const removeFromUserWatchlist = createAsyncThunk(
 
 const initialWatchlistState = {
   favCryptos: [],
-  isFavCryptosFetched:true //to hide fav icons until favCryptos list is loaded
+  isFavCryptosFetched:false //to prvent user from clicking fav icons on crypto cards before favCryptos are loaded
 };
 
 const watchlistSlice = createSlice({
