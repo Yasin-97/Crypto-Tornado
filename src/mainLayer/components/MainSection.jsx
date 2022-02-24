@@ -6,7 +6,7 @@ import {
   ErrorMessage,
   Avatar,
   PrivateRoute,
-  Glance,
+  Home,
   Exchanges,
   Cryptocurrencies,
   CryptoDetails,
@@ -43,7 +43,7 @@ export default function MainSection({ userResolved }) {
           <Switch>
             <PrivateRoute exact path="/watchlist" component={WatchList} />
             <Route exact path="/">
-              <Glance />
+              <Home />
             </Route>
             <Route exact path="/exchanges">
               <Exchanges />

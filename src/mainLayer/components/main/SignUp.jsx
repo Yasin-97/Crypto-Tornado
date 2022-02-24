@@ -67,7 +67,7 @@ export default function SignUp() {
   return (
     <section className="form__wrapper">
       <form className="form" onSubmit={handleSubmit}>
-        <h3 className="form__title">SIGN UP</h3>
+        <h3 className="form__title">SaIGN UP</h3>
         <div className="form__input__group">
           {error && <b className="form__alert__danger">{error}</b>}
         </div>

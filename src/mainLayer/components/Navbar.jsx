@@ -52,27 +52,25 @@ const Navbar = ({ setTheme, isUserResolved }) => {
       </div>
       <nav className={`navbar ${showMenu}`}>
         <ThemeToggle setTheme={setTheme} />
-        <Link to="/watchlist" onClick={closeMenu} data-testid="navbar-item" className="navbar-item">
+        <Link to="/watchlist" onClick={closeMenu} className="navbar-item">
           <HomeOutlined /> Watchlist
         </Link>
-        <Link to="/" onClick={closeMenu} data-testid="navbar-item" className="navbar-item">
+        <Link to="/" onClick={closeMenu} className="navbar-item">
           <EyeOutlined /> Glance
         </Link>
         <Link
           to="/cryptocurrencies"
           onClick={closeMenu}
-          data-testid="navbar-item"
           className="navbar-item"
         >
           <FundOutlined /> Cryptocurrencies
         </Link>
-        <Link to="/exchanges" onClick={closeMenu} data-testid="navbar-item" className="navbar-item">
+        <Link to="/exchanges" onClick={closeMenu} className="navbar-item">
           <MoneyCollectOutlined /> Exchanges
         </Link>
         <Link
           to="/news"
           onClick={closeMenu}
-          data-testid="navbar-item"
           className="navbar-item"
           style={{ marginBottom: "2rem" }}
         >
@@ -80,11 +78,11 @@ const Navbar = ({ setTheme, isUserResolved }) => {
         </Link>
         {!currentUser && isUserResolved && (
           <>
-            <Link to="/signup" data-testid='nav-btn' className="nav-btn-primary" onClick={closeMenu}>
+            <Link to="/signup" className="nav-btn-primary" onClick={closeMenu}>
               Sign Up
             </Link>
             <Link
-              to="/signin" data-testid='nav-btn'
+              to="/signin"
               className="nav-btn-secondary"
               onClick={closeMenu}
             >
@@ -93,7 +91,7 @@ const Navbar = ({ setTheme, isUserResolved }) => {
           </>
         )}
         {currentUser && isUserResolved && (
-          <Link to="/" data-testid='nav-btn' className="nav-btn-tertiary" onClick={onSignout}>
+          <Link to="/" className="nav-btn-tertiary" onClick={onSignout}>
             Log Out
           </Link>
         )}

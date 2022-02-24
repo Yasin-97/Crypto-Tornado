@@ -1,11 +1,12 @@
 import React from "react";
+import { FrownOutlined } from "@ant-design/icons";
 import millify from "millify";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../../../store/apis/cryptoApi";
 import { Cryptocurrencies, News, ErrorMessage } from "../../index";
 import Loading from "../sub/Loading";
 
-const Glance = () => {
+const Homepage = () => {
   //api call
   const showingCryptos = 10;
   const {
@@ -28,8 +29,8 @@ const Glance = () => {
       </ErrorMessage>
     );
   return (
-    <main className="glance">
-      <h2 role='global-crypto-stats' className="heading">Global Crypto Stats</h2>
+    <main className="home">
+      <h2 className="heading">Global Crypto Stats</h2>
       <div className="stats-container">
         <div className="stat">
           <p>Total Cryptocurrencies</p>
@@ -53,16 +54,16 @@ const Glance = () => {
         </div>
       </div>
       <div className="heading-container">
-        <h2 role='top-10-cryptocurrencies' className="heading">Top 10 Cryptocurrencies</h2>
+        <h2 className="heading">Top 10 Cryptocurrencies</h2>
         <h4 className="show-more">
-          <Link role="show-more-cryptos" to="/cryptocurrencies">Show More</Link>
+          <Link to="/cryptocurrencies">Show More</Link>
         </h4>
       </div>
       <Cryptocurrencies number={showingCryptos} />
       <div className="heading-container">
-        <h2 role='top-crypto-news' className="heading">Top Crypto News</h2>
+        <h2 className="heading">Top Crypto News</h2>
         <h4 className="show-more">
-          <Link role="show-more-news" to="/news">Show More</Link>
+          <Link to="/news">Show More</Link>
         </h4>
       </div>
       <News number={showingNews} />
@@ -70,4 +71,4 @@ const Glance = () => {
   );
 };
 
-export default Glance;
+export default Homepage;

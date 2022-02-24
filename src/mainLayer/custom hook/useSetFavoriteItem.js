@@ -5,7 +5,7 @@ import {
   removeFromUserWatchlist,
 } from "../../store/slices/watchlistSlice";
 
-export default function useSetFavoriteItem({isFav, uuid, name}) {
+export default function useSetFavoriteItem(isFav, uuid, name) {
   //redux
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.authApi.currentUser);
@@ -16,11 +16,11 @@ export default function useSetFavoriteItem({isFav, uuid, name}) {
   //states
   const [isFavCrypto, setIsFavCrypto] = useState(isFav);
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState();
+  const [error, setError] = useState();
 
   //side effects
   useEffect(() => {
-    setIsFavCrypto(isFav); // as isFav comming from server, we need to reset it as soon as it updates
+    setIsFavCrypto(isFav);
   }, [isFav]);
 
   //functions
@@ -34,9 +34,9 @@ export default function useSetFavoriteItem({isFav, uuid, name}) {
         })
       );
       setIsLoading(false);
-      setIsFavCrypto(true);
+      setIsFavCrypto(!isFavCrypto);
     } catch (err) {
-      setIsError(`failed to add ${name} to favorite cryptos!`);
+      setError(err);
     }
   };
 
@@ -50,16 +50,16 @@ export default function useSetFavoriteItem({isFav, uuid, name}) {
         })
       );
       setIsLoading(false);
-      setIsFavCrypto(false);
+      setIsFavCrypto(!isFavCrypto);
     } catch (err) {
-      setIsError(`failed to remove ${name} from favorite cryptos!`);
+      setError(err);
     }
   };
+  console.log('log tripple',isFavCryptosFetched,isFavCrypto,isLoading);
 
   return {
     isLoading,
     isFavCrypto,
-    isError,
     isUserExist,
     isFavCryptosFetched,
     adder,

@@ -14,32 +14,28 @@ const News = ({ number }) => {
   const numberOfCryptos = number ? number : 12;
   const {
     data: cryptos,
-    isFetching: isCryptosFetching,
-    isError:isCryptosError,
-    error:cryptosError,
+    isFetching: cryptosFetching,
     refetch: refetchCryptos,
   } = useGetCryptosQuery(10);
   const {
     data: cryptoNews,
-    isFetching: isCryptoNewsFetching,
-    isError:isCryptoNewsError,
-    error:CryptoNewsError,
+    isFetching: cryptoNewsFetching,
     refetch: refetchCryptoNews,
   } = useGetCryptoNewsQuery({
     newsCategory,
     count: numberOfCryptos,
   });
-console.log(document.getElementById('meme'));
+
 
   //conditional rendering
-  if (isCryptoNewsFetching || isCryptosFetching) return <Loading />;
-  if (isCryptosError||cryptosError)
+  if (cryptoNewsFetching || cryptosFetching) return <Loading />;
+  if (!cryptos?.data)
     return (
       <ErrorMessage refetchAction={refetchCryptos}>
         Falied to get News category! try to refetch.
       </ErrorMessage>
     );
-  if (isCryptoNewsError||CryptoNewsError)
+  if (!cryptoNews?.value)
     return (
       <ErrorMessage refetchAction={refetchCryptoNews}>
         Falied to get News! try to refetch.
@@ -49,19 +45,19 @@ console.log(document.getElementById('meme'));
   return (
     <section className="news-wrapper">
       {!number && (
-        <div role='category-bar' className="news-category">
+        <div className="news-category">
           <select
             onChange={(e) => setNewsCategory(e.target.value)}
             value={newsCategory}
           >
-            <option id='meme' value="cryptocurrency">Cryptocurrency</option>
+            <option value="cryptocurrency">Cryptocurrency</option>
             {cryptos?.data?.coins.map((crypto) => (
               <option value={crypto.name}>{crypto.name}</option>
             ))}
           </select>
         </div>
       )}
-      {cryptoNews?.value?.length === 0 ? (
+      {cryptoNews.value.length === 0 ? (
         <h2
           style={{
             textAlign: "center",
@@ -73,7 +69,7 @@ console.log(document.getElementById('meme'));
         </h2>
       ) : (
         <div className="news-container">
-          {cryptoNews?.value?.map((news, i) => (
+          {cryptoNews.value.map((news, i) => (
             <NewsCard {...news} key={i} />
           ))}
         </div>

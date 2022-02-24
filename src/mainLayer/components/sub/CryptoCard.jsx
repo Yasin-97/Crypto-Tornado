@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import millify from "millify";
 import { StarOutlined, StarFilled, LoadingOutlined } from "@ant-design/icons";
-import { Modal,useSetFavoriteItem } from "../../index";
-
+import { Modal } from "../../index";
+import useSetFavoriteItem from "../../custom hook/useSetFavoriteItem";
 
 export default function CryptoCard({
   uuid,
-  symbol,
+  id,
   iconUrl,
   rank,
   name,
@@ -28,7 +28,8 @@ export default function CryptoCard({
     isFavCryptosFetched,
     adder,
     remover,
-  } = useSetFavoriteItem({isFav, uuid, name});
+  } = useSetFavoriteItem(isFav, uuid, name);
+
   // state
   const [modal, setModal] = useState(false);
 
@@ -57,14 +58,14 @@ export default function CryptoCard({
   };
 
   return (
-    <div role='crypto-card-container' className="card-container">
+    <div className="card-container">
       <Modal
         show={modal}
         close={toggleModal}
         action={promptSingin}
         actionText={"LOG IN"}
       >
-        To add crypto to watchlist you need to login first.
+        To add crypto to watchlist you need to login first!
       </Modal>
 
       <div className="card">
@@ -76,6 +77,7 @@ export default function CryptoCard({
             <h2 onClick={promptCryptoDetail}>
               {rank}. {name}
             </h2>
+
             {isLoading && <LoadingOutlined className="card-star-icon" />}
 
             {isFavCryptosFetched && !isFavCrypto && !isLoading && (
