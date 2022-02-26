@@ -14,28 +14,32 @@ const News = ({ number }) => {
   const numberOfCryptos = number ? number : 12;
   const {
     data: cryptos,
-    isFetching: cryptosFetching,
+    isFetching: isCryptosFetching,
+    isError:isCryptosError,
+    error:cryptosError,
     refetch: refetchCryptos,
   } = useGetCryptosQuery(10);
   const {
     data: cryptoNews,
-    isFetching: cryptoNewsFetching,
+    isFetching: isCryptoNewsFetching,
+    isError:isCryptoNewsError,
+    error:CryptoNewsError,
     refetch: refetchCryptoNews,
   } = useGetCryptoNewsQuery({
     newsCategory,
     count: numberOfCryptos,
   });
-
+console.log(document.getElementById('meme'));
 
   //conditional rendering
-  if (cryptoNewsFetching || cryptosFetching) return <Loading />;
-  if (!cryptos?.data)
+  if (isCryptoNewsFetching || isCryptosFetching) return <Loading />;
+  if (isCryptosError||cryptosError)
     return (
       <ErrorMessage refetchAction={refetchCryptos}>
         Falied to get News category! try to refetch.
       </ErrorMessage>
     );
-  if (!cryptoNews?.value)
+  if (isCryptoNewsError||CryptoNewsError)
     return (
       <ErrorMessage refetchAction={refetchCryptoNews}>
         Falied to get News! try to refetch.
@@ -45,19 +49,19 @@ const News = ({ number }) => {
   return (
     <section className="news-wrapper">
       {!number && (
-        <div className="news-category">
+        <div role='category-bar' className="news-category">
           <select
             onChange={(e) => setNewsCategory(e.target.value)}
             value={newsCategory}
           >
-            <option value="cryptocurrency">Cryptocurrency</option>
+            <option id='meme' value="cryptocurrency">Cryptocurrency</option>
             {cryptos?.data?.coins.map((crypto) => (
-              <option value={crypto.name}>{crypto.name}</option>
+              <option value={`${crypto.name}`}>{crypto.name}</option>
             ))}
           </select>
         </div>
       )}
-      {cryptoNews.value.length === 0 ? (
+      {cryptoNews?.value?.length === 0 ? (
         <h2
           style={{
             textAlign: "center",
@@ -69,7 +73,7 @@ const News = ({ number }) => {
         </h2>
       ) : (
         <div className="news-container">
-          {cryptoNews.value.map((news, i) => (
+          {cryptoNews?.value?.map((news, i) => (
             <NewsCard {...news} key={i} />
           ))}
         </div>

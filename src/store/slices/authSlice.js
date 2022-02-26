@@ -23,8 +23,13 @@ export const signup = createAsyncThunk(
   "auth/signup",
   async (data, thunkAPI) => {
     const { email, password, displayName } = data;
-    await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
-    const createUser=await axios.post('http://localhost:3001/api/user-auth',{ email, password, displayName })
+    // await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+    const newUser=await axios.post('http://localhost:3001/api/user-auth',{ email, password, displayName })
+    if(newUser){
+      const { userId, email, displayName } = newUser.data.user;
+      // thunkAPI.dispatch(authSlice.actions.setUser({ userId,email,displayName }));
+      thunkAPI.dispatch(signin({ email, password }))
+    }
   }
 );
 

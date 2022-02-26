@@ -5,7 +5,7 @@ import {renderWithRedux} from '../../../../testUtils'
 import News from '../News'
 import { useGetCryptosQuery } from '../../../../store/apis/cryptoApi'
 import { useGetCryptoNewsQuery } from '../../../../store/apis/cryptoNewsApi'
-import {testingCoins,testingNews6,testingNews12} from '../../../../testingData'
+import {testingCoins,testingNews6,testingNews12} from '../../../../../testingData'
 
 
 

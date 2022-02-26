@@ -6,7 +6,7 @@ import { renderWithRedux } from "../../../../testUtils";
 import CryptoCurrencies from "../CryptoCurrencies";
 import { useGetCryptosQuery } from "../../../../store/apis/cryptoApi";
 import usePagination from "../../../custom hook/usePagination";
-import {testingCoins} from '../../../../testingData'
+import {testingCoins} from '../../../../../testingData'
 
 jest.mock("../../../../store/apis/cryptoApi", () => ({useGetCryptosQuery: jest.fn()}));
 jest.mock("../../../custom hook/usePagination");

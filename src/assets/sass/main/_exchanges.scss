@@ -21,7 +21,6 @@
     tr {
       background: lightness(var(--bg-secondary),2);
 
-      cursor: pointer;
       transition: background .3s ease-in-out;
       transition: all 0.1s ease-in-out;
 
@@ -48,30 +47,38 @@
       }
     }
 
+    td.more-info-cell{
+      cursor: pointer;
+    }
+
     .descCell-container {
       white-space: normal;
       max-height: 0px;
       padding: 0;
       transition: all .3s ease-in-out;
+      .descCell {
+        max-width: 100%;
+        height: 0;
+        padding: 0 0.5rem;
+        overflow: hidden;
+        cursor: initial;
+        background-color: lightness(var(--bg-secondary),1.4);
+        transition: background-color .3s ease-in-out, height 0.2s ease-in-out;
+      }
     }
 
-    .descCell {
-      max-width: 100%;
-      height: 0;
-      padding: 0 0.5rem;
-      overflow: hidden;
-      cursor: initial;
-      background-color: lightness(var(--bg-secondary),1.4);
-      transition: background-color .3s ease-in-out, height 0.2s ease-in-out;
-    }
 
     h3,
     h2 {
       padding-left: 0.5rem;
       color: var(--color-light);
     }
+    h3{
+      margin-bottom: 0;
+      padding: .5rem;
+    }
 
-    p {
+    b {
       color: lightness(var(--color-light),.75);
     }
   }

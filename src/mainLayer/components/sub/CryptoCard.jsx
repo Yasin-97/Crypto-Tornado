@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import millify from "millify";
 import { StarOutlined, StarFilled, LoadingOutlined } from "@ant-design/icons";
-import { Modal } from "../../index";
-import useSetFavoriteItem from "../../custom hook/useSetFavoriteItem";
+import { Modal,useSetFavoriteItem } from "../../index";
+
 
 export default function CryptoCard({
   uuid,
-  id,
+  symbol,
   iconUrl,
   rank,
   name,
@@ -17,6 +17,7 @@ export default function CryptoCard({
   change,
   isFav,
 }) {
+
   //routing
   const history = useHistory();
 
@@ -28,8 +29,7 @@ export default function CryptoCard({
     isFavCryptosFetched,
     adder,
     remover,
-  } = useSetFavoriteItem(isFav, uuid, name);
-
+  } = useSetFavoriteItem({isFav, uuid, name});
   // state
   const [modal, setModal] = useState(false);
 
@@ -38,13 +38,12 @@ export default function CryptoCard({
     setModal((prev) => !prev);
   };
   const promptCryptoDetail = () => {
-    history.push(`/cryptodetails/${id}`);
+    history.push(`/cryptodetails/${uuid}`);
   };
 
   const promptSingin = () => {
     history.push("/signin");
   };
-
   const addToFavorites = async () => {
     if (isUserExist) {
       adder();
@@ -58,14 +57,14 @@ export default function CryptoCard({
   };
 
   return (
-    <div className="card-container">
+    <div role='crypto-card-container' className="card-container">
       <Modal
         show={modal}
         close={toggleModal}
         action={promptSingin}
         actionText={"LOG IN"}
       >
-        To add crypto to watchlist you need to login first!
+        To add crypto to watchlist you need to login first.
       </Modal>
 
       <div className="card">
@@ -77,7 +76,6 @@ export default function CryptoCard({
             <h2 onClick={promptCryptoDetail}>
               {rank}. {name}
             </h2>
-
             {isLoading && <LoadingOutlined className="card-star-icon" />}
 
             {isFavCryptosFetched && !isFavCrypto && !isLoading && (

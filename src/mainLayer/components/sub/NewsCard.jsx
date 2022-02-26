@@ -12,7 +12,7 @@ export default function NewsCard({
 }) {
   
   return (
-    <div className="news-card-container">
+    <div role='news-card-container' className="news-card-container">
       <a href={url} target="_blank" rel="noreferrer">
         <div className="news-card">
           <div className="news-card-img-container">
