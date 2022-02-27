@@ -8,15 +8,15 @@ import {
   PrivateRoute,
   Glance,
   Exchanges,
-  Cryptocurrencies,
+  CryptoCurrencies,
   CryptoDetails,
   News,
   WatchList,
   SignUp,
   SignIn,
   NotFound,
-} from "../index";
-import { useGetCryptosQuery } from "../../store/apis/cryptoApi";
+} from "mainLayer/index";
+import { useGetCryptosQuery } from "store/apis/cryptoApi";
 export default function MainSection({ userResolved }) {
   //api call
   const {
@@ -49,7 +49,7 @@ export default function MainSection({ userResolved }) {
               <Exchanges />
             </Route>
             <Route exact path="/cryptocurrencies">
-              <Cryptocurrencies />
+              <CryptoCurrencies />
             </Route>
             <Route exact path="/cryptodetails/:coinId">
               <CryptoDetails />

@@ -5,8 +5,8 @@ import {
   usePagination,
   ErrorMessage,
   Loading,
-} from "../../index";
-import { useGetCryptosQuery } from "../../../store/apis/cryptoApi";
+} from "mainLayer/index";
+import { useGetCryptosQuery } from "store/apis/cryptoApi";
 
 const Cryptocurrencies = ({ number }) => {
   //api call

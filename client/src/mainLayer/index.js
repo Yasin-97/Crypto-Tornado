@@ -1,7 +1,7 @@
 
 //main components
 export {default as WatchList} from './components/main/WatchList'
-export {default as Cryptocurrencies} from './components/main/CryptoCurrencies'
+export {default as CryptoCurrencies} from './components/main/CryptoCurrencies'
 export {default as CryptoDetails} from './components/main/CryptoDetails'
 export {default as Exchanges} from './components/main/Exchanges'
 export {default as Glance} from './components/main/Glance'

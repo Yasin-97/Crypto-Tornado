@@ -1,7 +1,7 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import {render,screen,fireEvent} from '@testing-library/react'
-import ErrorMessage from '../ErrorMessage'
+import {ErrorMessage} from 'mainLayer/index'
 
 
 describe('test error message with and without refetch action',()=>{

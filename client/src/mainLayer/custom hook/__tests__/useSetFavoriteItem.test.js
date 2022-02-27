@@ -1,13 +1,13 @@
 import { act } from "@testing-library/react";
-import { createStore, rendreHookWithRedux } from "../../../testUtils";
+import { createStore, rendreHookWithRedux } from "testUtils";
 
-import { authActions } from "../../../store/slices/authSlice";
+import { authActions } from "store/slices/authSlice";
 import {
   watchlistActions,
   addToUserWatchlist,
   removeFromUserWatchlist,
-} from "../../../store/slices/watchlistSlice";
-import useSetFavoriteItem from "../useSetFavoriteItem";
+} from "store/slices/watchlistSlice";
+import {useSetFavoriteItem} from "mainLayer/index";
 
 describe("setFavoriteItem hook", () => {
   let store;

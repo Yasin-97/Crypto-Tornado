@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import millify from "millify";
-import { LineChart, Loading, ErrorMessage } from "../../index";
+import { LineChart, Loading, ErrorMessage } from "mainLayer/index";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -16,7 +16,7 @@ import {
 import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
-} from "../../../store/apis/cryptoApi";
+} from "store/apis/cryptoApi";
 
 const CryptoDetails = () => {
   //router

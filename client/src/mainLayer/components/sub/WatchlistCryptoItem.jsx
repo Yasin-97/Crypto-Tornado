@@ -1,7 +1,7 @@
 import React from "react";
 import millify from "millify";
 import { StarFilled, LoadingOutlined } from "@ant-design/icons";
-import {useSetFavoriteItem} from "../../index";
+import {useSetFavoriteItem} from "mainLayer/index";
 
 export default function WatchlistCryptoItem({
   isFav,

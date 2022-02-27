@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   addToUserWatchlist,
   removeFromUserWatchlist,
-} from "../../store/slices/watchlistSlice";
+} from "store/slices/watchlistSlice";
 
 export default function useSetFavoriteItem({isFav, uuid, name}) {
   //redux

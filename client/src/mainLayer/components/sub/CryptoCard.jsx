@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import millify from "millify";
 import { StarOutlined, StarFilled, LoadingOutlined } from "@ant-design/icons";
-import { Modal,useSetFavoriteItem } from "../../index";
+import { Modal,useSetFavoriteItem } from "mainLayer/index";
 
 
 export default function CryptoCard({

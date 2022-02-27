@@ -2,14 +2,14 @@ import React from "react";
 import { screen } from "@testing-library/react";
 import ReactPaginate from "react-paginate";
 import "@testing-library/jest-dom/extend-expect";
-import { renderWithRedux } from "../../../../testUtils";
-import CryptoCurrencies from "../CryptoCurrencies";
-import { useGetCryptosQuery } from "../../../../store/apis/cryptoApi";
-import usePagination from "../../../custom hook/usePagination";
-import {testingCoins} from '../../../../../testingData'
+import { renderWithRedux } from "testUtils";
+import {CryptoCurrencies} from "mainLayer/index";
+import { useGetCryptosQuery } from "store/apis/cryptoApi";
+import usePagination from "mainLayer/custom hook/usePagination";
+import {testingCoins} from 'testingData'
 
-jest.mock("../../../../store/apis/cryptoApi", () => ({useGetCryptosQuery: jest.fn()}));
-jest.mock("../../../custom hook/usePagination");
+jest.mock("store/apis/cryptoApi", () => ({useGetCryptosQuery: jest.fn()}));
+jest.mock("mainLayer/custom hook/usePagination");
 
 
 

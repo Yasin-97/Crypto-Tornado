@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import NewsCard from "../sub/NewsCard";
-import { useGetCryptoNewsQuery } from "../../../store/apis/cryptoNewsApi";
-import { useGetCryptosQuery } from "../../../store/apis/cryptoApi";
-import Loading from "../sub/Loading";
-import ErrorMessage from "../sub/ErrorMessage";
+import { useGetCryptoNewsQuery } from "store/apis/cryptoNewsApi";
+import { useGetCryptosQuery } from "store/apis/cryptoApi";
+import {Loading,ErrorMessage,NewsCard} from "mainLayer/index";
+
 
 const News = ({ number }) => {
   

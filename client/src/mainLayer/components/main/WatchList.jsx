@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useGetCryptosQuery } from "../../../store/apis/cryptoApi";
-import { ErrorMessage, WatchlistCryptoItem, Loading } from "../../index";
+import { useGetCryptosQuery } from "store/apis/cryptoApi";
+import { ErrorMessage, WatchlistCryptoItem, Loading } from "mainLayer/index";
 
 export default function WatchList() {
   //api call

@@ -1,17 +1,17 @@
 import React from 'react'
-import {screen,fireEvent} from '@testing-library/react'
+import {screen} from '@testing-library/react'
 import "@testing-library/jest-dom/extend-expect"
-import {renderWithRedux} from '../../../../testUtils'
-import News from '../News'
-import { useGetCryptosQuery } from '../../../../store/apis/cryptoApi'
-import { useGetCryptoNewsQuery } from '../../../../store/apis/cryptoNewsApi'
-import {testingCoins,testingNews6,testingNews12} from '../../../../../testingData'
+import {renderWithRedux} from 'testUtils'
+import {News} from 'mainLayer/index'
+import { useGetCryptosQuery } from 'store/apis/cryptoApi'
+import { useGetCryptoNewsQuery } from 'store/apis/cryptoNewsApi'
+import {testingCoins,testingNews6,testingNews12} from 'testingData'
 
 
 
 
-jest.mock('../../../../store/apis/cryptoApi',()=>({useGetCryptosQuery:jest.fn()}))
-jest.mock('../../../../store/apis/cryptoNewsApi',()=>({useGetCryptoNewsQuery:jest.fn()}))
+jest.mock('store/apis/cryptoApi',()=>({useGetCryptosQuery:jest.fn()}))
+jest.mock('store/apis/cryptoNewsApi',()=>({useGetCryptoNewsQuery:jest.fn()}))
 
 describe('news',()=>{
     beforeEach(()=>{

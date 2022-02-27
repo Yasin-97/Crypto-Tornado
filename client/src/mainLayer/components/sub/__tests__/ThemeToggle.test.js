@@ -1,7 +1,7 @@
 import React from 'react'
 import {render,screen,fireEvent}from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect';
-import ThemeToggle from '../ThemeToggle'
+import {ThemeToggle} from 'mainLayer/index'
 
 const setTheme=theme=>theme
 test('changes theme on clicking',()=>{

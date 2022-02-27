@@ -7,10 +7,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom/extend-expect";
 
-import authReducer from "./store/slices/authSlice";
-import watchlistReducer from "./store/slices/watchlistSlice";
-import  cryptoApi  from "./store/apis/cryptoApi";
-import cryptoNewsApi from "./store/apis/cryptoNewsApi";
+import authReducer from "store/slices/authSlice";
+import watchlistReducer from "store/slices/watchlistSlice";
+import  cryptoApi  from "store/apis/cryptoApi";
+import cryptoNewsApi from "store/apis/cryptoNewsApi";
 
 
  function createStore (preloadedState){

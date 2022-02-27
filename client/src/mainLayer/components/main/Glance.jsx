@@ -1,9 +1,8 @@
 import React from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
-import { useGetCryptosQuery } from "../../../store/apis/cryptoApi";
-import { Cryptocurrencies, News, ErrorMessage } from "../../index";
-import Loading from "../sub/Loading";
+import { useGetCryptosQuery } from "store/apis/cryptoApi";
+import { CryptoCurrencies, News, ErrorMessage,Loading } from "mainLayer/index";
 
 const Glance = () => {
   //api call
@@ -58,7 +57,7 @@ const Glance = () => {
           <Link role="show-more-cryptos" to="/cryptocurrencies">Show More</Link>
         </h4>
       </div>
-      <Cryptocurrencies number={showingCryptos} />
+      <CryptoCurrencies number={showingCryptos} />
       <div className="heading-container">
         <h2 role='top-crypto-news' className="heading">Top Crypto News</h2>
         <h4 className="show-more">

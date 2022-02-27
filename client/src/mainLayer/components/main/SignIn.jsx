@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { UserOutlined, LoadingOutlined, LockFilled } from "@ant-design/icons";
-import { signin } from "../../../store/slices/authSlice";
+import { signin } from "store/slices/authSlice";
 
 export default function AuthForm() {
   //state Management

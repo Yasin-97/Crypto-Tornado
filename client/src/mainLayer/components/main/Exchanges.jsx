@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import { useGetExchangesQuery } from "../../../store/apis/cryptoApi";
-import { Exchange, Loading, ErrorMessage } from "../../index";
+import { useGetExchangesQuery } from "store/apis/cryptoApi";
+import { Exchange, Loading, ErrorMessage } from "mainLayer/index";
 
 const Exchanges = () => {
   //api call

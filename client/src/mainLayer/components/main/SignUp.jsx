@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { UserOutlined, LoadingOutlined, LockFilled } from "@ant-design/icons";
-import { signup } from "../../../store/slices/authSlice";
+import { signup } from "store/slices/authSlice";
 
 export default function SignUp() {
   //redux state Management

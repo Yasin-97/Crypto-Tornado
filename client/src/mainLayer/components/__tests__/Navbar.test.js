@@ -4,9 +4,9 @@ import "@testing-library/jest-dom/extend-expect";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import store from "../../../store/store";
-import { authActions } from "../../../store/slices/authSlice";
-import Navbar from "../Navbar";
+import store from "store/store";
+import { authActions } from "store/slices/authSlice";
+import {Navbar} from "mainLayer/index";
 
 describe('Navbar',()=>{
   const setTheme=jest.fn()

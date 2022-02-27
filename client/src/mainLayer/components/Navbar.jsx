@@ -8,12 +8,13 @@ import {
   FundOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import { signout } from "../../store/slices/authSlice";
-import { watchlistActions } from "../../store/slices/watchlistSlice";
-import { ThemeToggle } from "../index";
-import icon from "../../assets/imgs/Cryptornado.png";
+import { signout } from "store/slices/authSlice";
+import { watchlistActions } from "store/slices/watchlistSlice";
+import { ThemeToggle } from "mainLayer/index";
+import icon from "assets/imgs/Cryptornado.png";
 
 const Navbar = ({ setTheme, isUserResolved }) => {
+  
   //redux state management
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.authApi.currentUser);
