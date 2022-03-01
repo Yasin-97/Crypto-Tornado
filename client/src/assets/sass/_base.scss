@@ -16,7 +16,7 @@
   @include defineColorHSL(--color-light-yellow,42, 100%, 70%);
   @include defineColorHSL(--color-dark-yellow, 42, 98%, 53%);
 }
-.light{
+.navy-blue{
     @include defineColorHSL(--color-dark, 234, 40%, 10%);
   @include defineColorHSL(--bg-secondary, 234, 40%, 10%);
     @include defineColorHSL(--color-light-yellow, 43, 100%, 65%);
@@ -27,7 +27,7 @@
 
 
 $navbar-height: 60px;
-$sideNavbar-minWidth: 240px;
+$sideNav-minWidth: 240px;
 
 @mixin container {
   display: flex;

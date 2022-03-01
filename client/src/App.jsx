@@ -21,9 +21,9 @@ function App() {
   const dispatch = useDispatch();
   const { setUser } = authActions;
   const currentUser = useSelector((state) => state.authApi.currentUser);
+  const theme=useSelector((state)=>state.themeApi.theme)
 
   //state
-  const [theme, setTheme] = useState(false);
   const [userResolved, setUserResolved] = useState(false);
 
   useEffect(() => {
@@ -60,13 +60,9 @@ function App() {
     }
   }, [currentUser]);
 
-
-  //themeing
-  const changeTheme = (isThemeDark) => isThemeDark? setTheme('dark'):setTheme('light');
-
   return (
     <div className={`app ${theme}`}>
-        <Navbar setTheme={changeTheme} isUserResolved={userResolved} />
+        <Navbar isUserResolved={userResolved} />
       <div style={{ width: "100%" }}>
         <MainSection userResolved={userResolved} />
         <Footer />

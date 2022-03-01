@@ -12,13 +12,14 @@
   width: 100%;
   z-index: 10000;
   transition: background-color .3s ease-in-out;
+  
 
   @media only screen and (min-width: 768px) {
     align-items: flex-start;
     flex-direction: column;
-    width: $sideNavbar-minWidth;
+    width: $sideNav-minWidth;
     height: 100vh;
-    min-width: $sideNavbar-minWidth;
+    min-width: $sideNav-minWidth;
   }
 
   .logo-container {
@@ -119,7 +120,7 @@
     transform-origin: 30% 20%;
   }
 
-  .navbar {
+  .sideNav {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -209,7 +210,7 @@
     }
   }
 
-  .navbar-open {
+  .sideNav-open {
     animation: navOpen 0.3s ease-in-out forwards;
     @media only screen and (min-width: 768px) {
       animation: none;

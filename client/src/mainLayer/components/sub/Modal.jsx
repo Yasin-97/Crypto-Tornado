@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
 export default function Modal({
   show,
   close,
@@ -10,6 +11,7 @@ export default function Modal({
 }) {
 
   const [container]=useState(document.createElement('div'))
+  const theme=useSelector((state)=>state.themeApi.theme)
 
   useEffect(()=>{
 document.body.appendChild(container)
@@ -22,7 +24,7 @@ return()=>{
   return ReactDOM.createPortal(
     <>
      {show ? (
-        <div className="modalContainer" onClick={() => close()}>
+        <div className={`modalContainer ${theme}`} onClick={() => close()}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal-header">
               <h2 className="modal-header-title">{title}</h2>

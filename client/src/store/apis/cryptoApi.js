@@ -1,8 +1,8 @@
 import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 
-// const baseUrl='https://coinranking1.p.rapidapi.com';
-const baseUrl='http://localhost:3001/api/cryptocurrency'; // for test
+
+const baseUrl='http://localhost:3001/api/cryptocurrency'; 
 
 const createRequest=(url)=>({url})
 

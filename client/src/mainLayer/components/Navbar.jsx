@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import {
   HomeOutlined,
@@ -13,8 +13,7 @@ import { watchlistActions } from "store/slices/watchlistSlice";
 import { ThemeToggle } from "mainLayer/index";
 import icon from "assets/imgs/Cryptornado.png";
 
-const Navbar = ({ setTheme, isUserResolved }) => {
-  
+const Navbar = ({ isUserResolved }) => {
   //redux state management
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.authApi.currentUser);
@@ -23,12 +22,12 @@ const Navbar = ({ setTheme, isUserResolved }) => {
   const history = useHistory();
 
   //state
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const hamburgerMenu = isMenuOpen ? "hamburger open" : "hamburger";
-  const showMenu = isMenuOpen ? " navbar-open" : "";
+  const [isSideNavOpen, setSideNavOpen] = useState(false);
+  const hamburgerMenu = isSideNavOpen ? "hamburger open" : "hamburger";
+  const showSideNav = isSideNavOpen ? " sideNav-open" : "";
 
   //functions
-  const closeMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setSideNavOpen(!isSideNavOpen);
 
   const onSignout = async () => {
     await dispatch(signout());
@@ -39,6 +38,17 @@ const Navbar = ({ setTheme, isUserResolved }) => {
 
   return (
     <div className="nav">
+      <div
+        onClick={closeMenu}
+        style={{
+          display: isSideNavOpen ? "block" : "none",
+          position: "absolute",
+          top: "0",
+          right: "200px",
+          left: "0",
+          height: "100vh",
+        }}
+      ></div>
       <div className="logo-container">
         <Link to="/">
           <img src={icon} />
@@ -50,41 +60,62 @@ const Navbar = ({ setTheme, isUserResolved }) => {
       <div className={hamburgerMenu} onClick={closeMenu}>
         <div></div>
       </div>
-      <nav className={`navbar ${showMenu}`}>
-        <ThemeToggle setTheme={setTheme} />
-        <Link to="/watchlist" onClick={closeMenu} data-testid="navbar-item" className="navbar-item">
+      <nav className={`sideNav ${showSideNav}`}>
+        <ThemeToggle closeMenu={closeMenu} />
+        <Link
+          to="/watchlist"
+          onClick={closeMenu}
+          data-testid="sideNav-item"
+          className="sideNav-item"
+        >
           <HomeOutlined /> Watchlist
         </Link>
-        <Link to="/" onClick={closeMenu} data-testid="navbar-item" className="navbar-item">
+        <Link
+          to="/"
+          onClick={closeMenu}
+          data-testid="sideNav-item"
+          className="sideNav-item"
+        >
           <EyeOutlined /> Glance
         </Link>
         <Link
           to="/cryptocurrencies"
           onClick={closeMenu}
-          data-testid="navbar-item"
-          className="navbar-item"
+          data-testid="sideNav-item"
+          className="sideNav-item"
         >
           <FundOutlined /> Cryptocurrencies
         </Link>
-        <Link to="/exchanges" onClick={closeMenu} data-testid="navbar-item" className="navbar-item">
+        <Link
+          to="/exchanges"
+          onClick={closeMenu}
+          data-testid="sideNav-item"
+          className="sideNav-item"
+        >
           <MoneyCollectOutlined /> Exchanges
         </Link>
         <Link
           to="/news"
           onClick={closeMenu}
-          data-testid="navbar-item"
-          className="navbar-item"
+          data-testid="sideNav-item"
+          className="sideNav-item"
           style={{ marginBottom: "2rem" }}
         >
           <BulbOutlined /> News
         </Link>
         {!currentUser && isUserResolved && (
           <>
-            <Link to="/signup" data-testid='nav-btn' className="nav-btn-primary" onClick={closeMenu}>
+            <Link
+              to="/signup"
+              data-testid="nav-btn"
+              className="nav-btn-primary"
+              onClick={closeMenu}
+            >
               Sign Up
             </Link>
             <Link
-              to="/signin" data-testid='nav-btn'
+              to="/signin"
+              data-testid="nav-btn"
               className="nav-btn-secondary"
               onClick={closeMenu}
             >
@@ -93,7 +124,12 @@ const Navbar = ({ setTheme, isUserResolved }) => {
           </>
         )}
         {currentUser && isUserResolved && (
-          <Link to="/" data-testid='nav-btn' className="nav-btn-tertiary" onClick={onSignout}>
+          <Link
+            to="/"
+            data-testid="nav-btn"
+            className="nav-btn-tertiary"
+            onClick={onSignout}
+          >
             Log Out
           </Link>
         )}

@@ -1,20 +1,29 @@
 import React, { useState,useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {changeTheme} from 'store/slices/themeSlice'
 
-export default function ThemeToggle({ setTheme }) {
+export default function ThemeToggle({closeMenu}) {
 
-  const [isDark, setIsDark] = useState(false);
+  const dispatch=useDispatch()
+  const theme=useSelector((state)=>state.themeApi.theme)
 
-  useEffect(() => {
-    setTheme(isDark);
-  }, [isDark])
 
+const currentTheme=theme=="dark"?'navy-blue':'dark'
+
+const toggle=()=>{
+  dispatch(changeTheme({ theme:currentTheme }));
+  setTimeout(() => {
+    closeMenu()
+    
+  }, 190);
+}
 
   return (
     <label className="switch">
       <input
         type="checkbox"
         defaultValue={false}
-        onClick={() => setIsDark((prevTheme) => !prevTheme)}
+        onClick={toggle}
         id="toggleBtn"
         role='toggle-btn'
       />

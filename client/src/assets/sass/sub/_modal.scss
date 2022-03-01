@@ -1,6 +1,3 @@
-:root {
-  @include defineColorHSL(--bg-secondary, 0, 0%, 12%);
-}
 
 .modalContainer {
   position: fixed;
@@ -20,7 +17,7 @@
     padding: 0.7rem;
     border-radius: 0.99rem;
 
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: alpha(var(--bg-secondary), .96);
     backdrop-filter: blur(5px);
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
     @media only screen and (min-width: 768px) {
@@ -64,6 +61,7 @@
       padding: 2rem 0;
       h2 {
         font-size: 1.1em;
+        color: var(--color-light);
         @media only screen and (min-width: 768px) {
           font-size: 1.3em;
         }
@@ -85,25 +83,26 @@
       }
       .modal-close {
         background-color: transparent;
+        color: lightness(var(--color-light), .65);
         font-weight: 600;
         font-size: 0.9em;
         @media only screen and (min-width: 768px) {
           font-size: 1.1em;
         }
         &:hover {
-          background-color: rgb(163, 163, 163);
+          background-color: lightness(var(--color-light), .35);
         }
       }
       .action {
         margin-right: 1rem;
-        background-color: hsl(0, 0%, 15%);
+        background-color: lightness(var(--color-light), .35);
         color: #fff;
         font-size: 0.9em;
         @media only screen and (min-width: 768px) {
           font-size: 1.1em;
         }
         &:hover {
-          background-color: hsl(0, 0%, 5%);
+          background-color: lightness(var(--color-light), .5);
         }
       }
     }
