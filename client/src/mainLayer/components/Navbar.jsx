@@ -22,12 +22,29 @@ const Navbar = ({ isUserResolved }) => {
   const history = useHistory();
 
   //state
-  const [isSideNavOpen, setSideNavOpen] = useState(false);
-  const hamburgerMenu = isSideNavOpen ? "hamburger open" : "hamburger";
-  const showSideNav = isSideNavOpen ? " sideNav-open" : "";
+  const [openSideNav, setOpenSideNav] = useState(undefined);
+  const hamburgerMenu = openSideNav ? " open" : "";
+  let showSideNav ;
+
+  switch (openSideNav) {
+    case undefined:
+      showSideNav=''
+      break;
+
+      case true:
+      showSideNav=' sideNav-open'
+      break;
+
+      case false:
+      showSideNav=' sideNav-close'
+      break;
+  
+    default:
+      break;
+  }
 
   //functions
-  const closeMenu = () => setSideNavOpen(!isSideNavOpen);
+  const closeMenu = () => setOpenSideNav(!openSideNav);
 
   const onSignout = async () => {
     await dispatch(signout());
@@ -38,17 +55,6 @@ const Navbar = ({ isUserResolved }) => {
 
   return (
     <div className="nav">
-      <div
-        onClick={closeMenu}
-        style={{
-          display: isSideNavOpen ? "block" : "none",
-          position: "absolute",
-          top: "0",
-          right: "200px",
-          left: "0",
-          height: "100vh",
-        }}
-      ></div>
       <div className="logo-container">
         <Link to="/">
           <img src={icon} />
@@ -57,7 +63,7 @@ const Navbar = ({ isUserResolved }) => {
           <h3 className="text-logo">CrypTornado</h3>
         </Link>
       </div>
-      <div className={hamburgerMenu} onClick={closeMenu}>
+      <div className={`hamburger ${hamburgerMenu}`} onClick={closeMenu}>
         <div></div>
       </div>
       <nav className={`sideNav ${showSideNav}`}>
