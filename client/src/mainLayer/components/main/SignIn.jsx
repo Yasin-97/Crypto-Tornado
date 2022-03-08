@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { UserOutlined, LoadingOutlined, LockFilled } from "@ant-design/icons";
 import { signin } from "store/slices/authSlice";
 
@@ -95,6 +95,10 @@ export default function AuthForm() {
             LET'S GO
           </button>
         )}
+        <div className="form__login__signup__reference">
+          <span>Don't have an account?</span>
+          <Link to="/signup">Sign up</Link>
+        </div>
       </form>
     </section>
   );

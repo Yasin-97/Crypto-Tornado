@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 import { UserOutlined, LoadingOutlined, LockFilled } from "@ant-design/icons";
 import { signup } from "store/slices/authSlice";
 
@@ -150,6 +150,9 @@ export default function SignUp() {
             LET'S GO
           </button>
         )}
+         <div className='form__login__signup__reference'><span>Have an account?</span>
+        <Link to='/signin'>Login</Link>
+        </div>
       </form>
     </section>
   );
