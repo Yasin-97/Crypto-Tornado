@@ -24,7 +24,7 @@ export const signup = createAsyncThunk(
   async (data, thunkAPI) => {
     const { email, password, displayName } = data;
 
-    const newUser=await axios.post('http://localhost:3001/api/user-auth',{ email, password, displayName })
+    const newUser=await axios.post('https://cryptornado.vercel.app/api/user-auth',{ email, password, displayName })
     if(newUser){
       const { email } = newUser.data.user;
       thunkAPI.dispatch(signin({ email, password }))

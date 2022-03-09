@@ -2,7 +2,7 @@ import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 
 
-const baseUrl='http://localhost:3001/api/cryptocurrency'; 
+const baseUrl='https://cryptornado.vercel.app/api/cryptocurrency'; 
 
 const createRequest=(url)=>({url})
 

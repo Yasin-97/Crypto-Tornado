@@ -19,9 +19,16 @@ app.use('/api/news',news)
 app.use('/api/user-auth',userAuthRouter)
 app.use('/api/user-watchlist', userWatchlistRouter);
 
+if(process.env.NODE_ENV==='production'){
+    app.use(express.static(path.join(__dirname, '../client','build')))
+    app.get('/*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'))
+    })
+}
 
 
-const PORT = 3001;
+
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`); 
 });

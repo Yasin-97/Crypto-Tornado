@@ -7,7 +7,7 @@ const cryptoNewsHeaders = {
   "x-rapidapi-key": "1be1485364msh1d5c9fda0db9418p10a09djsnb6b15963378f",
 };
 
-const baseUrl = "http://localhost:3001/api/news";
+const baseUrl = "https://cryptornado.vercel.app/api/news";
 
 const createRequest = (url) => ({ url });
 
