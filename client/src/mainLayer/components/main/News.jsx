@@ -28,22 +28,23 @@ const News = ({ number }) => {
     newsCategory,
     count: numberOfCryptos,
   });
-console.log(document.getElementById('meme'));
 
   //conditional rendering
   if (isCryptoNewsFetching || isCryptosFetching) return <Loading />;
-  if (isCryptosError||cryptosError)
+  if (isCryptosError||cryptosError){
     return (
       <ErrorMessage refetchAction={refetchCryptos}>
-        Falied to get News category! try to refetch.
+      Falied to get News category! try to refetch.
       </ErrorMessage>
-    );
-  if (isCryptoNewsError||CryptoNewsError)
+    )
+  }
+  if (isCryptoNewsError||CryptoNewsError){
     return (
       <ErrorMessage refetchAction={refetchCryptoNews}>
         Falied to get News! try to refetch.
       </ErrorMessage>
-    );
+    )
+  }
 
   return (
     <section className="news-wrapper">

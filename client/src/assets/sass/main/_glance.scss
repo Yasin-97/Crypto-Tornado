@@ -41,6 +41,11 @@
 
     .show-more {
       font-weight: bold;
+      color: var(--color-light-yellow);
+
+      svg{
+        font-size:1.4rem;
+      }
     }
   }
 }

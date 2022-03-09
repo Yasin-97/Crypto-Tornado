@@ -3,7 +3,6 @@
   justify-content: space-between;
   flex-direction: column;
   min-height: 100vh;
-  // overflow: hidden;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
@@ -16,16 +15,19 @@
     padding-top: 1rem;
     h2{
       color: var(--color-light);
-      font-size: 1.1em;
+      font-size: .9rem;
       @media only screen and (min-width: 768px) {
-        font-size: 1.3em;
+        font-size: 1.05rem;
       }
     }
 
     svg{
       color:var(--color-light);
-      font-size:1.6rem;
-      margin-right:.3rem
+      font-size:1.5rem;
+      margin-right:.3rem;
+      @media only screen and (min-width: 768px) {
+        font-size:1.7rem;
+      }
     }
     .refetch{
       margin-left: .8rem;
@@ -47,9 +49,9 @@ cursor: pointer;
     svg{
       margin: 0 5px;
       border-radius: 50%;
-      color: var(--color-blue);
+      color: var(--color-light-yellow);
       padding-top: .1rem;
-      border: 2px solid var(--color-blue);
+      border: 2px solid var(--color-light-yellow);
       font-size: 1.4rem;
       @media only screen and (min-width: 768px) {
         font-size: 1.7rem;
@@ -73,22 +75,22 @@ cursor: pointer;
     align-items: center;
     flex-direction: column;
     h1{
-      font-weight: bold;
       letter-spacing: 3px;
       margin-bottom:1.5rem;
       color: var(--text-primary);
     }
     h2{
-      font-weight: bold;
       margin-bottom:2rem;
-      color: var(--color-light);
+        color: var(--color-light);
+        font-size: .9rem;
+        @media only screen and (min-width: 768px) {
+          font-size: 1.05rem;
+        }
     }
     &-btn{
-      @include form__btn();
       align-self: center;
      padding: .6rem 3.5rem;
       border-color: var(--text-primary);
-      color: var(--text-primary);
       margin: .5rem 0;
       transition: all .2s ease-in-out;
       &:hover{
@@ -96,11 +98,21 @@ cursor: pointer;
         background: var(--text-primary)
       }
     }
+
+    &-btn{
+      @include form__btn();
+    }
   }
   .bullish {
-    color: rgb(20, 202, 20);
+    padding: .2rem .5rem;
+    border-radius: .3rem;
+    background-color: #1f720b !important;
+    color: lightness(var(--color-light),1.1) !important;
   }
   .bearish {
-    color: rgb(221, 0, 0);
+    padding: .2rem .5rem;
+    border-radius: .3rem;
+    background-color: #ad2020 !important;
+    color: lightness(var(--color-light),1.1) !important;
   }
 }

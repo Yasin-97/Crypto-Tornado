@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "store/apis/cryptoApi";
 import { ErrorMessage, WatchlistCryptoItem, Loading } from "mainLayer/index";
 
@@ -28,29 +29,26 @@ export default function WatchList() {
     });
     setUserWatchlist(filteredData);
   }, [cryptosList, favCryptos]);
-console.log('this',cryptosList?.data?.coins);
+
   //conditional rendering
   if (isCryptosListFetching) return <Loading />;
   if (!cryptosList?.data)
     return (
       <ErrorMessage refetchAction={refetchCryptosList}>
-        {" "}
         Failed to get Cryptocurrencies! try to refetch.
       </ErrorMessage>
     );
 
   if (!userWatchlist || userWatchlist?.length === 0)
     return (
-      <h2
-        style={{
-          textAlign: "center",
-          marginTop: "1.5rem",
-          color: "hsl(0, 0%, 81%)",
-        }}
-      >
-        {" "}
+      <div style={{textAlign:'center'}}>
+      <ErrorMessage refetchAction={refetchCryptosList}>
         No favorite cryptocurrency!
-      </h2>
+      </ErrorMessage>
+      <Link to="/cryptocurrencies" className="no-crypto-btn">
+        Add One
+      </Link>
+      </div>
     );
 
   return (

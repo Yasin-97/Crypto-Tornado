@@ -11,17 +11,20 @@
   
 }
 .dark{
-  @include defineColorHSL(--color-dark, 0, 0%, 12%);
-@include defineColorHSL(--bg-secondary, 0, 0%, 12%);
+  @include defineColorHSL(--color-dark, 240, 9%, 2%);
+@include defineColorHSL(--bg-secondary, 240, 9%, 2%);
   @include defineColorHSL(--color-light-yellow,42, 100%, 70%);
-  @include defineColorHSL(--color-dark-yellow, 42, 98%, 53%);
 }
 .navy-blue{
-    @include defineColorHSL(--color-dark, 234, 40%, 10%);
-  @include defineColorHSL(--bg-secondary, 234, 40%, 10%);
+    @include defineColorHSL(--color-dark, 234, 56%, 5.5%);
+  @include defineColorHSL(--bg-secondary, 234, 56%, 5.5%);
     @include defineColorHSL(--color-light-yellow, 43, 100%, 65%);
-    @include defineColorHSL(--color-dark-yellow, 329, 56%, 92%);
+}
 
+b{
+  color: #ffcc4d;
+  color: hsl(234, 56%, 4%);
+  color: hsl(140, 70%, 42%);
 }
 
 
@@ -44,19 +47,32 @@ $sideNav-minWidth: 240px;
 }
 
 @mixin form__btn {
+  width: 8rem;
   text-align: center;
   color:var(--color-light);
   border-radius: 0.3rem;
   font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.6rem 3rem;
+  padding: 0.5rem 0;
   cursor: pointer;
-  border: 2px solid ;
+  border: 1px solid ;
+  border-color: lightness(var(--color-light-yellow),.8);
   background: transparent;
+  transition: all .2s ease-in-out;
+
+  @media only screen and (min-width: 768px) {
+    width: 10rem;
+    padding: 0.6rem 0;
+  }
+
+  &:hover{
+    color: var(--color-dark);
+    border-color: var(--color-light-yellow);
+    background: var(--color-light-yellow);
+  }
 
   @media screen and(min-width:768px) {
     font-size: .85rem;
-    // padding: 0.8rem 3rem;
   }
 }
 

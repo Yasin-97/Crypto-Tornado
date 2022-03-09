@@ -9,17 +9,12 @@
   .news-card {
     width: 280px;
     height: 400px;
-    background: linear-gradient(
-      to bottom,
-      var(--color-dark-yellow),
-      var(--color-light-yellow)
-    );
+    background: linear-gradient(164.33deg, lightness(var(--bg-secondary), 4.1) 6.56%, lightness(var(--bg-secondary), 1.8) 93.33%);
     border-radius: 20px;
     border-bottom-left-radius: 160px;
     border-bottom-right-radius: 160px;
-    box-shadow: 0 5px 0 lightness(var(--bg-secondary), 3.1),
-    inset 0 -15px 0 alpha(var(--bg-secondary), 0.25),
-    0 10px 0 alpha(var(--bg-secondary), 0.15);
+    box-shadow: 0px -2px 0 lightness(var(--color-light-yellow), 0.45),
+    inset 0 -7px 0 lightness(var(--color-light-yellow), 0.65);
     transition: all 0.1s ease-in-out,transform 0.2s ease-in-out;
 
     @media (min-width: 1200px) {
@@ -44,19 +39,10 @@
         background: var(--bg-secondary);
         transition: all 0.3s ease-in-out;
       }
-
-      h2 {
-        font-size: 18px;
-        position: absolute;
-        color: lightness(var(--color-light), 2.1) ;
-        bottom: -7px;
-        padding: 10px;
-        background: linear-gradient(transparent, var(--bg-secondary));
-      }
     }
     .news-card-content {
       padding: 0.8rem;
-      color: var(--color-dark);
+      color: lightness(var(--color-light), .9);
 
       .news-card-detail {
         display: flex;
@@ -77,7 +63,7 @@
         }
 
         p {
-          color: lightness(var(--color-dark), 2.5);
+          color: lightness(var(--color-light), .65);
           font-size: 13px;
         }
       }

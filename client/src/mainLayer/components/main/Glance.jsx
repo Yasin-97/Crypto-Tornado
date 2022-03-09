@@ -1,6 +1,7 @@
 import React from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
+import {SwapRightOutlined} from '@ant-design/icons'
 import { useGetCryptosQuery } from "store/apis/cryptoApi";
 import { CryptoCurrencies, News, ErrorMessage,Loading } from "mainLayer/index";
 
@@ -22,7 +23,6 @@ const Glance = () => {
   if (!globalStats)
     return (
       <ErrorMessage refetchAction={refetchCryptos}>
-        {" "}
         Failed to get data! try to refetch.
       </ErrorMessage>
     );
@@ -53,16 +53,16 @@ const Glance = () => {
       </div>
       <div className="heading-container">
         <h2 role='top-10-cryptocurrencies' className="heading">Top 10 Cryptocurrencies</h2>
-        <h4 className="show-more">
-          <Link role="show-more-cryptos" to="/cryptocurrencies">Show More</Link>
-        </h4>
+        
+          <Link  style={{color:'hsl(43, 100%, 65%)'}} role="show-more-cryptos" to="/cryptocurrencies"><h4 className="show-more">Show More <SwapRightOutlined /></h4></Link>
+        
       </div>
       <CryptoCurrencies number={showingCryptos} />
       <div className="heading-container">
         <h2 role='top-crypto-news' className="heading">Top Crypto News</h2>
-        <h4 className="show-more">
-          <Link role="show-more-news" to="/news">Show More</Link>
-        </h4>
+        
+          <Link role="show-more-news" to="/news"><h4 className="show-more">Show More <SwapRightOutlined /></h4></Link>
+        
       </div>
       <News number={showingNews} />
     </main>

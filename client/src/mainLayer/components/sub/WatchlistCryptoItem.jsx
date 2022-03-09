@@ -42,8 +42,8 @@ export default function WatchlistCryptoItem({
           <img src={iconUrl} alt="" /> {name}
         </td>
         <td>{millify(price ,{ precision: 4 })}</td>
-        <td className={`${change > 0 ? "bullish" : "bearish"}`}>
-          {millify(change)}%
+        <td>
+          <p style={{margin:'0',padding:'0 .5rem',textAlign:'center'}} className={`${change > 0 ? "bullish" : "bearish"}`}>{millify(change)}%</p>
         </td>
         <td>{millify(marketCap)}</td>
         <td>{dailyVolume? millify(dailyVolume) : "No Info"}</td>

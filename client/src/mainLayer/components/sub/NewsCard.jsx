@@ -21,14 +21,17 @@ export default function NewsCard({
               alt="cryptocurrency news"
               src={image?.thumbnail?.contentUrl || dmemoImg}
             />
-            <h2>{name}</h2>
+            {/* <h2>{name}</h2> */}
           </div>
           <div className="news-card-content">
-            <p>
+          <h3 style={{color:'lightgray'}}>{name.length > 100
+                ? `${name.substring(0, 100)}...`
+                : name}</h3>
+            {/* <p>
               {description.length > 140
                 ? `${description.substring(0, 140)}...`
                 : description}
-            </p>
+            </p> */}
             <div className="news-card-detail">
               <div className="news-provider">
                 <img

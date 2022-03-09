@@ -119,7 +119,6 @@ const CryptoDetails = () => {
           refetchCoinHistory();
         }}
       >
-        {" "}
         Failed to get the Cryptocurrency! try to refetch.
       </ErrorMessage>
     );

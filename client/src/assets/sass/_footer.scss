@@ -1,14 +1,14 @@
 .footer {
     min-height: 130px;
-    background-color: var(--bg-secondary);
+    background-color: lightness(var(--bg-secondary),1);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding-top: 40px;
     align-items: center;
     transition: background-color .3s ease-in-out;
 
     @media only screen and (min-width: 768px) {
-      margin-right: $sideNavbar-minWidth;
+      margin-right: $sideNav-minWidth;
     }
     &-links{
         display: flex;
@@ -24,13 +24,12 @@
           }
     }
 
-    h4{
+    h5{
         color: var(--text-secondary);
-        font-weight: 600;
         text-align: center;
     }
     a{
-        color: var(--text-primary);
+        color: lightness(var(--color-light-yellow),1.2);
         transition: color .3s ease-in-out;
         &:hover{
             color: var(--text-tertiary) !important;

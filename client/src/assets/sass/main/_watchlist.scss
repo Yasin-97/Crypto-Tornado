@@ -6,7 +6,6 @@
        
   
     thead th {
-        // width: 100%;
       position: sticky;
       top: 0;
       background: var(--bg-secondary);
@@ -45,31 +44,10 @@
           margin: 0 5px;
         }
       }
-  
-    //   .descCell-container {
-    //     max-height: 0px;
-    //     padding: 0;
-    //     transition: all .3s ease-in-out;
-    //   }
-  
-    //   .descCell {
-    //     max-width: 100%;
-    //     height: 0;
-    //     padding: 0 0.5rem;
-    //     overflow: hidden;
-    //     cursor: initial;
-    //     background-color: lightness(var(--bg-secondary),1.4);
-    //     transition: background-color .3s ease-in-out, height 0.2s ease-in-out;
-    //   }
-  
-    //   h3,
-    //   h2 {
-    //     padding-left: 0.5rem;
-    //     color: var(--color-light);
-    //   }
-  
-    //   p {
-    //     color: lightness(var(--color-light),.75);
-    //   }
     }
+  }
+
+  .no-crypto-btn{
+    @include form__btn();
+    margin-top: 2rem;
   }

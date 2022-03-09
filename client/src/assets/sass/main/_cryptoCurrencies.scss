@@ -20,7 +20,7 @@
       font-weight: 600;
       letter-spacing: 0.5px;
       color: var(--color-light) !important;
-      background: var(--bg-secondary);
+      background:lightness( var(--bg-secondary),3.5);
       border-radius: 0.25em;
 
       &:focus {

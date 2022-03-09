@@ -50,7 +50,6 @@ const Cryptocurrencies = ({ number }) => {
   else if (isCryptosListError||cryptosListError)
     return (
       <ErrorMessage refetchAction={refetchCryptosList}>
-        {" "}
         Failed to get Cryptocurrencies! try to refetch.
       </ErrorMessage>
     );

@@ -5,6 +5,10 @@
     overflow-x: auto;
     white-space: nowrap;
 
+    thead{
+      border-bottom: 4px solid lightness(var(--color-light-yellow),.4);
+    }
+
   thead th {
     
     position: sticky;
@@ -56,6 +60,7 @@
       max-height: 0px;
       padding: 0;
       transition: all .3s ease-in-out;
+
       .descCell {
         max-width: 100%;
         height: 0;
@@ -71,15 +76,25 @@
     h3,
     h2 {
       padding-left: 0.5rem;
-      color: var(--color-light);
+      color: lightness(var(--color-light),.7);
     }
     h3{
+      font-size: 15px;
       margin-bottom: 0;
       padding: .5rem;
+      @media only screen and (min-width: 768px) {
+        font-size: initial;
+      }
     }
 
     b {
       color: lightness(var(--color-light),.75);
+    }
+    a{
+      color:lightness(var(--color-light-yellow),.6);
+      &:hover{
+        color:lightness(var(--color-light-yellow),.7);
+      }
     }
   }
 }

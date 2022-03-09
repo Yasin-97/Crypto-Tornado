@@ -55,6 +55,17 @@ const Navbar = ({ isUserResolved }) => {
 
   return (
     <div className="nav">
+      <div
+        onClick={closeMenu}
+        style={{
+          display: openSideNav ? "block" : "none",
+          position: "absolute",
+          top: "0",
+          right: "200px",
+          left: "0",
+          height: "100vh",
+        }}
+      ></div>
       <div className="logo-container">
         <Link to="/">
           <img src={icon} />
@@ -114,7 +125,7 @@ const Navbar = ({ isUserResolved }) => {
             <Link
               to="/signup"
               data-testid="nav-btn"
-              className="nav-btn-primary"
+              className="sideNav-btn sideNav-btn-primary"
               onClick={closeMenu}
             >
               Sign Up
@@ -122,7 +133,7 @@ const Navbar = ({ isUserResolved }) => {
             <Link
               to="/signin"
               data-testid="nav-btn"
-              className="nav-btn-secondary"
+              className="sideNav-btn sideNav-btn-secondary"
               onClick={closeMenu}
             >
               Log In
@@ -133,7 +144,7 @@ const Navbar = ({ isUserResolved }) => {
           <Link
             to="/"
             data-testid="nav-btn"
-            className="nav-btn-tertiary"
+            className="sideNav-btn sideNav-btn-tertiary"
             onClick={onSignout}
           >
             Log Out

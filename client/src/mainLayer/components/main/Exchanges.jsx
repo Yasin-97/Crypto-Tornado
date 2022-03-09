@@ -23,7 +23,6 @@ const Exchanges = () => {
   if (!exchangesData)
     return (
       <ErrorMessage refetchAction={refetchExchangesData}>
-        {" "}
         Failed to get exchanges! try to refetch.
       </ErrorMessage>
     );

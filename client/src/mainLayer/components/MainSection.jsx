@@ -33,8 +33,7 @@ export default function MainSection({ userResolved }) {
       {isCryptosListFetching && <Loading />}
       {!cryptosList?.data && !isCryptosListFetching && (
         <ErrorMessage refetchAction={refetchCryptosList}>
-          {" "}
-          You may have bad internet connection! try to refetch.{" "}
+          You may have bad internet connection! try to refetch.
         </ErrorMessage>
       )}
       {currentUser && <Avatar />}

@@ -4,7 +4,7 @@ import { FrownOutlined } from "@ant-design/icons";
 export default function ErrorMessage({ children, refetchAction }) {
   return (
     <div className="errorMessage">
-      <FrownOutlined />{" "}
+      <FrownOutlined />
       <h2>
         {children}
         {refetchAction&&<span onClick={() => refetchAction()} className="refetch">
