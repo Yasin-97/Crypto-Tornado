@@ -7,7 +7,7 @@ const cryptoNewsHeaders = {
   "x-rapidapi-key": "1be1485364msh1d5c9fda0db9418p10a09djsnb6b15963378f",
 };
 
-const baseUrl = "https://cryptornado-yasin.herokuapp.com/api/news";
+const baseUrl = "https://cryptornado.herokuapp.com/api/news";
 
 const createRequest = (url) => ({ url });
 

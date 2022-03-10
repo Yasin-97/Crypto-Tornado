@@ -26,7 +26,7 @@ export const getUserWatchlist=createAsyncThunk(
     const {userId}=data
     thunkAPI.dispatch(watchlistSlice.actions.setIsFavCryptosFetched({isFavCryptosFetched:false}))
     const header = await createConfig({userId});
-    axios.get(`http://localhost:5000/api/user-watchlist`,header)
+    axios.get(`https://cryptornado.herokuapp.com/api/user-watchlist`,header)
     .then(res=>thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:res.data.favCryptos})))
     .then(()=>thunkAPI.dispatch(watchlistSlice.actions.setIsFavCryptosFetched({isFavCryptosFetched:true})))
     .catch(err=>console.error(err))
@@ -42,7 +42,7 @@ export const addToUserWatchlist = createAsyncThunk(
     
     thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:[...prevFavCryptos,newFavCrypto]}));
     const header = await createConfig();
-    await axios.post('http://localhost:5000/api/user-watchlist',{userId,favCryptos:[...prevFavCryptos,newFavCrypto]},header)
+    await axios.post('https://cryptornado.herokuapp.com/api/user-watchlist',{userId,favCryptos:[...prevFavCryptos,newFavCrypto]},header)
     .catch(err=>console.error(err))
   }
 );
@@ -57,7 +57,7 @@ export const removeFromUserWatchlist = createAsyncThunk(
    
     thunkAPI.dispatch(watchlistSlice.actions.setWatchlist({favCryptos:filteredCryptos}));
     const header = await createConfig();
-   await axios.post('http://localhost:5000/api/user-watchlist',{userId,favCryptos:filteredCryptos},header)
+   await axios.post('https://cryptornado.herokuapp.com/api/user-watchlist',{userId,favCryptos:filteredCryptos},header)
    .catch(err=>console.error(err))
   }
 );

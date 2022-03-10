@@ -2,7 +2,7 @@ import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 
 
-const baseUrl='https://cryptornado-yasin.herokuapp.com/api/cryptocurrency'; 
+const baseUrl='https://cryptornado.herokuapp.com/api/cryptocurrency'; 
 
 const createRequest=(url)=>({url})
 
