@@ -7,10 +7,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid lightness(var(--bgPrimary),.3);
+    border-bottom: 1px solid lightness(var(--color-light),.3);
 
     h2 {
-      color: lightness(var(--text-tertiary),.9);
+      color: var(--color-light-yellow);
       font-weight: bold;
       margin-bottom: 0.75rem;
     }
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     select {
-      background: lightness(var(--bg-secondary), 2.6);
+      background:lightness( var(--bg-secondary),3.5);
       border: 1px solid lightness(var(--bg-secondary), 2.6) !important;
       color: var(--color-light);
       appearance: none;
@@ -85,7 +85,7 @@
       justify-content: space-between;
       margin-bottom: 0.5rem;
       padding: 0.7rem 0.2rem;
-      border-bottom: 1px solid lightness(var(--bgPrimary), .25);
+      border-bottom: 1px solid lightness(var(--color-light),.2);
 
       &-info {
         display: flex;
@@ -120,7 +120,7 @@
           justify-content: space-between;
           margin-bottom: 0.5rem;
           padding: 0.7rem 0.2rem;
-          border-bottom: 1px solid lightness(var(--bgPrimary), .25);
+          border-bottom: 1px solid lightness(var(--color-light),.2);
         }
         b {
           margin-right: 0.5rem;

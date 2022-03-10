@@ -42,7 +42,7 @@ export default function LineChart({ coinHistory, currentPrice, coinName }) {
         <h3 className="chart-title">{coinName} Price Chart</h3>
         <div className="price-container">
           <p className="price-change">
-            Change: <b>{coinHistory?.data?.change}%</b>
+            Change: <b className={`${coinHistory?.data?.change > 0 ? "bullish" : "bearish"}`}>{coinHistory?.data?.change}%</b>
           </p>
           <p className="current-price">
             Current {coinName} Price: <b>$ {currentPrice}%</b>

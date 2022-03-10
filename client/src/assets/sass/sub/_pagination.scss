@@ -6,12 +6,12 @@
     outline: none;
   }
   .pagination > .active > a{
-    background-color: alpha(var(--text-tertiary), .5);
+    background-color: alpha(var(--color-light-yellow), .3);
     color: var(--color-light-yellow);
     font-weight: bold;
   }
   .pagination > li > a{
-    background-color: alpha(var(--text-tertiary), .15);
+    background-color: alpha(var(--color-light-yellow), .1);
     border-radius: .25rem;
     padding: 5px 10px;
     margin: 0 2px;
@@ -19,10 +19,10 @@
     cursor: pointer;
   }
   .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: alpha(var(--text-tertiary), .5);
+    background-color: alpha(var(--color-light-yellow), .3);
     outline: none ;
   }
   .pagination > li > a, .pagination > li > span{
-    color: var(--text-primary)
+    color: var(--color-light-yellow)
   }
  

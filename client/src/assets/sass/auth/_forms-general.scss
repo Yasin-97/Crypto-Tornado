@@ -95,7 +95,7 @@
     &__login__signup__reference{
       margin-top:1.5rem;
       span{
-        color: lightness(var(--color-light),.6);
+        color: lightness(var(--color-light),.5);
         margin-right: 1rem;
         font-size: 13px;
       }
@@ -103,13 +103,13 @@
 color: lightness(var(--color-light-yellow),.5);
 
 &:hover{
-color: lightness(var(--color-light-yellow),.6);
+color: var(--color-light-yellow);
 }
       }
     }
     
     &__spinner{
-      color: var(--text-tertiary) !important;
+      color: var(--color-light-yellow) !important;
       font-size: 2.2rem;
     }
   }

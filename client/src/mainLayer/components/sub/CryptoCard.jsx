@@ -30,6 +30,7 @@ export default function CryptoCard({
     adder,
     remover,
   } = useSetFavoriteItem({isFav, uuid, name});
+
   // state
   const [modal, setModal] = useState(false);
 

@@ -1,33 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import '../../../node_modules/codyhouse-framework/main/assets/css/base/mixins';
+@import "../../../node_modules/codyhouse-framework/main/assets/css/base/mixins";
 
 :root {
-  @include defineColorHSL(--text-primary,45, 48%, 71%);
   @include defineColorHSL(--text-secondary, 0, 0%, 67%);
   @include defineColorHSL(--text-tertiary, 43, 46%, 53%);
   @include defineColorHSL(--color-light, 0, 0%, 81%);
-  @include defineColorHSL(--color-blue, 203, 99%, 61%);
-  @include defineColorHSL(--bgPrimary, 0, 0%, 100%);
-  
 }
-.dark{
+.dark {
   @include defineColorHSL(--color-dark, 240, 9%, 2%);
-@include defineColorHSL(--bg-secondary, 240, 9%, 2%);
-  @include defineColorHSL(--color-light-yellow,42, 100%, 70%);
+  @include defineColorHSL(--bg-secondary, 240, 9%, 2%);
+  @include defineColorHSL(--color-light-yellow, 42, 100%, 70%);
 }
-.navy-blue{
-    @include defineColorHSL(--color-dark, 234, 56%, 5.5%);
+.navy-blue {
+  @include defineColorHSL(--color-dark, 234, 56%, 5.5%);
   @include defineColorHSL(--bg-secondary, 234, 56%, 5.5%);
-    @include defineColorHSL(--color-light-yellow, 43, 100%, 65%);
+  @include defineColorHSL(--color-light-yellow, 52, 100%, 70%);
 }
-
-b{
-  color: #ffcc4d;
-  color: hsl(234, 56%, 4%);
-  color: hsl(140, 70%, 42%);
-}
-
-
 
 $navbar-height: 60px;
 $sideNav-minWidth: 240px;
@@ -47,32 +35,32 @@ $sideNav-minWidth: 240px;
 }
 
 @mixin form__btn {
-  width: 8rem;
   text-align: center;
-  color:var(--color-light);
+  color: var(--color-light);
   border-radius: 0.3rem;
   font-size: 0.8rem;
   font-weight: 600;
+  width: 8rem;
   padding: 0.5rem 0;
   cursor: pointer;
-  border: 1px solid ;
-  border-color: lightness(var(--color-light-yellow),.8);
+  border: 1px solid;
+  border-color: lightness(var(--color-light-yellow), 0.8);
   background: transparent;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   @media only screen and (min-width: 768px) {
     width: 10rem;
     padding: 0.6rem 0;
   }
 
-  &:hover{
+  &:hover {
     color: var(--color-dark);
     border-color: var(--color-light-yellow);
     background: var(--color-light-yellow);
   }
 
   @media screen and(min-width:768px) {
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -92,6 +80,6 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: inherit;
-    -webkit-box-shadow: 0 0 0px 1000px transparent !important;
+  -webkit-text-fill-color: inherit;
+  -webkit-box-shadow: 0 0 0px 1000px transparent !important;
 }

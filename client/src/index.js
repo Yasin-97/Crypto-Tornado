@@ -9,7 +9,7 @@ import App from "App";
 import "antd/dist/antd.css";
 
 ReactDOM.render(
-  <Router basename='/'>
+  <Router>
     <Provider store={store}>
       <App />
     </Provider>

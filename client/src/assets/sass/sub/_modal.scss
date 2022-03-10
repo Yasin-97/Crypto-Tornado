@@ -80,7 +80,6 @@
 
       button {
         float: right;
-        padding: 0.5rem 1.5rem;
         border: none;
         transition: all 0.15s ease-in-out;
         cursor: pointer;
@@ -88,6 +87,8 @@
         border-radius: 0.2rem;
       }
       .modal-close {
+        width: 6.5rem !important;
+        padding: 0.45rem 0 !important;
         background-color: transparent;
         color: lightness(var(--color-light), .65);
         font-weight: 600;
@@ -101,8 +102,9 @@
       }
       .action {
         @include form__btn();
+        width: 6.5rem !important;
+        padding: 0.45rem 0 !important;
         margin-right: 1rem;
-        padding: 0.4rem 1.6rem;
         font-size: 0.9em;
         @media only screen and (min-width: 768px) {
           font-size: 1.1em;

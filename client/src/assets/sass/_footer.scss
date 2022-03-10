@@ -29,10 +29,10 @@
         text-align: center;
     }
     a{
-        color: lightness(var(--color-light-yellow),1.2);
+        color: lightness(var(--color-light-yellow),.5);
         transition: color .3s ease-in-out;
         &:hover{
-            color: var(--text-tertiary) !important;
+            color: var(--color-light-yellow);
         }
     }
 }

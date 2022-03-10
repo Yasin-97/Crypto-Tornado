@@ -19,7 +19,7 @@
     border-radius: 20px;
     border-bottom-left-radius: 160px;
     border-bottom-right-radius: 160px;
-      box-shadow: inset 0px -7px 0px lightness(var(--color-light-yellow),.55);
+      box-shadow: inset 0px -5px 0px lightness(var(--color-light-yellow),.4);
     transition: all 0.1s ease-in-out, transform 0.2s ease-in-out;
 
     @media (min-width: 1200px) {

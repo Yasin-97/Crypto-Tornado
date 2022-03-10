@@ -3,7 +3,7 @@
   justify-content: space-between;
 
   .chart-title {
-    color: lightness(var(--text-tertiary), .9);
+    color: lightness(var(--color-light-yellow), 1.2) !important;
   }
 
   .price-container {
