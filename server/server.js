@@ -1,5 +1,6 @@
 const express = require('express');
 const cors=require('cors')
+require('dotenv').config()
 
 
 const decodeIDToken = require('./authenticateToken');
@@ -17,14 +18,7 @@ app.use(decodeIDToken);
 app.use('/api/cryptocurrency',crypto)
 app.use('/api/news',news)
 app.use('/api/user-auth',userAuthRouter)
-app.use('/api/user-watchlist', userWatchlistRouter);
-
-if(process.env.NODE_ENV==='production'){
-    app.use(express.static(path.join(__dirname, '../client','build')))
-    app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'))
-    })
-}
+app.use('/api/user-watchlist', userWatchlistRouter); 
 
 
 
