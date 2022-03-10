@@ -1,38 +1,28 @@
 import React from "react";
-import { render, screen} from "@testing-library/react";
+import { render,screen } from "testUtils";
+import { createStore,renderWithReduxAndRouter } from "testUtils";
 import "@testing-library/jest-dom/extend-expect";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-
-import store from "store/store";
 import { authActions } from "store/slices/authSlice";
-import {Navbar} from "mainLayer/index";
+import Navbar from "../Navbar";
 
 describe('Navbar',()=>{
-  const setTheme=jest.fn()
  
   test("should render navbarItems and should not render nav buttons", () => {    
-    render(
-      <Provider store={store}>
-        <Router>
-      <Navbar setTheme={setTheme} isUserResolved={false}/>
-      </Router>
-    </Provider>
+    renderWithReduxAndRouter(
+      <Navbar isUserResolved={false}/>
   );
 
-const navbarItems=screen.getAllByTestId('navbar-item')
+const navbarItems=screen.getAllByTestId('sideNav-item')
 expect(navbarItems.length).toBe(5)
 expect(screen.queryAllByTestId('nav-btn').length).toBe(0)
 });
 
 test("No user: should render signup and singin buttons, should NOT render logout button", async()=>{
 
-  render(
-    <Provider store={store}>
-      <Router>
-    <Navbar setTheme={setTheme} isUserResolved={true}/>
-    </Router>
-  </Provider>
+  renderWithReduxAndRouter(
+    <Navbar isUserResolved={true}/>
 );
 
 const signup=screen.queryByRole('link', {  name: /sign up/i})
@@ -46,15 +36,12 @@ expect(logout).not.toBeInTheDocument()
 })
 
 
-test("No user: should render signup and singin buttons, should NOT render logout button", async()=>{
-  const user={email:'yasin@gmail.com', displayName:'yasin'}
+test("user exist: should NOT render signup and singin buttons, should render logout button", async()=>{
+  const store=createStore()
+  const user={userId: 'vH53kHoyASc1R3Ud2QrzM7VIoBm2', email: 'yasin@gmail.com', displayName: 'YASIN'}
         store.dispatch(authActions.setUser(user))
-  render(
-    <Provider store={store}>
-      <Router>
-    <Navbar setTheme={setTheme} isUserResolved={true}/>
-    </Router>
-  </Provider>
+        renderWithReduxAndRouter(
+    <Navbar isUserResolved={true}/>,{store}
 );
 
 const signup=screen.queryByRole('link', {  name: /sign up/i})
@@ -64,7 +51,5 @@ const logout=screen.queryByRole('link', {  name: /log out/i})
 expect(logout).toBeInTheDocument()
 expect(signup).not.toBeInTheDocument()
 expect(login).not.toBeInTheDocument()
-
 })
-
 })

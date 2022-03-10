@@ -1,12 +1,13 @@
 import React from "react";
 import { render as rtlRender } from "@testing-library/react";
-import { act, renderHook } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom/extend-expect";
 
+import themeReducer from "store/slices/themeSlice";
 import authReducer from "store/slices/authSlice";
 import watchlistReducer from "store/slices/watchlistSlice";
 import  cryptoApi  from "store/apis/cryptoApi";
@@ -16,10 +17,11 @@ import cryptoNewsApi from "store/apis/cryptoNewsApi";
  function createStore (preloadedState){
    return configureStore({
   reducer: {
-    authApi: authReducer.reducer,
-    watchlistApi: watchlistReducer.reducer,
-    [cryptoApi.reducerPath]: cryptoApi.reducer,
-    [cryptoNewsApi.reducerPath]: cryptoNewsApi.reducer,
+    themeApi:themeReducer.reducer,
+    authApi:authReducer.reducer,
+    watchlistApi:watchlistReducer.reducer,
+    [cryptoApi.reducerPath]:cryptoApi.reducer,
+    [cryptoNewsApi.reducerPath]:cryptoNewsApi.reducer,
   },
   preloadedState,
 })}
@@ -40,20 +42,6 @@ function renderWithRedux(
 }
 
 
-
-
-const renderWithRouter = (ui, { route = "/" } = {}) => {
-  window.history.pushState({}, "Test page", route);
-
-  function wrapper({ children }) {
-    return <BrowserRouter>{children}</BrowserRouter>;
-}
-  return rtlRender(ui, { wrapper });
-};
-
-
-
-
 function renderWithReduxAndRouter(
   ui,
   {
@@ -62,11 +50,11 @@ function renderWithReduxAndRouter(
     ...renderOptions
   } = {}
 ){
-  function wrapper({ children }) {
+  function Wrapper({ children }) {
     return <BrowserRouter><Provider store={store}>{children}</Provider></BrowserRouter>;
 }
 
-return rtlRender(ui, { wrapper, ...renderOptions });
+return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
 
@@ -91,4 +79,4 @@ function rendreHookWithRedux(
 // re-export everything
 export * from "@testing-library/react";
 // override render method
-export {createStore, renderWithReduxAndRouter,renderWithRouter,renderWithRedux,rendreHookWithRedux };
+export {createStore, renderWithReduxAndRouter,renderWithRedux,rendreHookWithRedux };

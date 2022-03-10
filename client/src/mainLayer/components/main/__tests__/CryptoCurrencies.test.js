@@ -1,5 +1,5 @@
 import React from "react";
-import { screen } from "@testing-library/react";
+import { screen } from "testUtils";
 import ReactPaginate from "react-paginate";
 import "@testing-library/jest-dom/extend-expect";
 import { renderWithRedux } from "testUtils";
