@@ -3,30 +3,21 @@ const {firebaseAdmin} =require('../firebase')
 const userAuthRouter = require("express").Router();
 
 userAuthRouter.post('/',async(req,res)=>{
-
-    try {
-        const user=await firebaseAdmin.auth().createUser({
+         firebaseAdmin.auth().createUser({
             email:req.body.email,
             emailVerified: false,
             password:req.body.password.toString(),
             displayName:req.body.displayName,
             disabled: false
+        }).then((user)=> res.json({message:'User Created',user}))
+        .catch((err)=>{
+            const regex=new RegExp(`^Error while parsing response data`, "gi");
+            const authNetworkErr=err.message.match(regex)
+            if(authNetworkErr){
+                return res.json('A network error (such as unreachable host) has occurred. You may need to use a proxy.')
+            }
+            res.json(err.message)
         })
-        res.json({message:'User Created',user})
-    } catch (error) {
-        res.json({message:'Error creating user'}) 
-    }
 })
-
-
-
-// userAuthRouter.post('/:user-id',async(req,res)=>{
-//     try{const user = await firebaseAdmin.auth().getUser(req.params.user-id)  
-//         firebaseAdmin.auth().
-//      res.json(user)
-//    }catch(e){
-//       res.json({message:'cannot fetch user data'})   
-//     }
-//     })
 
 module.exports = userAuthRouter;      
