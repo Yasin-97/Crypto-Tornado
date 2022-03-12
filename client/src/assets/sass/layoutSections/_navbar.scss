@@ -1,0 +1,228 @@
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: lightness(var(--bg-secondary), 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $navbar-height;
+  width: 100%;
+  z-index: 10000;
+  transition: background-color 0.3s ease-in-out;
+
+  @media only screen and (min-width: 768px) {
+    align-items: flex-start;
+    flex-direction: column;
+    width: $sideNav-minWidth;
+    height: 100vh;
+    min-width: $sideNav-minWidth;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+
+    @media only screen and (min-width: 768px) {
+      align-self: center;
+      max-height: 150px;
+      padding: 1rem;
+      margin-left: unset;
+    }
+
+    img {
+      display: none;
+      width: 200px;
+      height: 200px;
+
+      @media only screen and (min-width: 768px) {
+        display: block;
+      }
+    }
+
+    .text-logo {
+      display: inline-block;
+      font-weight: bold;
+      color: var(--color-light-yellow);
+
+      @media only screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    right: 0;
+    align-self: center;
+    margin-right: 1.7rem;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.25s linear;
+    width: 1.5rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    @media only screen and (min-width: 768px) {
+      position: relative;
+      display: none;
+    }
+    &:hover {
+      opacity: 0.9;
+    }
+
+    div {
+      position: relative;
+    }
+
+    div,
+    div:after,
+    div:before {
+      background-color: var(--color-light);
+      border-radius: 2px;
+      width: 1.7rem;
+      height: 0.2rem;
+      transition: all 0.15s linear;
+    }
+    div:after,
+    div:before {
+      content: "";
+      position: absolute;
+    }
+    div:before {
+      transform: translateY(-200%);
+      bottom: 2px;
+    }
+    div:after {
+      top: 2px;
+      transform: translateY(200%);
+    }
+  }
+
+  .open div {
+    background: transparent;
+  }
+
+  .open div:before {
+    align-self: center;
+    transform: rotate(45deg);
+    transform-origin: 50% 20%;
+  }
+
+  .open div:after {
+    transform: rotate(-45deg);
+    transform-origin: 30% 20%;
+  }
+
+  .sideNav {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 200px;
+    height: 100vh;
+    transform: translateX(200px);
+    background-color: lightness(var(--bg-secondary), 1);
+    transition: background-color 0.3s ease-in-out;
+
+    @media only screen and (min-width: 768px) {
+      width: 100%;
+      transform: translateX(0);
+      position: initial;
+      right: initial;
+      top: initial;
+      animation: none;
+    }
+
+    &-coverage {
+      position: absolute;
+      top: 0;
+      right: 200px;
+      left: 0;
+      height: 100vh;
+    }
+
+    &-item {
+      padding: 0.7rem 1rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        color: var(--color-light-yellow) !important;
+        margin-left: 0.15rem;
+      }
+    }
+
+    &-btn {
+      @include form__btn();
+      align-self: center;
+      margin: 0.5rem 0;
+
+      &-primary {
+        @include form__btn();
+        color: var(--color-dark);
+        background: lightness(var(--color-light-yellow), 0.8);
+
+        &:hover {
+          color: var(--color-dark);
+          background: var(--color-light-yellow);
+        }
+      }
+
+      &-secondary {
+        @include form__btn();
+      }
+
+      &-tertiary {
+        @include form__btn();
+        background: lightness(var(--text-secondary), 0.2);
+        border-color: transparent;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          border-color: transparent;
+          background: lightness(var(--text-secondary), 0.25);
+          color: var(--color-light);
+        }
+      }
+    }
+  }
+  .sideNav-open {
+    animation: navOpen 0.3s ease-in-out forwards;
+    @media only screen and (min-width: 768px) {
+      animation: none;
+    }
+  }
+
+  .sideNav-close {
+    animation: navClose 0.3s ease-in-out forwards;
+    @media only screen and (min-width: 768px) {
+      animation: none;
+    }
+  }
+}
+
+@keyframes navOpen {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes navClose {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(200px);
+  }
+}

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
-import firebaseApp from "../../firebase";
+import firebaseApp from "../../services/firebase/firebase";
 
 
 const createConfig = async (params) => {

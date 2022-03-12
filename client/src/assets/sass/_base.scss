@@ -57,7 +57,7 @@ $sideNav-minWidth: 240px;
     color: var(--color-dark);
     border-color: var(--color-light-yellow);
     background: var(--color-light-yellow);
-  }
+  } 
 
   @media screen and(min-width:768px) {
     font-size: 0.85rem;
@@ -70,6 +70,9 @@ $sideNav-minWidth: 240px;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif !important;
 }
+
+.display-block{display: block;}
+.display-none{display: none;}
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

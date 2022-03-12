@@ -1,0 +1,115 @@
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20000;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+
+  .modal {
+    width: 95%;
+    max-width: 450px;
+    height: auto;
+    padding: 0.7rem;
+    border-radius: 0.99rem;
+
+    background-color: alpha(var(--bg-secondary), .85);
+    backdrop-filter: blur(5px);
+    border: 3px solid lightness(var(--color-light), .15);
+    @media only screen and (min-width: 768px) { 
+      width: 55vw;
+      padding: 1rem;
+      margin-right: $sideNav-minWidth;
+    }
+
+    @media screen and (min-width: 992px) {
+      width: 50vw;
+      max-width: 550px;
+      padding: 2rem;
+    }
+
+    &-header {
+      position: relative;
+      &-title {
+        text-align: left;
+        color: lightness(var(--color-light-yellow),1.3);
+        font-size: 1.1rem;
+      @media only screen and (min-width: 768px) {
+        font-size: 1.3rem;
+      }
+      }
+
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+
+        img {
+          width: 1rem;
+          height: auto;
+          transition: all 0.3s;
+        }
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    &-content {
+      padding: 2rem 0;
+      margin-left: .7rem;
+      h2 {
+        color: var(--color-light);
+        font-size: .9rem;
+      @media only screen and (min-width: 768px) {
+        font-size: 1.05rem;
+      }
+      }
+    }
+
+    &-footer {
+      padding: 2rem 0;
+      padding-bottom: 0;
+
+      button {
+        float: right;
+        border: none;
+        transition: all 0.15s ease-in-out;
+        cursor: pointer;
+
+        border-radius: 0.2rem;
+      }
+      .modal-close {
+        width: 6.5rem !important;
+        padding: 0.45rem 0 !important;
+        background-color: transparent;
+        color: lightness(var(--color-light), .65);
+        font-weight: 600;
+        font-size: 0.9em;
+        @media only screen and (min-width: 768px) {
+          font-size: 1.1em;
+        }
+        &:hover {
+          background-color: lightness(var(--color-light), .35);
+        }
+      }
+      .action {
+        @include form__btn();
+        width: 6.5rem !important;
+        padding: 0.45rem 0 !important;
+        margin-right: 1rem;
+        font-size: 0.9em;
+        @media only screen and (min-width: 768px) {
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+}

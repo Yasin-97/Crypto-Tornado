@@ -1,25 +1,25 @@
 @import "./base";
 
-@import "./navbar";
-@import "./mainSection";
-@import "./footer";
+@import "./layoutSections/navbar";
+@import "./layoutSections/mainSection";
+@import "./layoutSections/footer";
 
-//main
-@import "./main/app";
-@import "./main/glance";
-@import "./main/cryptoCurrencies";
-@import "./main/news";
-@import "./main/cryptoDetails";
-@import "./main/exchanges";
-@import "./main/watchlist";
+// //main
+@import "./pages/app";
+@import "./pages/glance";
+@import "./pages/cryptoCurrencies";
+@import "./pages/news";
+@import "./pages/cryptoDetails";
+@import "./pages/exchanges";
+@import "./pages/watchlist";
 
-//sub
-@import "./sub/cryptoCard";
-@import "./sub/newsCard";
-@import "./sub/lineChart";
-@import "./sub/pagination";
-@import "./sub/btnToggle";
-@import "./sub/modal";
+ //sub
+@import "./components/cryptoCard";
+@import "./components/newsCard";
+@import "./components/lineChart";
+@import "./components/pagination";
+@import "./components/btnToggle";
+@import "./components/modal";
 
 //auth
 @import "./auth/forms-media";

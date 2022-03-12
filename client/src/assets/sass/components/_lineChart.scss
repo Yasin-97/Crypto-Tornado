@@ -1,0 +1,31 @@
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+
+  .chart-title {
+    font-size: 15px;
+    color: lightness(var(--color-light-yellow), 1.2) !important;
+    @media only screen and (min-width: 768px) {
+    font-size: 18px;
+    }
+  }
+
+  .price-container {
+    display: flex;
+
+    .price-change {
+      margin-right: 0.7rem;
+      color: lightness(var(--color-light), .8) !important;
+
+      b {
+        color: lightness(var(--color-light), .95) !important;
+      }
+    }
+    .current-price {
+      color: lightness(var(--color-light), .8) !important;
+      b {
+        color: lightness(var(--color-light), .95) !important;
+      }
+    }
+  }
+}

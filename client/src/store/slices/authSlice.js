@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
-import firebaseApp from "../../firebase";
+import firebaseApp from "../../services/firebase/firebase";
 
 const initialAuthState = {
   currentUser: null,
@@ -24,10 +24,20 @@ export const signup = createAsyncThunk(
   async (data, thunkAPI) => {
     const { email, password, displayName } = data;
     
-    const newUser=await axios.post('https://cryptornado.herokuapp.com/api/user-auth',{ email, password, displayName })
-    if(newUser){
-      const { email } = newUser.data.user;
-      thunkAPI.dispatch(signin({ email, password }))
+    const newUser=await axios.post('http://localhost:5000/api/user-auth',{ email, password, displayName })
+    if(newUser.data.user){
+      // try {
+        const { email } = newUser.data.user;
+        thunkAPI.dispatch(signin({ email, password }))
+        
+      // } catch (error) {
+      //   thunkAPI.rejectWithValue(error)
+      //   console.log(error);
+      // }
+    }
+    else{
+      console.log('bye',newUser);
+      return thunkAPI.rejectWithValue(newUser)
     }
   }
 );
