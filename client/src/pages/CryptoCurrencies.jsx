@@ -35,7 +35,7 @@ const Cryptocurrencies = ({ number }) => {
 
   useEffect(() => {
     const filteredData = cryptosList?.data?.coins.filter((coin) => {
-      const regex = new RegExp(`^${searchText}`, "gi");
+      const regex = new RegExp(`${searchText}`, "gi");
       return coin.name.match(regex) || coin.symbol.match(regex);
     });
     setSearchedCryptos(filteredData);
