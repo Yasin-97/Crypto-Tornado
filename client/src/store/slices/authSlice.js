@@ -24,7 +24,7 @@ export const signup = createAsyncThunk(
   async (data, thunkAPI) => {
     const { email, password, displayName } = data;
     
-    const newUser=await axios.post('http://localhost:5000/api/user-auth',{ email, password, displayName })
+    const newUser=await axios.post('https://cryptornado.herokuapp.com/api/user-auth',{ email, password, displayName })
     if(newUser.data.user){
       // try {
         const { email } = newUser.data.user;
