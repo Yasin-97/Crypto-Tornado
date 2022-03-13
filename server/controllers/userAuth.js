@@ -11,6 +11,7 @@ userAuthRouter.post('/',async(req,res)=>{
             disabled: false
         }).then((user)=> res.json({message:'User Created',user}))
         .catch((err)=>{
+            console.log('thi is ther roro',err);
             const regex=new RegExp(`^Error while parsing response data`, "gi");
             const authNetworkErr=err.message.match(regex)
             if(authNetworkErr){
