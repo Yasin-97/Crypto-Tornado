@@ -1,7 +1,7 @@
 const cryptoRouter= require('express').Router();
-const {axiosResponse} = require('../utils')
+const axiosResponse = require('../utils')
 const headers={
-    'x-access-token': process.env.X_ACCESS_TOKEN 
+    'x-access-token': process.env.CRYPTO_X_ACCESS_TOKEN
 }
 
 cryptoRouter.get('/coins',(req,res)=>{

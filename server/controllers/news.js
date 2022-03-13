@@ -1,5 +1,5 @@
 const newsRouter= require('express').Router();
-const {axiosResponse} = require('../utils')
+const axiosResponse = require('../utils')
 
 newsRouter.get('/:newsCategory/:count',(req,res)=>{
 

@@ -12,8 +12,8 @@
 /build
 
 # misc
-serviceAccount.json
 .env
+serviceAccount.json
 .DS_Store
 .env.local
 .env.development.local
