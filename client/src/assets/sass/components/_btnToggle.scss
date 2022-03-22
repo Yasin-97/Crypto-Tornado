@@ -4,15 +4,29 @@
         --toned-down-white: #f1f1f1;
         --highlight-main: #8167a9;
 }
+
+.themeToggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-secondary);
+  svg{
+    font-size: 18px;
+  }
+}
   /* sets the size the switch's body, this is the label element, and our container */
   .switch {
       align-self: flex-end;
       margin: 1.9rem .9rem;
       position: relative;
       display: inline-block;
-      width: 40px;
-      height: 10px;
-      margin-left: 2rem;
+      width: 35px;
+      height: 8px;
+      margin-left: 1rem;
+      @media only screen and (min-width: 768px) {
+        width: 40px;
+        height: 10px;
+      }
     }
     
     /* hides the checkbox's default ticking box, we don't need to show it, we only need it's "checked" functionality to keep track of when user clicks*/
@@ -38,14 +52,18 @@
     .slider:before {
         position: absolute;
         content: "";
-        height: 20px;
-        width: 20px;
+        height: 18px;
+        width: 18px;
         left: -10px;
         bottom: -5px;
         background-color: var(--toned-down-white);
         transition: 0.3s;
         color: var(--highlight-main);
         font-size: 10px;
+        @media only screen and (min-width: 768px) {
+          height: 20px;
+          width: 20px;
+        }
   }
   
   /* color change on slider circle when input container is clicked.because label element is container, clicking anywhere in it triggers input:checked */
