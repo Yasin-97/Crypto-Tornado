@@ -1,4 +1,4 @@
-const {firebaseAdmin} =require('../firebase')
+const {firebaseAdmin} =require('../services/firebase') 
 
 const userWatchlistRouter = require("express").Router();
 

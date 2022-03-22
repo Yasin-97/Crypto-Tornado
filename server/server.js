@@ -3,7 +3,7 @@ const cors=require('cors')
 require('dotenv').config();
 
 
-const decodeIDToken = require('./authenticateToken');
+const decodeIDToken = require('./services/authenticateToken'); 
 const crypto=require('./controllers/cryptoCurrrency')
 const news=require('./controllers/news')
 const userAuthRouter= require('./controllers/userAuth')

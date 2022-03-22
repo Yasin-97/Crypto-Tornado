@@ -1,4 +1,9 @@
 const axios=require('axios')
+const geoip = require('geoip-lite');
+
+const getUserIP=(ip)=>{
+   return geoip.lookup(ip);
+}
 
  const axiosResponse=async(req,res,options)=>{
     return await axios.request(options).then(function (response) {
@@ -8,4 +13,4 @@ const axios=require('axios')
      });
 }
 
-module.exports=axiosResponse
+module.exports={axiosResponse,getUserIP}

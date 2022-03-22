@@ -1,15 +1,14 @@
 const cryptoRouter= require('express').Router();
-const axiosResponse = require('../utils')
+const {axiosResponse} = require('../helpers/utils')
 const headers={
     'x-access-token': process.env.CRYPTO_X_ACCESS_TOKEN
 }
 
 cryptoRouter.get('/coins',(req,res)=>{
 
-    
     const options = {
         method: 'GET',
-        url: `https://api.coinranking.com/v2/coins?limit=${req.query.limit}`, 
+        url: `https://api.coinranking.com/v2/coins?limit=${req.query.limit}`,
         headers
     };
 
@@ -17,7 +16,7 @@ cryptoRouter.get('/coins',(req,res)=>{
   })
 
 
-  cryptoRouter.get('/coin/:coinId',(req,res)=>{
+  cryptoRouter.get('/coin/:coinId',(req,res)=>{   
     
     const options = {
         method: 'GET',
