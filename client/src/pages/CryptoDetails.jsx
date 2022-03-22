@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import millify from "millify";
-import { LineChart, Loading, ErrorMessage } from "components";
+import { LineChart, Loading, ErrorMessage,NotFound } from "components";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -30,7 +30,9 @@ const CryptoDetails = () => {
     data: cryptoDetail,
     isFetching: isCryptoDetailFetching,
     refetch: refetchCryptoDetail,
+    error:cryptoDetailError
   } = useGetCryptoDetailsQuery(coinId);
+
   const { data: coinHistory, refetch: refetchCoinHistory } =
     useGetCryptoHistoryQuery({ coinId, timeperiod });
 
@@ -111,7 +113,12 @@ const CryptoDetails = () => {
 
   //conditional rendering
   if (isCryptoDetailFetching) return <Loading />;
-  else if (!cryptoDetail?.data)
+  else if (cryptoDetail?.status==404||cryptoDetail?.message=="Request failed with status code 404")
+    return (
+      <NotFound/>
+    );
+
+    else if (!cryptoDetail?.data)
     return (
       <ErrorMessage
         refetchAction={() => {
