@@ -21,5 +21,6 @@ export {
   FrownOutlined,
   CaretDownOutlined,
   CaretUpOutlined,
-  WarningOutlined
+  WarningOutlined,
+  SkinOutlined
 } from "@ant-design/icons";
