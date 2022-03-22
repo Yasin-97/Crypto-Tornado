@@ -23,20 +23,12 @@ export const signup = createAsyncThunk(
   "auth/signup",
   async (data, thunkAPI) => {
     const { email, password, displayName } = data;
-    
     const newUser=await axios.post('https://cryptornado.herokuapp.com/api/user-auth',{ email, password, displayName })
     if(newUser.data.user){
-      // try {
         const { email } = newUser.data.user;
         thunkAPI.dispatch(signin({ email, password }))
-        
-      // } catch (error) {
-      //   thunkAPI.rejectWithValue(error)
-      //   console.log(error);
-      // }
     }
     else{
-      console.log('bye',newUser);
       return thunkAPI.rejectWithValue(newUser)
     }
   }

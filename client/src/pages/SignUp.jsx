@@ -58,7 +58,6 @@ export default function SignUp() {
           fn.resetForm();
           history.push("/");
         } catch (err) {
-          console.log('hey',err);
           setError(err.data || "Opps..! Failed to authenticate you.");
         }
         setLoading(false);
