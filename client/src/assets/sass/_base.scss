@@ -14,7 +14,7 @@
 .navy-blue {
   @include defineColorHSL(--color-dark, 234, 56%, 5.5%);
   @include defineColorHSL(--bg-secondary, 234, 56%, 5.5%);
-  @include defineColorHSL(--color-light-yellow, 48, 100%, 70%);
+  @include defineColorHSL(--color-light-yellow, 52, 100%, 70%);
 }
 
 $navbar-height: 60px;
