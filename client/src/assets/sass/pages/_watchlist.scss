@@ -1,10 +1,13 @@
-.watchlist-table {
+.watchlist {
+  display: flex;
+  justify-content: center;
+
+  .watchlist-table {
     border-collapse: collapse;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-       
-  
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+
     thead th {
       position: sticky;
       top: 0;
@@ -13,41 +16,47 @@
       color: var(--color-light);
       font-weight: bold;
       text-align: left;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
     tbody {
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       tr {
-        background: lightness(var(--bg-secondary),2);
-        transition: background .3s ease-in-out;
+        background: lightness(var(--bg-secondary), 2.5);
+        transition: background 0.3s ease-in-out;
         transition: all 0.1s ease-in-out;
-  
+
         &:nth-of-type(even) {
-          background: lightness(var(--bg-secondary),1.82);
-         
+          background: lightness(var(--bg-secondary), 1.9);
         }
-  
+
         &:hover {
-          background: lightness(var(--bg-secondary),2.3);
+          background: lightness(var(--bg-secondary), 3);
         }
       }
-  
+
       td {
-        color: lightness(var(--color-light),.75);
+        color: lightness(var(--color-light), 0.75);
         padding: 1.1rem;
         text-align: left;
       }
-      td.nameCell{
+      td.nameCell {
         display: flex;
-        img{
+        img {
           width: 20px;
           margin: 0 5px;
         }
       }
     }
   }
+}
 
-  .no-crypto-btn{
+.no-crypto {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .no-crypto-btn {
     @include form__btn();
     margin-top: 2rem;
   }
+}

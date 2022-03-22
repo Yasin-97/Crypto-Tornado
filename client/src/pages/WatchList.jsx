@@ -13,7 +13,7 @@ export default function WatchList() {
   } = useGetCryptosQuery(100);
 
   //redux
-  const favCryptos = useSelector((state) => state.watchlistApi.favCryptos);
+  const { isFavCryptosFetched, favCryptos} = useSelector((state) => state.watchlistApi);
 
   //state
   const [userWatchlist, setUserWatchlist] = useState(null);
@@ -39,20 +39,20 @@ export default function WatchList() {
       </ErrorMessage>
     );
 
-  if (!userWatchlist || userWatchlist?.length === 0)
+  if (isFavCryptosFetched && userWatchlist?.length === 0)
     return (
-      <div style={{textAlign:'center'}}>
-      <ErrorMessage refetchAction={refetchCryptosList}>
-        No favorite cryptocurrency!
-      </ErrorMessage>
-      <Link to="/cryptocurrencies" className="no-crypto-btn">
+      <div className='no-crypto'>
+       <ErrorMessage>
+         No favorite cryptocurrency!
+       </ErrorMessage>
+      <Link to='/cryptocurrencies' className="no-crypto-btn">
         Add One
       </Link>
-      </div>
+       </div> 
     );
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div className="watchlist">
       <table className="watchlist-table">
         <thead>
           <tr>
