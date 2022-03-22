@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {changeTheme} from 'store/slices/themeSlice'
+import {
+  SkinOutlined
+} from "assets/icons";
 
 export default function ThemeToggle({closeMenu}) {
 
@@ -19,6 +22,8 @@ const toggle=()=>{
 }
 
   return (
+    <div className='themeToggle'>
+      <SkinOutlined />
     <label className="switch">
       <input
         type="checkbox"
@@ -29,6 +34,6 @@ const toggle=()=>{
       />
       <span className="slider round"></span>
     </label>
-
+    </div>
   );
 }
