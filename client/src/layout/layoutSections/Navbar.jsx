@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import {
-  HomeOutlined,
+  StarOutlined,
   MoneyCollectOutlined,
   BulbOutlined,
   FundOutlined,
   EyeOutlined,
-} from "@ant-design/icons";
+} from "assets/icons";
 import { signout } from "store/slices/authSlice";
 import { watchlistActions } from "store/slices/watchlistSlice";
 import { ThemeToggle } from "components";
@@ -78,7 +78,7 @@ const Navbar = ({ isUserResolved }) => {
           data-testid="sideNav-item"
           className="sideNav-item"
         >
-          <HomeOutlined /> Watchlist
+          <StarOutlined /> Watchlist
         </Link>
         <Link
           to="/"
