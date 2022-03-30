@@ -21,7 +21,7 @@ export default function WatchList() {
   //side effects
   useEffect(() => {
     const filteredData = favCryptos?.map((watchlistCoin) => {
-      return cryptosList?.data?.coins.find((coin) => {
+      return cryptosList?.data?.coins.find( (coin) => {
         if (coin.name === watchlistCoin.name) {
           return coin;
         }
