@@ -9,6 +9,7 @@ export default function useSetFavoriteItem({isFav, uuid, name}) {
   //redux
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.authApi.currentUser);
+  
   const { isFavCryptosFetched } = useSelector((state) => state.watchlistApi); // to handle rendering icons after favCryptos list is fetched to prevent the user from re-selecting already-selected cryptos
 
   const isUserExist = currentUser ? true : false;

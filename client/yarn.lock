@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@alan-ai/alan-sdk-web@^1.8.31":
+  "integrity" "sha512-KL4K4f38GgkJeEAXLs0DOiok+2ZFM/FyzAN1b2pkbdNEMbYCxQRXxcxKGCn+Qv6hWvkf1SPH0Jp7+QsEq6AatQ=="
+  "resolved" "https://registry.npmjs.org/@alan-ai/alan-sdk-web/-/alan-sdk-web-1.8.31.tgz"
+  "version" "1.8.31"
+
 "@ant-design/colors@^6.0.0":
   "integrity" "sha512-qAZRvPzfdWHtfameEGP2Qvuf838NhergR35o+EuVyB5XvSA98xod5r4utvi4TJ3ywmevm290g9nsCG5MryrdWQ=="
   "resolved" "https://registry.npmjs.org/@ant-design/colors/-/colors-6.0.0.tgz"

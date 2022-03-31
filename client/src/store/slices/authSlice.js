@@ -5,6 +5,7 @@ import firebaseApp from "../../services/firebase/firebase";
 const initialAuthState = {
   currentUser: null,
 };
+
 const authSlice = createSlice({
   name: "authentication",
   initialState: initialAuthState,
@@ -18,6 +19,7 @@ const authSlice = createSlice({
     },
   },
 });
+
 
 export const signup = createAsyncThunk(
   "auth/signup",

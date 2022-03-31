@@ -11,6 +11,7 @@ import {
 import { signout } from "store/slices/authSlice";
 import { watchlistActions } from "store/slices/watchlistSlice";
 import { ThemeToggle } from "components";
+// import useVoiceAI from "../../helpers/customHook/useVoiceAI";
 import icon from "assets/imgs/Cryptornado.png";
 
 const Navbar = ({ isUserResolved }) => {
@@ -20,6 +21,8 @@ const Navbar = ({ isUserResolved }) => {
 
   //router
   const history = useHistory();
+  
+
 
   //state
   const [openSideNav, setOpenSideNav] = useState(undefined);
@@ -71,7 +74,9 @@ const Navbar = ({ isUserResolved }) => {
         <div></div>
       </div>
       <nav className={`sideNav ${showSideNav}`}>
+
         <ThemeToggle closeMenu={closeMenu} />
+
         <Link
           to="/watchlist"
           onClick={closeMenu}
