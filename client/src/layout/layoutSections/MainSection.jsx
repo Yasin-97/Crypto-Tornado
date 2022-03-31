@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Loading, ErrorMessage, Avatar } from "components";
 import { useGetCryptosQuery } from "store/apis/cryptoApi";
 import { Routes } from "router";
+import useVoiceAI from "../../helpers/customHook/useVoiceAI";
 
 export default function MainSection({ userResolved }) {
   //api call
@@ -14,6 +15,9 @@ export default function MainSection({ userResolved }) {
 
   //redux
   const currentUser = useSelector((state) => state.authApi.currentUser);
+
+    //call voice-ai
+  useVoiceAI();
 
   return (
     <div className="main-section">
