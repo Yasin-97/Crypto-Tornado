@@ -17,4 +17,4 @@ const app = firebase.initializeApp({
 export const db = getFirestore();
 export {updateProfile,getAuth,onAuthStateChanged,doc,setDoc,collection, query, where,onSnapshot}
 
-export default app
+export default app;

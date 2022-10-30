@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory,Link } from "react-router-dom";
 import { UserOutlined, LoadingOutlined, LockFilled } from "assets/icons";
+
 import { signup } from "store/slices/authSlice";
 
 export default function SignUp() {
@@ -18,6 +20,8 @@ export default function SignUp() {
 
   //routing
   const history = useHistory();
+
+  
 
   //formik
   const { values, handleChange, handleSubmit, handleBlur, touched, errors } =
@@ -66,6 +70,7 @@ export default function SignUp() {
 
   return (
     <section className="form__wrapper">
+      {/* <AlanBtn ref={alanBtnInstance} /> */}
       <form className="form" onSubmit={handleSubmit}>
         <h3 className="form__title">SIGN UP</h3>
         <div className="form__input__group">
