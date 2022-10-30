@@ -11,8 +11,8 @@ const themeSlice= createSlice({
     initialState:initialThemeState,
     reducers:{
         changeTheme(state, action){
-            const {theme}=action.payload
-            state.theme=theme
+            const { theme } = action.payload
+            state.theme = theme
         }
     }
 })
