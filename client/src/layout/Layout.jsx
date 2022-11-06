@@ -9,12 +9,12 @@ import {
   watchlistActions,
 } from "store/slices/watchlistSlice";
 import {useGetCryptosQuery} from 'store/apis/cryptoApi'
-import useVoiceAI from "../helpers/customHook/useVoiceAI";
+import VoiceAI from "../helpers/customHook/useVoiceAI";
 
 
 function Layout() {
 
-  const voiceAi = useVoiceAI();
+  // useVoiceAI();
   //api call
   const { data: cryptosList } = useGetCryptosQuery(10);
 
@@ -63,6 +63,7 @@ function Layout() {
 
   return (
     <div className={`layout ${theme}`}>
+      <VoiceAI/>
         <Navbar isUserResolved={userResolved} />
       <div style={{ width: "100%" }}>
         <MainSection userResolved={userResolved} />

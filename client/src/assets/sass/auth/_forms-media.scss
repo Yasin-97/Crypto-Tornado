@@ -1,19 +1,11 @@
 @media screen and ( min-width:576px) {
-    .otherAction {
-      display: flex;
-      justify-content: space-between;
-      max-width: 90%;
-  
-      &__desc {
-        width: 60%;
-      }
-  
-      &__img__container {
-        display: block;
-        margin: 0.5rem;
-        width: 11rem;
-        height: 11rem;
-      }
+  .otherAction {
+    display: flex;
+    justify-content: space-between;
+    max-width: 90%;
+
+    &__desc {
+      width: 60%;
     }
 
     &__img__container {
@@ -38,7 +30,7 @@
       left: auto;
     }
   }
-
+}
 
 @media screen and (min-width: 768px) {
   .form {
