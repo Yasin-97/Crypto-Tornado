@@ -16,4 +16,4 @@ export default configureStore({
         [cryptoApi.reducerPath]:  cryptoApi.reducer,
         [cryptoNewsApi.reducerPath]: cryptoNewsApi.reducer,
     }
-}, applyMiddleware(thunk))
+}, applyMiddleware(thunk) )

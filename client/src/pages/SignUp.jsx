@@ -1,4 +1,4 @@
-import React, { useState,useEffect, useRef } from "react";
+import React, { useState  } from "react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory,Link } from "react-router-dom";
 import { UserOutlined, LoadingOutlined, LockFilled } from "assets/icons";
-import useVoiceAI from "../helpers/customHook/useVoiceAI"
+
 import { signup } from "store/slices/authSlice";
 
 export default function SignUp() {
@@ -21,8 +21,7 @@ export default function SignUp() {
   //routing
   const history = useHistory();
 
-  //call voice-ai
-  useVoiceAI();
+  
 
   //formik
   const { values, handleChange, handleSubmit, handleBlur, touched, errors } =
