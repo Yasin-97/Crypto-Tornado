@@ -9,10 +9,12 @@ import {
   watchlistActions,
 } from "store/slices/watchlistSlice";
 import {useGetCryptosQuery} from 'store/apis/cryptoApi'
+import useVoiceAI from "../helpers/customHook/useVoiceAI";
 
 
 function Layout() {
 
+  const voiceAi = useVoiceAI();
   //api call
   const { data: cryptosList } = useGetCryptosQuery(10);
 
