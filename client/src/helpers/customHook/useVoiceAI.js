@@ -76,8 +76,9 @@ const useVoiceAI = () => {
           dispatchCommand(command);
         },
       });
+
+      console.clear();
     };
-  
 
     requestAnimationFrame(createAlan);
   }, []);

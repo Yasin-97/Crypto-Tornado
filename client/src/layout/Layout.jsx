@@ -13,8 +13,6 @@ import VoiceAI from "../helpers/customHook/useVoiceAI";
 
 
 function Layout() {
-
-  // useVoiceAI();
   //api call
   const { data: cryptosList } = useGetCryptosQuery(10);
 

@@ -1,4 +1,4 @@
-export const testingCoins={
+export const testingCoins = {
     "status": "success",
     "data": {
         "stats": {
